@@ -1,6 +1,6 @@
 export default function SearchBox() {
   return (
-    <div className="absolute top-[503px] left-1/2 -translate-x-1/2 w-[92%] max-w-[1312px] h-[202px] bg-white rounded-[24px] p-6 shadow-lg flex flex-col justify-between gap-6">
+    <div className="absolute top-[503px] left-1/2 -translate-x-1/2 w-[92%]  h-[202px] bg-white rounded-[24px] p-6 shadow-lg flex flex-col justify-between gap-6">
       {/* Header Row */}
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-gray-800">SEARCH THE CAR</h2>
