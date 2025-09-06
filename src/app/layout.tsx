@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         
-        {<Hero/>}
+        {children}
         {/* Footer here */}
       </body>
     </html>
