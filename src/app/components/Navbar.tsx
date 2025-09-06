@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[1376px] h-[72px] flex items-center justify-between px-8 
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[96%] h-[72px] flex items-center justify-between px-8 
                        rounded-2xl backdrop-blur-md bg-white/10 border-b border-white/20 z-50">
       
       {/* Left Links */}
