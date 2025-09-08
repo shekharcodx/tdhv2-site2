@@ -35,39 +35,40 @@ export default function BrandCard() {
         </p>
       </div>  
 
-      <Swiper  
-        modules={[Autoplay]}  
-        spaceBetween={15}  
-        slidesPerView={"auto"}    // each slide takes its own width  
-        loop={true}  
-        loopedSlides={brands.length} // helps Swiper clone correctly  
-        autoplay={{  
-          delay: 0,                // continuous movement  
-          disableOnInteraction: false,  
-          pauseOnMouseEnter: true,  
-        }}  
-        speed={3500}               // adjust for faster/slower scroll  
-        freeMode={true}            // smooth, non-snapping movement  
-        allowTouchMove={false}     // optional: prevent user drag interrupt  
-        className="px-4"  
-      >  
-        {loopItems.map((brand, idx) => (  
-          <SwiperSlide key={idx} className="!w-auto">  
-            <div className="flex flex-col items-center">  
-              <div className="flex items-center justify-center w-28 h-28 rounded-xl bg-white shadow-lg hover:shadow-2xl transition">  
-                <Image  
-                  src={brand.logo}  
-                  alt={brand.name}  
-                  width={100}  
-                  height={100}  
-                  className="object-contain"  
-                />  
-              </div>  
-              <p className="text-sm text-gray-600 mt-2">{brand.name}</p>  
-            </div>  
-          </SwiperSlide>  
-        ))}  
-      </Swiper>  
+     <Swiper
+  modules={[Autoplay]}
+  spaceBetween={15}
+  slidesPerView={"auto"}
+  loop={true}
+  autoplay={{
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  speed={3500}
+  freeMode={true}
+  allowTouchMove={false}
+  className="px-4"
+  // ✅ remove loopedSlides from here
+>
+  {loopItems.map((brand, idx) => (
+    <SwiperSlide key={idx} className="!w-auto">
+      <div className="flex flex-col items-center">
+        <div className="flex items-center justify-center w-28 h-28 rounded-xl bg-white shadow-lg hover:shadow-2xl transition">
+          <Image
+            src={brand.logo}
+            alt={brand.name}
+            width={100}
+            height={100}
+            className="object-contain"
+          />
+        </div>
+        <p className="text-sm text-gray-600 mt-2">{brand.name}</p>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
     </div>  
   );  
 }  
