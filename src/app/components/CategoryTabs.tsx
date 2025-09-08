@@ -7,7 +7,7 @@ export default function CategoryTabs() {
     "Sports Cars Rental Dubai",
     "Muscle Cars",
     "Special Edition",
-    "Ni Deposit Cars",
+    "No Deposit Cars",
     "Electric Cars",
   ];
 
