@@ -3,12 +3,12 @@ import Navbar from "./Navbar";
 import SearchBox from "./SearchBox";
 import CategoryTabs from "./CategoryTabs";
 import CarCarousel from "./CarCard";
-
+import BrandCard from "./BrandCard";
 export default function Hero() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative w-[1440px] h-[600px] mx-auto">
+      <div className="relative w-[1440px] h-[600px] mx-auto bg-[#F2F2F2]">
         <Image
           src="/assets/back.jpg"
           alt="Hero background"
@@ -32,15 +32,25 @@ export default function Hero() {
       {/* Search by Category */}
       <div className="w-[1312px] mx-auto mt-40">
         <p className="text-[25px] font-medium text-black mb-6 mx-3">
-          SEARCH BY CATEGORY
+          Search By Category
         </p>
         <CategoryTabs />
       </div>
 
       {/* Car Carousel Section */}
-      <div className="w-[100%]  ">
-        <CarCarousel />
+      <div className="w-[100%] ">
+        <CarCarousel className ="mb-0" />
       </div>
+  {/* Search by Brand Section */}
+{/* Search by Brand Section */}
+
+
+{/* Brand cards aligned with heading, less gap */}
+<div className="w-[1312px] mx-auto ">
+  <BrandCard />
+</div>
+
+
     </div>
   );
 }

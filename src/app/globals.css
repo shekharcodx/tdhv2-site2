@@ -29,3 +29,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.custom-pagination .swiper-pagination-bullet {
+  background: #94a3b8; /* gray */
+  opacity: 1;
+}
+.custom-pagination .swiper-pagination-bullet-active {
+  background: #59787C; /* dark */
+}
