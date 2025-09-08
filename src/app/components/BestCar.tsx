@@ -21,7 +21,7 @@ type Car = {
   daily: string;
 };
 
-export default function CarCarousel() {
+export default function BestCar() {
   const [cars] = useState<Car[]>([
     {
       id: 1,
@@ -81,14 +81,18 @@ export default function CarCarousel() {
   ]);
 
   return (
-    <div className="w-full pt-10 relative">
+    
+    <div className="w-full pt-6 relative">
       <div className="max-w-[1312px] mx-auto">
+         <div className="w-full mb-6">
+          <p className="text-[25px] font-medium text-black">
+            Best Cars In Dubai
+          </p>
+        </div>
         <Swiper
           modules={[Navigation, Pagination]} // ✅ Include Pagination
           spaceBetween={12}
           slidesPerView={4}
-          
-          className="pb-6 relative z-10"
           navigation={{
             prevEl: ".custom-prev",
             nextEl: ".custom-next",
@@ -102,7 +106,7 @@ export default function CarCarousel() {
             768: { slidesPerView: 2, spaceBetween: 12 },
             0: { slidesPerView: 1, spaceBetween: 12 },
           }}
-          
+          className="pb-10"
         >
           {cars.map((car) => (
             <SwiperSlide key={car.id}>

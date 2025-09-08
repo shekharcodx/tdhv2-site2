@@ -30,7 +30,7 @@ export default function BrandCard() {
     <div className="w-full py-10">  
       {/* ✅ Browse By Car Heading */}  
       <div className="w-[1312px] mx-auto mb-4">
-        <p className="text-[25px] font-medium text-black">
+        <p className="text-[25px] font-medium text-black mb-7">
           Browse By Brands
         </p>
       </div>  

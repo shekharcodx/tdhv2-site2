@@ -4,6 +4,7 @@ import SearchBox from "./SearchBox";
 import CategoryTabs from "./CategoryTabs";
 import CarCarousel from "./CarCard";
 import BrandCard from "./BrandCard";
+import BestCar from "./BestCar";
 export default function Hero() {
   return (
     <div>
@@ -38,8 +39,8 @@ export default function Hero() {
       </div>
 
       {/* Car Carousel Section */}
-      <div className="w-[100%] ">
-        <CarCarousel className ="mb-0" />
+      <div className="w-[100%]  mx-auto overflow-visible">
+        <CarCarousel />
       </div>
   {/* Search by Brand Section */}
 {/* Search by Brand Section */}
@@ -48,6 +49,9 @@ export default function Hero() {
 {/* Brand cards aligned with heading, less gap */}
 <div className="w-[1312px] mx-auto ">
   <BrandCard />
+</div>
+<div className="w-[1312px] mx-auto pb-10">
+  <BestCar />
 </div>
 
 
