@@ -36,3 +36,10 @@ body {
 .custom-pagination .swiper-pagination-bullet-active {
   background: #59787C; /* dark */ 
 }
+:root {
+  --gradient-background: linear-gradient(
+    90deg,
+    rgba(91, 120, 124, 1) 0%,
+    rgba(137, 180, 188, 1) 35%
+  );
+}

@@ -6,10 +6,12 @@ import { Search } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="w-[1376px] mx-auto mt-6 rounded-2xl backdrop-blur-md bg-white/30 border-b border-white/20  h-[72px] flex items-center justify-between px-8">
-      
+    <header
+      className="w-[100%] mx-auto mt-6 border-b border-white/20 h-[72px] flex items-center justify-between px-8"
+      style={{ background: "var(--gradient-background)" }}
+    >
       {/* Left Links */}
-      <nav className="flex items-center space-x-8 text-[#EFEDE90F] font-medium">
+      <nav className="flex items-center space-x-8 text-white font-medium">
         <Link href="/catalogue" className="flex items-center space-x-1 hover:text-gray-200">
           <span>Catalogue</span>
           <span className="text-xs">▼</span>
@@ -22,7 +24,7 @@ export default function Navbar() {
         </Link>
       </nav>
 
-      {/* Logo (clickable to homepage) */}
+      {/* Logo */}
       <Link href="/" className="flex items-center">
         <Image
           src="/assets/logo.png"
