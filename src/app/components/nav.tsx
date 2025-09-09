@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image"; 
 import { Search } from "lucide-react";
 
-export default function Navbar() {
+export default function Nav() {
   return (
     <header
       className="w-[100%] mx-auto mt-6 border-b border-white/20 h-[72px] flex items-center justify-between px-8"

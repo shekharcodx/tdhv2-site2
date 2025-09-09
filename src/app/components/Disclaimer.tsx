@@ -1,10 +1,10 @@
-import Navbar from "./Nav";
+import Nav from "./Nav";
 
 export default function DisclaimerPage() {
   return (
     <div>
       {/* ✅ Navbar at the top */}
-      <Navbar/>
+      <Nav/>
 
       {/* Disclaimer Content */}
       <div className="mx-auto py-12 px-6 justify-start text-gray-800">
