@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="w-[1312px] mx-auto pb-10">
         <CategorySelector />
       </div>
-       <div className="w-[1312px] mx-auto pb-10">
+       <div className="w-[1312px] mx-auto pb-3">
         <CatCard/>
       </div>
      <div className="w-[1312px] mx-auto pb-10">
