@@ -29,10 +29,10 @@ export default function Redcar() {
         </p>
 
         <div className="flex gap-4 mt-5">
-          <button className="px-6 py-2 bg-[#59787C] rounded-full font-semibold hover:bg-[#263337] transition">
+          <button className="px-6 py-2 bg-[#59787C] rounded-full  hover:bg-[#263337] transition">
             DISCOVER LUXURY CARS
           </button>
-          <button className="px-6 py-2 border border-white rounded-full font-semibold hover:bg-white hover:text-black transition">
+          <button className="px-6 py-2 border border-white rounded-full  hover:bg-white hover:text-black transition">
             VIEW ALL CARS
           </button>
         </div>

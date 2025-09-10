@@ -21,7 +21,7 @@ type Car = {
   daily: string;
 };
 
-export default function BestCar() {
+export default function PopCar() {
   const [cars] = useState<Car[]>([
     {
       id: 1,
@@ -82,11 +82,11 @@ export default function BestCar() {
 
   return (
     
-    <div className="w-full pt-6 relative">
+    <div className="w-full  relative">
       <div className="max-w-[1312px] mx-auto">
          <div className="w-full mb-6">
           <p className="text-[25px] font-medium text-black">
-            The Best Cars In Dubai
+           Popular Cars
           </p>
         </div>
         <Swiper

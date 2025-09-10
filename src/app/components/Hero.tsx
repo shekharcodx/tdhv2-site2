@@ -8,6 +8,8 @@ import BestCar from "./BestCar";
 import CategorySelector from "./CarCatogry";
 import CatCard from "./CatogryCard";
 import Redcar from "./Redcar";
+import PopCar from "./popular";
+import Whitecar from "./whitecar";
 
 export default function Hero() {
   return (
@@ -64,8 +66,14 @@ export default function Hero() {
        <div className="w-[1312px] mx-auto pb-3">
         <CatCard/>
       </div>
-     <div className="w-[1312px] mx-auto pb-10">
+     <div className="w-[1312px] mx-auto ">
         <Redcar/>
+      </div>
+      <div className="w-[1312px] mx-auto pb-3">
+        <PopCar/>
+      </div>
+       <div className="w-[1312px] mx-auto pb-10">
+        <Whitecar/>
       </div>
 
 
