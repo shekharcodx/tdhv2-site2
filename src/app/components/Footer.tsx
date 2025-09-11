@@ -80,7 +80,7 @@ export default function Footer() {
             <Image src="/assets/X.svg" alt="Twitter" width={20} height={20} />
           </a>
           <a href="#">
-            <Image src="/assets/Linkedin.svg" alt="LinkedIn" width={20} height={20} />
+            <Image src="/assets/LinkedIn.svg" alt="LinkedIn" width={20} height={20} />
           </a>
           <a href="#">
             <Image src="/assets/Youtube.svg" alt="YouTube" width={20} height={20} />
