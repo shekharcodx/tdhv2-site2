@@ -47,10 +47,9 @@ export default function TopChoicesSection() {
             Explore Cars
           </button>
 
-          {/* ✅ Arrows */}
+          
           <div className="flex gap-3 mt-40">
   {/* Prev Button */}
-{/* Prev Button */}
 <button
   className={`custom-prev flex items-center justify-center px-8 py-2 rounded-full shadow transition 
     ${isBeginning ? "bg-[#59787C] opacity-50 cursor-not-allowed" : "bg-[#59787C] hover:bg-[#4a6468]"}`}

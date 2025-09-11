@@ -3,6 +3,7 @@
 
 import React from "react";
 import Hero from "././components/Hero";
+import Footer from "./components/Footer";
 //import TopChoicesSection from "./topchoice";
 //import Whitecar from "./components/whitecar";
 //import Redcar from "./components/Redcar";
