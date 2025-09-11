@@ -10,6 +10,8 @@ import CatCard from "./CatogryCard";
 import Redcar from "./Redcar";
 import PopCar from "./popular";
 import Whitecar from "./whitecar";
+import TopChoicesSection from "../topchoice";
+import Whitecarflip from "./whiteflip";
 
 export default function Hero() {
   return (
@@ -72,9 +74,17 @@ export default function Hero() {
       <div className="w-[1312px] mx-auto pb-3">
         <PopCar/>
       </div>
-       <div className="w-[1312px] mx-auto pb-10">
+       <div className="w-[1312px] mx-auto ">
         <Whitecar/>
       </div>
+       <div className="w-[1312px] mx-auto">
+        <TopChoicesSection/>
+      </div>
+      <div className="w-[1312px] mx-auto pb-10">
+        <Whitecarflip/>
+      </div>
+
+
 
 
     </div>
