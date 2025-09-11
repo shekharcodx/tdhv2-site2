@@ -71,19 +71,19 @@ export default function Footer() {
         <p>© 2025. All rights reserved.</p>
         <div className="flex gap-4 items-center">
           <a href="#">
-            <Image src="/assets/facebook.svg" alt="Facebook" width={20} height={20} />
+            <Image src="/assets/Facebook.svg" alt="Facebook" width={20} height={20} />
           </a>
           <a href="#">
-            <Image src="/assets/instagram.svg" alt="Instagram" width={20} height={20} />
+            <Image src="/assets/Instagram.svg" alt="Instagram" width={20} height={20} />
           </a>
           <a href="#">
-            <Image src="/assets/x.svg" alt="Twitter" width={20} height={20} />
+            <Image src="/assets/X.svg" alt="Twitter" width={20} height={20} />
           </a>
           <a href="#">
-            <Image src="/assets/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+            <Image src="/assets/Linkedin.svg" alt="LinkedIn" width={20} height={20} />
           </a>
           <a href="#">
-            <Image src="/assets/youtube.svg" alt="YouTube" width={20} height={20} />
+            <Image src="/assets/Youtube.svg" alt="YouTube" width={20} height={20} />
           </a>
         </div>
       </div>
