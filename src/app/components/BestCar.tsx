@@ -159,21 +159,21 @@ function CarCard({ car }: { car: Car }) {
       <div className="w-[278px] h-[30px] flex justify-between items-center mx-auto">
         <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
           <Image src="/assets/petrol.svg" alt="Fuel" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[16px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
+          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
             {car.fuel}
           </span>
         </div>
 
         <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
           <Image src="/assets/manual.svg" alt="Manual" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[16px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
+          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
             {car.transmission}
           </span>
         </div>
 
         <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
           <Image src="/assets/seats.svg" alt="Seats" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[16px] leading-[21px] tracking-[-0.02em] align-middle text-[#263337]">
+          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#263337] whitespace-nowrap">
             {car.seats}
           </span>
         </div>
