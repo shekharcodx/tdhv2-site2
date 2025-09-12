@@ -38,8 +38,8 @@ export default function TopChoicesSection() {
     <div className="py-12">
       <div className="max-w-[1312px] mx-auto flex gap-40">
         {/* Left Section */}
-        <div className="w-[320px] flex flex-col gap-6">
-          <h2 className="text-[20px] font-bold text-[#263238]   font-normal uppercase">Top Choices</h2>
+        <div className="w-[320px] flex flex-col gap-6 font-[poppins]">
+          <h2 className="text-[22px] font-extrabold text-[#263238] uppercase">Top Choices</h2>
           <p className="text-[20px] text-gray-600   font-normal leading-[px] w-[320px]">
             Explore our wide selection of popular cars that are loved by drivers everywhere.
           </p>
