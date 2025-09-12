@@ -10,11 +10,11 @@ type Category = {
 };
 
 const categories: Category[] = [
-  { id: 1, name: "Luxury Cars", image: "/assets/c2.svg"  },
-  { id: 2, name: "Economy Cars", image: "/assets/c1.svg"  },
-  { id: 3, name: "Sports Cars", image:"/assets/c4.svg"  },
-  { id: 4, name: "Special Editions", image: "/assets/c6.svg"  },
-  { id: 5, name: "Muscle Cars", image: "/assets/c1.svg"  },
+  { id: 1, name: "Luxury Cars", image: "/assets/c2.svg" },
+  { id: 2, name: "Economy Cars", image: "/assets/c1.svg" },
+  { id: 3, name: "Sports Cars", image: "/assets/c4.svg" },
+  { id: 4, name: "Special Editions", image: "/assets/c6.svg" },
+  { id: 5, name: "Muscle Cars", image: "/assets/c1.svg" },
   { id: 6, name: "Electric Cars", image: "/assets/c5.svg" },
 ];
 
@@ -22,55 +22,42 @@ export default function CategorySelector() {
   const [activeId, setActiveId] = useState(1);
 
   return (
-    
-    
-      <div
-        className="flex items-center justify-between bg-white rounded-2xl p-6 shadow-md"
-        style={{
-          width: "1312px",
-          height: "177px",
-          gap: "16px",
-        }}
-      >
-        {categories.map((cat) => {
-          const isActive = activeId === cat.id;
+    <div
+      className="
+        flex flex-wrap sm:flex-nowrap 
+        items-center justify-center sm:justify-between
+        bg-white rounded-2xl p-4 sm:p-6 shadow-md
+        w-full max-w-[1312px] mx-auto
+      "
+    >
+      {categories.map((cat) => {
+        const isActive = activeId === cat.id;
 
-          return (
-            <button
-              key={cat.id}
-              onClick={() => setActiveId(cat.id)}
-              className={`flex flex-col items-center justify-center transition-all duration-300`}
-              style={{
-                width: isActive ? "205.33px" : "auto",
-                height: "177px",
-                gap: "10px",
-                borderRadius: "10px",
-                padding: "24px",
-                background: isActive ? "#263337" : "transparent",
-                color: isActive ? "#fff" : "#000",
-              }}
-            >
-              <Image
-                src={cat.image}
-                alt={cat.name}
-                width={80}
-                height={60}
-                className="object-contain"
-              />
-              <span
-                className="text-[18px] text-center"
-                style={{
-                  fontFamily: "Poppins",
-                  fontWeight: 500,
-                  lineHeight: "130%",
-                }}
-              >
-                {cat.name}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
+        return (
+          <button
+            key={cat.id}
+            onClick={() => setActiveId(cat.id)}
+            className={`
+              flex flex-col items-center justify-center 
+              transition-all duration-300 rounded-lg p-4 sm:p-6 
+              ${isActive ? "bg-[#263337] text-white" : "bg-transparent text-black"}
+              w-1/2 sm:w-auto h-[140px] sm:h-[177px] 
+              m-2 sm:m-0
+            `}
+          >
+            <Image
+              src={cat.image}
+              alt={cat.name}
+              width={80}
+              height={60}
+              className="object-contain"
+            />
+            <span className="text-[14px] sm:text-[18px] text-center font-medium font-[Poppins] leading-[130%]">
+              {cat.name}
+            </span>
+          </button>
+        );
+      })}
+    </div>
   );
 }

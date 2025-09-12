@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+"use client";
+import { useState } from "react";
 
 export default function CategoryTabs() {
   const categories = [
@@ -12,33 +13,26 @@ export default function CategoryTabs() {
   ];
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleClick = (idx: number) => {
-    setActiveIndex(idx);
-
-    const container = containerRef.current;
-    if (container) {
-      const button = container.children[idx] as HTMLElement;
-      button.scrollIntoView({ behavior: "smooth", inline: "center" });
-    }
-  };
 
   return (
     <div
-      ref={containerRef}
-      className="w-[1292px] h-[40px] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] flex items-center overflow-x-auto gap-2 px-4"
-      style={{ backgroundColor: "#ffffff" }}
+      className="
+        flex items-center gap-2 px-4 
+        w-full max-w-[1292px] h-[40px] mx-auto
+        rounded-full 
+        shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)]
+        bg-white
+      "
     >
       {categories.map((cat, idx) => (
         <button
           key={idx}
-          onClick={() => handleClick(idx)}
-          className="flex items-center justify-center text-sm font-medium whitespace-nowrap transition"
-          style={{
-            width: "246px", // fixed button space
-            height: "40px",
-          }}
+          onClick={() => setActiveIndex(idx)}
+          className="
+            flex-1 flex items-center justify-center
+            text-sm font-medium whitespace-nowrap transition
+            h-[40px]
+          "
         >
           <span
             className={`px-4 py-1 rounded-full transition ${

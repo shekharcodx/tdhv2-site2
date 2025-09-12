@@ -3,11 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination"; // ✅ Import pagination CSS
 
 type Car = {
   id: number;
@@ -81,42 +78,29 @@ export default function CarCarousel() {
   ]);
 
   return (
-    <div className="w-[1312] mx-auto rounded-xl pt-7 relative bg-[#263337]">
-      <div className="mx-7 pb-7">
-       <Swiper
-  modules={[ Autoplay]} // ✅ include Autoplay
-  spaceBetween={12}
-  slidesPerView={4}
-  autoplay={{
-    delay: 2500, // ⏱ auto-slide every 2.5s
-    disableOnInteraction: false, // 👈 keeps autoplay after user clicks arrows
-  }}
-  loop={true} // 🔁 keeps looping smoothly
-  className="pb-6 relative z-10"
-  navigation={{
-    prevEl: ".custom-prev",
-    nextEl: ".custom-next",
-  }}
-  pagination={{
-    el: ".custom-pagination",
-    clickable: true,
-  }}
-  breakpoints={{
-    1024: { slidesPerView: 4, spaceBetween: 12 },
-    768: { slidesPerView: 2, spaceBetween: 12 },
-    0: { slidesPerView: 1, spaceBetween: 12 },
-  }}
->
-  {cars.map((car) => (
-    <SwiperSlide key={car.id}>
-      <CatCard car={car} />
-    </SwiperSlide>
-  ))}
-</Swiper>
-
-
-          
-        
+    <div className="w-full max-w-[1312px] mx-auto rounded-xl pt-7 relative bg-[#263337]">
+      <div className="mx-4 sm:mx-7 pb-7">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={12}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          className="pb-6 relative z-10"
+          breakpoints={{
+            1024: { slidesPerView: 4, spaceBetween: 12 },
+            768: { slidesPerView: 2, spaceBetween: 12 },
+            0: { slidesPerView: 1, spaceBetween: 12 },
+          }}
+        >
+          {cars.map((car) => (
+            <SwiperSlide key={car.id} className="flex justify-center">
+              <CatCard car={car} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
@@ -124,12 +108,14 @@ export default function CarCarousel() {
 
 function CatCard({ car }: { car: Car }) {
   return (
-    <div className="w-[310px] h-[477px] rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col gap-4 pb-4 mx-auto">
-      <div className="w-full h-[292px] relative">
+    <div className="w-full max-w-[310px] h-auto flex-shrink-0 rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col gap-4 pb-4">
+      {/* Image */}
+      <div className="w-full h-[220px] sm:h-[260px] md:h-[292px] relative">
         <Image src={car.image} alt={car.name} fill className="object-cover" />
       </div>
 
-      <div className="w-[278px] h-[47px] flex justify-between items-center mx-auto">
+      {/* Name + Favorite */}
+      <div className="w-[90%] flex justify-between items-center mx-auto">
         <div className="flex flex-col justify-center">
           <h3 className="text-[16px] font-semibold text-[#263238] leading-tight font-[Poppins]">
             {car.name}
@@ -143,56 +129,44 @@ function CatCard({ car }: { car: Car }) {
         </div>
       </div>
 
-      <div className="w-[278px] h-[30px] flex justify-between items-center mx-auto">
-        <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
+      {/* Specs */}
+      <div className="w-[90%] flex justify-between items-center mx-auto">
+        <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/petrol.svg" alt="Fuel" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
-            {car.fuel}
-          </span>
+          <span className="text-[14px] font-[Poppins]">{car.fuel}</span>
         </div>
-
-        <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
+        <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/manual.svg" alt="Manual" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#374151]">
-            {car.transmission}
-          </span>
+          <span className="text-[14px] font-[Poppins]">{car.transmission}</span>
         </div>
-
-        <div className="w-[86px] h-[30px] flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
+        <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/seats.svg" alt="Seats" width={16} height={16} />
-          <span className="font-[Poppins] font-normal text-[15px] leading-[21px] tracking-[-0.02em] align-middle text-[#263337] whitespace-nowrap">
-            {car.seats}
-          </span>
+          <span className="text-[14px] font-[Poppins] whitespace-nowrap">{car.seats}</span>
         </div>
       </div>
 
-      <div className="w-[278px] h-[24px] flex justify-between items-center mx-auto">
-        <div className="flex items-center gap-1 w-[120px] justify-start">
+      {/* Pricing */}
+      <div className="w-[90%] flex justify-between items-center mx-auto">
+        <div className="flex items-center gap-1">
           <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="font-[Poppins] text-[16px] font-semibold text-[#263238] tracking-[-0.03em] whitespace-nowrap">
-            {car.monthly}
-          </span>
+          <span className="text-[16px] font-semibold font-[Poppins]">{car.monthly}</span>
         </div>
-
-        <div className="flex items-center gap-1 w-[120px] justify-end">
+        <div className="flex items-center gap-1">
           <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="font-[Poppins] text-[16px] font-semibold text-[#263238] tracking-[-0.03em] whitespace-nowrap">
-            {car.daily}
-          </span>
+          <span className="text-[16px] font-semibold font-[Poppins]">{car.daily}</span>
         </div>
       </div>
 
-      <div className="w-[278px] h-[40px] flex justify-between items-center mx-auto">
-        <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
+      {/* Actions */}
+      <div className="w-[90%] flex justify-between items-center mx-auto">
+        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] cursor-pointer mx-1">
           <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
         </div>
-        <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
+        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] cursor-pointer mx-1">
           <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
         </div>
-        <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
-          <span className="text-white text-[15px] font-[Poppins] font-normal">
-            Rent Now
-          </span>
+        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] cursor-pointer mx-1">
+          <span className="text-white text-[15px] font-[Poppins]">Rent Now</span>
         </div>
       </div>
     </div>
