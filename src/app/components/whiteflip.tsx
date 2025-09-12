@@ -5,17 +5,17 @@ export default function Whitecarflip() {
      
 
       {/* Text + Buttons on Right */}
-      <div className="w-1/2 text-white px-12">
+      <div className="w-1/2 text-white px-12 font-[poppins] font-normal">
         <h2 className="text-2xl  whitespace-normal">
           DRIVE YOUR DREAM CAR WITH A BIG DISCOUNT WITH DRIVE HUB
         </h2>
 
-        <p className="mt-6 text-base leading-relaxed w-[450px]">
+        <p className="mt-6 text-xl leading-relaxed w-[450px]">
           You can reserve your vehicle easily through our website.
           Make your purchase today!
         </p>
 
-        <div className="flex gap-4 mt-8">
+        <div className="flex gap-4 mt-8 mb-5">
           <button className="px-10 py-2 bg-[#59787C] rounded-full hover:bg-[#263337] transition">
             RENT A CAR
           </button>

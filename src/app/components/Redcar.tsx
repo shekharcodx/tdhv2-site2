@@ -10,7 +10,7 @@ export default function Redcar() {
       />
 
       {/* Stats */}
-      <div className="absolute bottom-30 left-42 flex gap-5 z-20 text-white">
+      <div className="absolute bottom-30 left-42 font-[poppins] font-normal flex gap-5 z-20 text-white">
         <div className="px-6 py-3 w-[200px] h-[63px] rounded-xl border border-white backdrop-blur-xl">
           <span className="text-xl font-bold">+5k</span>
           <p className="text-xs">Cars in our fleet</p>
@@ -22,13 +22,13 @@ export default function Redcar() {
       </div>
 
       {/* Text + Buttons */}
-      <div className="absolute right-10 top-1/2 -translate-y-1/2 text-white max-w-md">
+      <div className="absolute right-10 top-1/2 -translate-y-1/2  font-[poppins] font-normal text-white max-w-md">
         <h2 className="text-2xl font-bold">LUXURY SUPERCAR RENTALS</h2>
         <p className="mt-3 text-sm leading-relaxed">
           Drive in style! Make your first car rental a great experience with luxury supercar rentals from top brands such as Rolls Royce, Mercedes Benz, Lamborghini and more.
         </p>
 
-        <div className="flex gap-4 mt-5">
+        <div className="flex gap-4 mt-5 font-[poppins] font-normal">
           <button className="px-6 py-2 bg-[#59787C] rounded-full  hover:bg-[#263337] transition">
             DISCOVER LUXURY CARS
           </button>
