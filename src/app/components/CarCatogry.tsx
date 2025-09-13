@@ -25,8 +25,7 @@ export default function CategorySelector() {
     <div
       className="
         flex flex-wrap sm:flex-nowrap 
-        items-center justify-center sm:justify-between
-        bg-white rounded-2xl p-4 sm:p-6 shadow-md
+        items-center justify-center sm:justify-between sm:p-6
         w-full max-w-[1312px] mx-auto
       "
     >
@@ -40,8 +39,12 @@ export default function CategorySelector() {
             className={`
               flex flex-col items-center justify-center 
               transition-all duration-300 rounded-lg p-4 sm:p-6 
-              ${isActive ? "bg-[#263337] text-white" : "bg-transparent text-black"}
-              w-1/2 sm:w-auto h-[140px] sm:h-[177px] 
+              ${
+                isActive
+                  ? "bg-[#263337] text-white"
+                  : "bg-transparent text-black"
+              }
+              w-auto md:w-[200px] h-[175px] sm:h-[177px] 
               m-2 sm:m-0
             `}
           >

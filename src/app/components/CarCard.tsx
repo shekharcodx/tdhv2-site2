@@ -9,6 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+interface CarCardProps {
+  title?: string;
+}
+
 type Car = {
   id: number;
   name: string;
@@ -21,7 +25,7 @@ type Car = {
   daily: string;
 };
 
-export default function CarCarousel() {
+export default function CarCarousel({ title }: CarCardProps) {
   const [cars] = useState<Car[]>([
     {
       id: 1,
@@ -82,12 +86,18 @@ export default function CarCarousel() {
 
   return (
     <div className="w-full pt-10 relative">
-      <div className="w-full max-w-[1312px] mx-auto px-4">
+      <div className="w-full max-w-[1312px] mx-auto">
+        {title && (
+          <div className="w-full mb-6">
+            <p className="text-[25px] font-medium text-black">{title}</p>
+          </div>
+        )}
+
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={12}
           slidesPerView={4}
-          className="pb-6 relative z-10"
+          className="relative z-10 !pb-[5px]"
           navigation={{
             prevEl: ".custom-prev",
             nextEl: ".custom-next",
@@ -111,7 +121,7 @@ export default function CarCarousel() {
         </Swiper>
 
         {/* Custom Arrows and Pagination */}
-        <div className="w-full flex justify-between items-center mt-6 px-4">
+        <div className="w-full flex justify-between items-center mt-6">
           <div className="custom-pagination flex justify-start gap-2"></div>
 
           <div className="flex justify-end gap-6">
@@ -119,7 +129,12 @@ export default function CarCarousel() {
               <Image src="/assets/left.png" alt="Prev" width={20} height={20} />
             </button>
             <button className="custom-next w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#59787C] shadow cursor-pointer transition-opacity disabled:opacity-40">
-              <Image src="/assets/right.png" alt="Next" width={20} height={20} />
+              <Image
+                src="/assets/right.png"
+                alt="Next"
+                width={20}
+                height={20}
+              />
             </button>
           </div>
         </div>
@@ -147,21 +162,35 @@ function CarCard({ car }: { car: Car }) {
           </p>
         </div>
         <div className="w-8 h-8 flex items-center justify-center">
-          <Image src="/assets/heart.svg" alt="Favorite" width={24} height={24} />
+          <Image
+            src="/assets/heart.svg"
+            alt="Favorite"
+            width={24}
+            height={24}
+          />
         </div>
       </div>
 
       {/* Fuel / Transmission / Seats */}
       <div className="w-full flex justify-between items-center px-4">
         {[car.fuel, car.transmission, car.seats].map((item, idx) => (
-          <div key={idx} className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white justify-center min-w-[86px]">
+          <div
+            key={idx}
+            className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white justify-center 2xl:min-w-[86px]"
+          >
             <Image
-              src={idx === 0 ? "/assets/petrol.svg" : idx === 1 ? "/assets/manual.svg" : "/assets/seats.svg"}
+              src={
+                idx === 0
+                  ? "/assets/petrol.svg"
+                  : idx === 1
+                  ? "/assets/manual.svg"
+                  : "/assets/seats.svg"
+              }
               alt={item}
               width={16}
               height={16}
             />
-            <span className="font-[Poppins] font-normal text-[15px] leading-[21px] text-[#374151]">
+            <span className="font-[Poppins] font-normal xl:text-[12px] 2xl:text-[15px] leading-[21px] text-[#374151]">
               {item}
             </span>
           </div>
@@ -193,7 +222,7 @@ function CarCard({ car }: { car: Car }) {
           <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
         </div>
         <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer mx-1">
-          <span className="text-white text-[15px] font-[Poppins] font-normal">
+          <span className="text-white lg:[10px] xl:text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
             Rent Now
           </span>
         </div>

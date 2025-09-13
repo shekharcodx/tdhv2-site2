@@ -1,7 +1,6 @@
 export default function Whitecar() {
   return (
     <div className="relative w-full max-w-[1312px] aspect-[1312/434] rounded-2xl overflow-hidden bg-[url('/assets/carflip.png')] bg-cover bg-center bg-no-repeat mx-auto">
-      
       {/* Text + Buttons */}
       <div className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2">
         {/* Scaling wrapper */}
@@ -15,13 +14,13 @@ export default function Whitecar() {
             text-left
           "
         >
-          <h2 className="text-2xl font-semibold leading-snug">
+          <h2 className="text-[26px] font-semibold leading-snug">
             RENT YOUR DREAM CAR WITH THE DRIVE HUB
           </h2>
 
-          <p className="mt-4 text-lg leading-normal">
-            You can reserve your vehicle easily through our website.
-            Make your purchase today!
+          <p className="mt-4 text-[20px] leading-normal">
+            You can reserve your vehicle easily through our website. Make your
+            purchase today!
           </p>
 
           <div className="flex gap-4 mt-8">

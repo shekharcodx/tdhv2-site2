@@ -1,7 +1,6 @@
 export default function Redcar() {
   return (
-    <div className="relative w-full max-w-[1312px] h-[434px] rounded-2xl overflow-hidden bg-[url('/assets/greenbg.png')] bg-cover bg-center bg-no-repeat mx-auto">
-      
+    <div className="relative w-full max-w-[1312px] h-[434px] rounded-2xl overflow-hidden bg-[url('/assets/greenbg.png')] bg-contain bg-center bg-no-repeat mx-auto">
       {/* Car Image */}
       <img
         src="/assets/onlycar.png"
@@ -10,12 +9,12 @@ export default function Redcar() {
       />
 
       {/* Stats */}
-      <div className="absolute bottom-30 left-42 font-[poppins] font-normal flex gap-5 z-20 text-white">
-        <div className="px-6 py-3 w-[200px] h-[63px] rounded-xl border border-white backdrop-blur-xl">
+      <div className="absolute bottom-30 left-17 font-[poppins] font-normal flex gap-5 z-20 text-white">
+        <div className="flex justify-between items-center px-6 py-3 w-[200px] h-[63px] rounded-xl border border-white backdrop-blur-xl">
           <span className="text-xl font-bold">+5k</span>
           <p className="text-xs">Cars in our fleet</p>
         </div>
-        <div className="px-6 py-3 rounded-xl h-[63px] border border-white  backdrop-blur-xl">
+        <div className="flex justify-between items-center px-6 py-3 rounded-xl h-[63px] border border-white  backdrop-blur-xl">
           <span className="text-xl font-bold">+20k</span>
           <p className="text-xs">Satisfied customers</p>
         </div>
@@ -25,7 +24,9 @@ export default function Redcar() {
       <div className="absolute right-10 top-1/2 -translate-y-1/2  font-[poppins] font-normal text-white max-w-md">
         <h2 className="text-2xl font-bold">LUXURY SUPERCAR RENTALS</h2>
         <p className="mt-3 text-sm leading-relaxed">
-          Drive in style! Make your first car rental a great experience with luxury supercar rentals from top brands such as Rolls Royce, Mercedes Benz, Lamborghini and more.
+          Drive in style! Make your first car rental a great experience with
+          luxury supercar rentals from top brands such as Rolls Royce, Mercedes
+          Benz, Lamborghini and more.
         </p>
 
         <div className="flex gap-4 mt-5 font-[poppins] font-normal">

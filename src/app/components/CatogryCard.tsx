@@ -125,7 +125,12 @@ function CatCard({ car }: { car: Car }) {
           </p>
         </div>
         <div className="w-[32px] h-[32px] flex items-center justify-center">
-          <Image src="/assets/heart.svg" alt="Favorite" width={24} height={24} />
+          <Image
+            src="/assets/heart.svg"
+            alt="Favorite"
+            width={24}
+            height={24}
+          />
         </div>
       </div>
 
@@ -133,15 +138,21 @@ function CatCard({ car }: { car: Car }) {
       <div className="w-[90%] flex justify-between items-center mx-auto">
         <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/petrol.svg" alt="Fuel" width={16} height={16} />
-          <span className="text-[14px] font-[Poppins]">{car.fuel}</span>
+          <span className=" xl:text-[12px] 2xl:text-[15px] font-[Poppins]">
+            {car.fuel}
+          </span>
         </div>
         <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/manual.svg" alt="Manual" width={16} height={16} />
-          <span className="text-[14px] font-[Poppins]">{car.transmission}</span>
+          <span className=" xl:text-[12px] 2xl:text-[15px] font-[Poppins]">
+            {car.transmission}
+          </span>
         </div>
         <div className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white mx-1">
           <Image src="/assets/seats.svg" alt="Seats" width={16} height={16} />
-          <span className="text-[14px] font-[Poppins] whitespace-nowrap">{car.seats}</span>
+          <span className=" xl:text-[12px] 2xl:text-[15px] font-[Poppins] whitespace-nowrap">
+            {car.seats}
+          </span>
         </div>
       </div>
 
@@ -149,11 +160,15 @@ function CatCard({ car }: { car: Car }) {
       <div className="w-[90%] flex justify-between items-center mx-auto">
         <div className="flex items-center gap-1">
           <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="text-[16px] font-semibold font-[Poppins]">{car.monthly}</span>
+          <span className="text-[16px] font-semibold font-[Poppins]">
+            {car.monthly}
+          </span>
         </div>
         <div className="flex items-center gap-1">
           <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="text-[16px] font-semibold font-[Poppins]">{car.daily}</span>
+          <span className="text-[16px] font-semibold font-[Poppins]">
+            {car.daily}
+          </span>
         </div>
       </div>
 
@@ -166,7 +181,9 @@ function CatCard({ car }: { car: Car }) {
           <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
         </div>
         <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] cursor-pointer mx-1">
-          <span className="text-white text-[15px] font-[Poppins]">Rent Now</span>
+          <span className="text-white xl:text-[12px] 2xl:text-[15px] font-[Poppins]">
+            Rent Now
+          </span>
         </div>
       </div>
     </div>

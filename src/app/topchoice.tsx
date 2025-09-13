@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -19,56 +21,117 @@ type Car = {
   daily: string;
 };
 
-
 export default function TopChoicesSection() {
   const [cars] = useState<Car[]>([
-    { id: 1, name: "Nissan GT - R", type: "Sport", image: "/assets/car1.png", fuel: "80L", transmission: "Manual", seats: "2 Seats", monthly: "800/month", daily: "90/day" },
-    { id: 2, name: "Lamborghini", type: "Luxury", image: "/assets/car2.png", fuel: "60L", transmission: "Auto", seats: "4 Seats", monthly: "1200/month", daily: "150/day" },
-    { id: 3, name: "Ferrari", type: "Sport", image: "/assets/car3.png", fuel: "65L", transmission: "Auto", seats: "2 Seats", monthly: "1500/month", daily: "200/day" },
-    { id: 4, name: "Porsche", type: "Luxury", image: "/assets/car2.png", fuel: "70L", transmission: "Manual", seats: "2 Seats", monthly: "1100/month", daily: "140/day" },
-    { id: 5, name: "McLaren", type: "Sport", image: "/assets/car1.png", fuel: "75L", transmission: "Auto", seats: "2 Seats", monthly: "1600/month", daily: "220/day" },
+    {
+      id: 1,
+      name: "Nissan GT - R",
+      type: "Sport",
+      image: "/assets/car1.png",
+      fuel: "80L",
+      transmission: "Manual",
+      seats: "2 Seats",
+      monthly: "800/month",
+      daily: "90/day",
+    },
+    {
+      id: 2,
+      name: "Lamborghini",
+      type: "Luxury",
+      image: "/assets/car2.png",
+      fuel: "60L",
+      transmission: "Auto",
+      seats: "4 Seats",
+      monthly: "1200/month",
+      daily: "150/day",
+    },
+    {
+      id: 3,
+      name: "Ferrari",
+      type: "Sport",
+      image: "/assets/car3.png",
+      fuel: "65L",
+      transmission: "Auto",
+      seats: "2 Seats",
+      monthly: "1500/month",
+      daily: "200/day",
+    },
+    {
+      id: 4,
+      name: "Porsche",
+      type: "Luxury",
+      image: "/assets/car2.png",
+      fuel: "70L",
+      transmission: "Manual",
+      seats: "2 Seats",
+      monthly: "1100/month",
+      daily: "140/day",
+    },
+    {
+      id: 5,
+      name: "McLaren",
+      type: "Sport",
+      image: "/assets/car1.png",
+      fuel: "75L",
+      transmission: "Auto",
+      seats: "2 Seats",
+      monthly: "1600/month",
+      daily: "220/day",
+    },
   ]);
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
- const swiperRef = useRef<SwiperCore | null>(null);
-
+  const swiperRef = useRef<SwiperCore | null>(null);
 
   return (
     <div className="py-12">
       <div className="max-w-[1312px] mx-auto flex gap-40">
         {/* Left Section */}
         <div className="w-[320px] flex flex-col gap-6 font-[poppins]">
-          <h2 className="text-[22px] font-extrabold text-[#263238] uppercase">Top Choices</h2>
+          <h2 className="text-[22px] font-extrabold text-[#263238] uppercase">
+            Top Choices
+          </h2>
           <p className="text-[20px] text-gray-600   font-normal leading-[px] w-[320px]">
-            Explore our wide selection of popular cars that are loved by drivers everywhere.
+            Explore our wide selection of popular cars that are loved by drivers
+            everywhere.
           </p>
           <button className="w-[160px] h-[46px] rounded-full bg-[#59787C] text-white  font-normal text-[18px] font-medium">
             Explore Cars
           </button>
 
-          
           <div className="flex gap-3 mt-40">
-  {/* Prev Button */}
-<button
-  className={`custom-prev flex items-center justify-center px-8 py-2 rounded-full shadow transition 
-    ${isBeginning ? "bg-[#59787C] opacity-50 cursor-not-allowed" : "bg-[#59787C] hover:bg-[#4a6468]"}`}
-  disabled={isBeginning}
->
-  <Image src="/assets/left.png" alt="Prev" width={28} height={28} />
-</button>
+            {/* Prev Button */}
+            <button
+              className={`custom-prev flex items-center justify-center px-8 py-2 rounded-full shadow transition 
+    ${
+      isBeginning
+        ? "bg-[#59787C] opacity-50 cursor-not-allowed"
+        : "bg-[#59787C] hover:bg-[#4a6468]"
+    }`}
+              disabled={isBeginning}
+            >
+              <Image src="/assets/left.png" alt="Prev" width={28} height={28} />
+            </button>
 
-{/* Next Button */}
-<button
-  className={`custom-next flex items-center justify-center px-8 py-2 rounded-full shadow transition 
-    ${isEnd ? "bg-[#59787C] opacity-50 cursor-not-allowed" : "bg-[#59787C] hover:bg-[#4a6468]"}`}
-  disabled={isEnd}
->
-  <Image src="/assets/right.png" alt="Next" width={28} height={28} />
-</button>
-
-</div>
-
+            {/* Next Button */}
+            <button
+              className={`custom-next flex items-center justify-center px-8 py-2 rounded-full shadow transition 
+    ${
+      isEnd
+        ? "bg-[#59787C] opacity-50 cursor-not-allowed"
+        : "bg-[#59787C] hover:bg-[#4a6468]"
+    }`}
+              disabled={isEnd}
+            >
+              <Image
+                src="/assets/right.png"
+                alt="Next"
+                width={28}
+                height={28}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Right Section (Swiper) */}
@@ -88,7 +151,7 @@ export default function TopChoicesSection() {
             prevEl: ".custom-prev",
             nextEl: ".custom-next",
           }}
-          className="pb-6 relative z-10"
+          className="!pb-[5px] relative z-10"
         >
           {cars.map((car) => (
             <SwiperSlide key={car.id} style={{ width: "310px" }}>
@@ -110,7 +173,9 @@ function CarCard({ car }: { car: Car }) {
 
       <div className="w-full px-4 flex justify-between items-center">
         <div className="flex flex-col">
-          <h3 className="text-[16px] font-semibold text-[#263238] font-[Poppins]">{car.name}</h3>
+          <h3 className="text-[16px] font-semibold text-[#263238] font-[Poppins]">
+            {car.name}
+          </h3>
           <p className="text-[14px] text-gray-500 font-[Poppins]">{car.type}</p>
         </div>
         <Image src="/assets/heart.svg" alt="Favorite" width={24} height={24} />
@@ -131,7 +196,9 @@ function CarCard({ car }: { car: Car }) {
         <Action icon="/assets/cll.svg" />
         <Action icon="/assets/wat.svg" />
         <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
-          <span className="text-white text-[15px] font-[Poppins]">Rent Now</span>
+          <span className="text-white xl:text-[12px] 2xl:text-[15px] font-[Poppins]">
+            Rent Now
+          </span>
         </div>
       </div>
     </div>
@@ -142,7 +209,9 @@ function Spec({ icon, label }: { icon: string; label: string }) {
   return (
     <div className="flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
       <Image src={icon} alt={label} width={16} height={16} />
-      <span className="font-[Poppins] text-[14px] text-[#374151]">{label}</span>
+      <span className="font-[Poppins] xl:text-[12px] 2xl:text-[15px] text-[#374151]">
+        {label}
+      </span>
     </div>
   );
 }
@@ -151,7 +220,9 @@ function Price({ icon, label }: { icon: string; label: string }) {
   return (
     <div className="flex items-center gap-1">
       <Image src={icon} alt="Currency" width={21} height={16} />
-      <span className="font-[Poppins] text-[16px] font-semibold text-[#263238] whitespace-nowrap">{label}</span>
+      <span className="font-[Poppins] xl:text-[12px] 2xl:text-[15px] font-semibold text-[#263238] whitespace-nowrap">
+        {label}
+      </span>
     </div>
   );
 }
