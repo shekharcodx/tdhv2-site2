@@ -30,7 +30,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center">
-          <Image src="/assets/logo.png" alt="Logo" width={120} height={40} />
+          <Image src="/assets/dlogo.png" alt="Logo" width={140} height={80} />
         </div>
 
         {/* Right Side */}
