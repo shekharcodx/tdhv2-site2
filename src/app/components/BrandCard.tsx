@@ -27,10 +27,10 @@ const loopItems = [...brands, ...brands];
 
 export default function BrandCard() {
   return (
-    <div className="w-full py-10">
+    <div className="w-full py-6 md:py-10">
       {/* ✅ Browse By Car Heading */}
       <div className="w-full mx-auto mb-4">
-        <p className="text-[25px] font-medium text-black mb-7">
+        <p className="text-base md:text-[25px] font-medium text-black mb-5 md:mb-7">
           Browse By Brands
         </p>
       </div>
@@ -63,7 +63,7 @@ export default function BrandCard() {
                   className="object-contain"
                 />
               </div>
-              <p className="text-sm text-gray-600 mt-2">{brand.name}</p>
+              <p className="text-sm text-[#928B8B] mt-2">{brand.name}</p>
             </div>
           </SwiperSlide>
         ))}

@@ -32,7 +32,7 @@ export default function CategoryTabs() {
           onClick={() => setActiveIndex(idx)}
           className={`
             flex-1 flex items-center justify-center
-            text-sm font-medium whitespace-nowrap transition
+            text-sm font-medium whitespace-nowrap cursor-pointer
             h-[40px] px-4 py-1 rounded-full transition ${
               activeIndex === idx
                 ? "bg-[#263337] text-white"

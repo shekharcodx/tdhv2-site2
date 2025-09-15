@@ -7,23 +7,26 @@ import { Search } from "lucide-react";
 export default function Navbar() {
   return (
     <div className="relative w-full mx-auto max-w-[1440px]">
-      <header
-        className="absolute top-6 left-1/2 -translate-x-1/2 w-[92%] h-[72px] flex items-center justify-between px-8 
-                       rounded-2xl backdrop-blur-md bg-white/10 border-b border-white/20 z-50"
-      >
+      <header className="absolute top-0 md:top-6 left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[92%] h-[92px] md:h-[72px] flex items-center justify-between px-8 rounded-2xl backdrop-blur-md bg-white/10 border-b border-white/20 z-50">
         {/* Left Links */}
-        <nav className="flex items-center space-x-8 text-white font-medium">
+        <nav className="hidden lg:flex items-center space-x-8 text-white font-medium">
           <Link
             href="/catalogue"
-            className="flex items-center space-x-1 hover:text-gray-200"
+            className="md:text-xs lg:text-sm xl:text-base flex items-center space-x-1 hover:text-gray-200"
           >
             <span>CATALOGUE</span>
             <span className="text-xs">▼</span>
           </Link>
-          <Link href="/about" className="hover:text-gray-200">
+          <Link
+            href="/about"
+            className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
+          >
             ABOUT US
           </Link>
-          <Link href="/contacts" className="hover:text-gray-200">
+          <Link
+            href="/contacts"
+            className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
+          >
             CONTACTS
           </Link>
         </nav>
@@ -34,7 +37,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           {/* Search */}
           <div className="relative flex items-center">
             <Search className="absolute left-3 text-gray-500 w-4 h-4" />
@@ -50,6 +53,15 @@ export default function Navbar() {
             Log In
           </button>
         </div>
+
+        <button className="cursor-pointer block lg:hidden">
+          <Image
+            src="/assets/mobile-menu.svg"
+            alt="mobile-menu"
+            width={16}
+            height={14}
+          />
+        </button>
       </header>
     </div>
   );

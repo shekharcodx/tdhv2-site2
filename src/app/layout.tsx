@@ -26,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* ✅ Apply the font globally */}
-      <body className={`${poppins.className} !bg-[#F2F2F2]`}>
+      <body
+        className={`${poppins.className} !bg-[#F2F2F2] max-w-[1440px] mx-auto`}
+      >
         {/* Optional Navbar */}
         <Navbar />
 

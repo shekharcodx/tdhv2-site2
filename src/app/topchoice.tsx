@@ -85,22 +85,22 @@ export default function TopChoicesSection() {
   const swiperRef = useRef<SwiperCore | null>(null);
 
   return (
-    <div className="py-12">
-      <div className="max-w-[1312px] mx-auto flex gap-40">
+    <div className="py-6 md:py-12">
+      <div className="max-w-[1312px] mx-auto block md:flex justify-between">
         {/* Left Section */}
-        <div className="w-[320px] flex flex-col gap-6 font-[poppins]">
-          <h2 className="text-[22px] font-extrabold text-[#263238] uppercase">
+        <div className="w-[320px] flex flex-col gap-3 md:gap-6 font-[poppins]">
+          <h2 className="text-base md:text-[22px] font-extrabold text-[#263238] uppercase">
             Top Choices
           </h2>
-          <p className="text-[20px] text-gray-600   font-normal leading-[px] w-[320px]">
+          <p className="text-[12px] md:text-[20px] text-gray-600   font-normal leading-[px] w-[320px]">
             Explore our wide selection of popular cars that are loved by drivers
             everywhere.
           </p>
-          <button className="w-[160px] h-[46px] rounded-full bg-[#59787C] text-white  font-normal text-[18px] font-medium">
+          <button className="w-[143px] md:w-[160px] h-[46px] rounded-full bg-[#59787C] text-white  text-[12px] md:text-[18px] font-medium">
             Explore Cars
           </button>
 
-          <div className="flex gap-3 mt-40">
+          <div className="hidden md:flex gap-3 mt-40">
             {/* Prev Button */}
             <button
               className={`custom-prev flex items-center justify-center px-8 py-2 rounded-full shadow transition 
@@ -139,7 +139,6 @@ export default function TopChoicesSection() {
           modules={[Navigation]}
           spaceBetween={12}
           slidesPerView="auto"
-          allowTouchMove={false}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -151,7 +150,23 @@ export default function TopChoicesSection() {
             prevEl: ".custom-prev",
             nextEl: ".custom-next",
           }}
-          className="!pb-[5px] relative z-10"
+          breakpoints={{
+            0: { slidesPerView: 1.2, spaceBetween: 12 },
+            420: { slidesPerView: 1.4, spaceBetween: 12 },
+            490: { slidesPerView: 1.5, spaceBetween: 12 },
+            530: { slidesPerView: 1.8, spaceBetween: 12 },
+            640: { slidesPerView: 2, spaceBetween: 12 },
+            690: { slidesPerView: 2.2, spaceBetween: 12 },
+            768: { slidesPerView: 1.4, spaceBetween: 12 },
+            840: { slidesPerView: 1.6, spaceBetween: 12 },
+            900: { slidesPerView: 1.8, spaceBetween: 12 },
+            960: { slidesPerView: 2, spaceBetween: 12 },
+            1024: { slidesPerView: 2, spaceBetween: 12 },
+            1175: { slidesPerView: 2.5, spaceBetween: 12 },
+            1280: { slidesPerView: 2.8, spaceBetween: 12 },
+            1400: { slidesPerView: 3, spaceBetween: 12 },
+          }}
+          className="!pb-[5px] relative z-10 mt-4 md:mt-0"
         >
           {cars.map((car) => (
             <SwiperSlide key={car.id} style={{ width: "310px" }}>

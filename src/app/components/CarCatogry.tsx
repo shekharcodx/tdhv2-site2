@@ -24,10 +24,7 @@ export default function CategorySelector() {
   return (
     <div
       className="
-        flex flex-wrap sm:flex-nowrap 
-        items-center justify-center sm:justify-between sm:p-6
-        w-full max-w-[1312px] mx-auto
-      "
+        flex flex-wrap sm:flex-nowrap items-center justify-start sm:justify-between w-full mx-auto"
     >
       {categories.map((cat) => {
         const isActive = activeId === cat.id;
@@ -37,14 +34,14 @@ export default function CategorySelector() {
             key={cat.id}
             onClick={() => setActiveId(cat.id)}
             className={`
-              flex flex-col items-center justify-center 
+              flex flex-col items-center justify-center cursor-pointer
               transition-all duration-300 rounded-lg p-4 sm:p-6 
               ${
                 isActive
                   ? "bg-[#263337] text-white"
                   : "bg-transparent text-black"
               }
-              w-auto md:w-[200px] h-[175px] sm:h-[177px] 
+              !min-w-[63px] w-[63px] h-[85px] md:w-[200px] md:h-[175px] sm:h-[177px] 
               m-2 sm:m-0
             `}
           >
@@ -55,7 +52,7 @@ export default function CategorySelector() {
               height={60}
               className="object-contain"
             />
-            <span className="text-[14px] sm:text-[18px] text-center font-medium font-[Poppins] leading-[130%]">
+            <span className="text-[10px] md:text-[14px] sm:text-[18px] text-center font-normal md:font-medium font-[Poppins] leading-[130%]">
               {cat.name}
             </span>
           </button>

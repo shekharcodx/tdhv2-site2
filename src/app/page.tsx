@@ -3,7 +3,6 @@ import CategoryTabs from "./components/CategoryTabs";
 import CarCarousel from "./components/CarCard";
 import BrandCard from "./components/BrandCard";
 import CategorySelector from "./components/CarCatogry";
-import CatCard from "./components/CatogryCard";
 import Redcar from "./components/Redcar";
 import Whitecar from "./components/whitecar";
 import TopChoicesSection from "./topchoice";
@@ -13,10 +12,10 @@ export default function Page() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative w-full max-w-[1440px] h-[600px] mx-auto bg-[url(/assets/back.jpg)] bg-cover bg-center">
+      <div className="relative w-full h-[280px] md:h-[600px] mx-auto bg-[url(/assets/back.jpg)] bg-cover bg-center">
         {/* Hero Title */}
         <div className="flex justify-center items-center w-full max-w-[1312px] h-full text-white">
-          <h1 className="text-[25px] font-semibold text-center">
+          <h1 className="text-base font-bold md:text-[25px] md:font-semibold text-center">
             FIND YOUR DREAM CAR
           </h1>
         </div>
@@ -24,10 +23,10 @@ export default function Page() {
         <SearchBox />
       </div>
 
-      <div className="px-[16px] md:px-[64px]">
+      <div className="px-[16px] md:px-[32px] lg:px-[64px]">
         {/* Search by Category */}
-        <div className="w-full max-w-[1312px] mx-auto mt-40">
-          <p className="text-[25px] font-medium text-black mb-6">
+        <div className="w-full max-w-[1312px] mx-auto mt-[300px] md:mt-50 lg:mt-40">
+          <p className="text-base md:text-[25px] font-medium text-black mb-4 md:mb-6">
             Search By Category
           </p>
           <CategoryTabs />
@@ -39,41 +38,45 @@ export default function Page() {
         </div>
 
         {/* Brand Section */}
-        <div className="w-full max-w-[1312px] mx-auto">
+        <div className="w-full mx-auto">
           <BrandCard />
         </div>
 
         {/* Best Car Section */}
-        <div className="w-full max-w-[1312px] mx-auto pb-10">
+        <div className="w-full mx-auto pb-10">
           <CarCarousel title="The Best Cars In Dubai" />
         </div>
 
         {/* Category Selector Section */}
-        <div className="w-full max-w-[1312px] mx-auto pb-10">
+        <div className="w-full mx-auto pb-10">
           <CategorySelector />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto pb-3">
-          <CatCard />
+        <div className="w-full mx-auto pb-3">
+          <CarCarousel
+            arrows={false}
+            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[#263337]"
+            innerClasses="mx-4 sm:mx-7 pb-7"
+          />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto">
+        <div className="w-full mx-auto">
           <Redcar />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto pb-3">
+        <div className="w-full mx-auto pb-3">
           <CarCarousel title="Popular Cars" />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto">
+        <div className="w-full mx-auto">
           <Whitecar />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto">
+        <div className="w-full mx-auto">
           <TopChoicesSection />
         </div>
 
-        <div className="w-full max-w-[1312px] mx-auto pb-10">
+        <div className="w-full mx-auto pb-10">
           <Whitecarflip />
         </div>
       </div>
