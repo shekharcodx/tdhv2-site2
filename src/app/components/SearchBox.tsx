@@ -18,7 +18,7 @@ export default function SearchBox() {
       <div className="flex gap-[10px] lg:gap-6 items-end flex-wrap">
         {/* Location */}
         <div className="flex flex-col flex-1 min-w-[140px]">
-          <label className="mb-2 text-sm font-medium text-black-700">
+          <label className="mb-2 text-sm font-medium text-black">
             Location
           </label>
           <select
@@ -33,7 +33,7 @@ export default function SearchBox() {
 
         {/* Car Model */}
         <div className="flex flex-col flex-1 min-w-[140px]">
-          <label className="mb-2 text-sm font-medium text-black-700">
+          <label className="mb-2 text-sm font-medium text-black">
             Car model
           </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
@@ -45,7 +45,7 @@ export default function SearchBox() {
 
         {/* Pick-Up Date */}
         <div className="flex flex-col flex-1 min-w-[140px] mt-[16px]">
-          <label className="mb-2 text-sm font-medium text-black-700">
+          <label className="mb-2 text-sm font-medium text-black">
             Pick-Up date
           </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
@@ -57,9 +57,7 @@ export default function SearchBox() {
 
         {/* Pricing */}
         <div className="flex flex-col flex-1 min-w-[140px]">
-          <label className="mb-2 text-sm font-medium text-black-700">
-            Pricing
-          </label>
+          <label className="mb-2 text-sm font-medium text-black">Pricing</label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
             <option disabled selected>
               Select
