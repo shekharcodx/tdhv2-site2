@@ -16,7 +16,7 @@ export default function Redcar() {
         </div>
         <div className="flex justify-between items-center px-6 py-3 rounded-xl h-[63px] border border-white  backdrop-blur-xl">
           <span className="text-xl font-bold ">+20k</span>
-          <p className="text-xs">Satisfied customers</p>
+          <p className="text-xs mx-4">Satisfied customers</p>
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,6 +16,7 @@ interface CarCardProps {
   innerStyle?: React.CSSProperties;
   innerClasses?: string;
   arrows?: boolean;
+  autoplay?: boolean;
 }
 
 type Car = {
@@ -37,6 +38,7 @@ export default function CarCarousel({
   innerStyle,
   innerClasses,
   arrows = true,
+  autoplay=false
 }: CarCardProps) {
   const [cars] = useState<Car[]>([
     {
@@ -116,9 +118,10 @@ export default function CarCarousel({
         )}
 
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={12}
           slidesPerView={4}
+          loop={true}
           className="relative z-10 !pb-[5px]"
           navigation={{
             prevEl: ".custom-prev",
@@ -128,6 +131,11 @@ export default function CarCarousel({
             el: ".custom-pagination",
             clickable: true,
           }}
+          autoplay={
+    autoplay
+      ? { delay: 3000, disableOnInteraction: false }
+      : undefined
+  }
           breakpoints={{
             0: { slidesPerView: 1.2, spaceBetween: 12 },
             426: { slidesPerView: 1.5, spaceBetween: 12 },

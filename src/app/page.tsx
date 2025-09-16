@@ -55,6 +55,7 @@ export default function Page() {
         <div className="w-full mx-auto pb-3">
           <CarCarousel
             arrows={false}
+            autoplay={true}
             wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[#263337]"
             innerClasses="mx-4 sm:mx-7 pb-7"
           />
