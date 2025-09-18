@@ -342,19 +342,20 @@ function CarCard({ car }: { car: Car }) {
       </div>
 
       {/* Action Buttons */}
-      <div className="w-full flex justify-between items-center px-4 mt-3">
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer mx-1">
-          <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
-        </div>
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer mx-1">
-          <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
-        </div>
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer mx-1">
-          <span className="text-white text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
-            Rent
-          </span>
-        </div>
-      </div>
+     <div className="w-full flex justify-between items-center px-4 mt-3">
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <span className="text-white text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
+      Rent
+    </span>
+  </div>
+</div>
+
     </div>
   );
 }
