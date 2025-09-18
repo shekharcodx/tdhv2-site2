@@ -7,11 +7,11 @@ export default function SearchBox() {
           SEARCH THE CAR
         </h2>
 
-        {/* <div className="flex items-center bg-gray-100 rounded-full p-1 shadow-inner shadow-md">
+        <div className="flex items-center bg-gray-100 rounded-full p-1 shadow-inner shadow-md">
           <button className="text-[#2E3E3E] px-6 py-2 rounded-full text-sm font-semibold">
             Buy
           </button>
-        </div> */}
+        </div>
       </div>
 
       {/* Input Row */}
