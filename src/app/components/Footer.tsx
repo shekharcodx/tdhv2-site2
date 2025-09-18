@@ -101,15 +101,6 @@ export default function Footer() {
               <a href="#" className="text-base hover:underline text-black">
                 info@thedrivehub.com
               </a>
-              <a href="#" className="text-base hover:underline text-black">
-                Electric Cars
-              </a>
-              <a href="#" className="text-base hover:underline text-black">
-                Muscle Cars
-              </a>
-              <a href="#" className="text-base hover:underline text-black">
-                SUV Cars
-              </a>
             </div>
           </div>
 

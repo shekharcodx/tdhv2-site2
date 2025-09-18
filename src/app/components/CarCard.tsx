@@ -298,11 +298,11 @@ function CarCard({ car }: { car: Car }) {
       {/* Monthly / Daily Prices */}
       <div className="w-full flex justify-between items-center px-4 mt-2">
         <div className="flex flex-col items-start">
-          <span className="text-gray-400 line-through text-[11px]">{car.monthlyOld}</span>
+          <span className="text-gray-400 line-through text-[11px]">{car.dailyOld}</span>
           <div className="flex items-center gap-1">
             <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
             <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
-              {car.monthly}
+              {car.daily}
             </span>
           </div>
          <div className="flex items-center gap-2  mt-1">
@@ -319,11 +319,11 @@ function CarCard({ car }: { car: Car }) {
 
         </div>
         <div className="flex flex-col items-end">
-          <span className="text-gray-400 line-through text-[11px]">{car.dailyOld}</span>
+          <span className="text-gray-400 line-through text-[11px]">{car.monthlyOld}</span>
           <div className="flex items-center gap-1">
             <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
             <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
-              {car.daily}
+              {car.monthly}
             </span>
           </div>
          <div className="flex items-center gap-2  mt-1">
@@ -351,7 +351,7 @@ function CarCard({ car }: { car: Car }) {
         </div>
         <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer mx-1">
           <span className="text-white text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
-            Rent now
+            Rent
           </span>
         </div>
       </div>
