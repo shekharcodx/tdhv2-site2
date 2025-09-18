@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="md:w-full max-w-[1440px] mx-[16px] md:mx-auto sm:px-8 md:px-[16px] lg:px-[35px] pb-4 md:pb-[35px]">
-      <div className="px-[24px] pt-[80px] md:px-[32px] lg:px-[64px] md:py-[80px] bg-white rounded-[24px]">
+    <footer className="md:w-full ">
+      <div className="px-[24px] pt-[80px] md:px-[32px] lg:px-[64px] md:py-[80px] bg-white">
         {/* Inner content container */}
         <div className="block md:flex justify-between max-w-[1312px] mx-auto">
           {/* Left Section (Logo + Info) */}
