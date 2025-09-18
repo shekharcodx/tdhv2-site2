@@ -4,6 +4,10 @@ import StepIndicator from "./StepIndicator";
 import PhoneNumberInput from "./PhoneNumberInput";
 import CountrySelect from "./CountrySelect";
 
+// Define allowed form value types
+type FormValue = string | number | Date;
+
+// Define a single field in a step
 type Field = {
   label: string;
   type: "text" | "select" | "date" | "phone" | "country" | "city" | "category";
@@ -17,7 +21,7 @@ type MultiStepFormProps = {
   title: string;
   subtitle: string;
   steps: Step[];
-  onSubmit: (data: Record<string, any>) => void;
+  onSubmit: (data: Record<string, FormValue>) => void;
 };
 
 export default function MultiStepForm({
@@ -27,9 +31,9 @@ export default function MultiStepForm({
   onSubmit,
 }: MultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<Record<string, any>>({});
+  const [formData, setFormData] = useState<Record<string, FormValue>>({});
 
-  const handleChange = (name: string, value: any) => {
+  const handleChange = (name: string, value: FormValue) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -62,7 +66,7 @@ export default function MultiStepForm({
               <div key={idx}>
                 <label className="mb-2 font-medium block">{field.label}</label>
                 <PhoneNumberInput
-                  value={formData[field.name] || ""}
+                  value={(formData[field.name] as string) || ""}
                   onChange={(val) => handleChange(field.name, val)}
                 />
               </div>
@@ -74,7 +78,7 @@ export default function MultiStepForm({
               <div key={idx}>
                 <label className="mb-2 font-medium block">{field.label}</label>
                 <CountrySelect
-                  value={formData[field.name] || ""}
+                  value={(formData[field.name] as string) || ""}
                   onChange={(val) => handleChange(field.name, val)}
                 />
               </div>
@@ -89,7 +93,7 @@ export default function MultiStepForm({
                 <input
                   type="text"
                   className="border rounded-md p-2"
-                  value={formData[field.name] || ""}
+                  value={(formData[field.name] as string) || ""}
                   onChange={(e) => handleChange(field.name, e.target.value)}
                 />
               )}
@@ -98,7 +102,7 @@ export default function MultiStepForm({
                 <input
                   type="date"
                   className="border rounded-md p-2"
-                  value={formData[field.name] || ""}
+                  value={(formData[field.name] as string) || ""}
                   onChange={(e) => handleChange(field.name, e.target.value)}
                 />
               )}
@@ -108,7 +112,7 @@ export default function MultiStepForm({
                 field.type === "category") && (
                 <select
                   className="border rounded-md p-2"
-                  value={formData[field.name] || ""}
+                  value={(formData[field.name] as string) || ""}
                   onChange={(e) => handleChange(field.name, e.target.value)}
                 >
                   <option value="">Select one...</option>
