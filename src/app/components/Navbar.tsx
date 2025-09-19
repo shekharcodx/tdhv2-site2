@@ -7,8 +7,7 @@ import {
   Dialog,
   DialogTrigger,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
+  
 } from "./ui/dialog";
 
 
@@ -49,6 +48,7 @@ export default function Navbar() {
           </div>
 
           {/* ✅ Login Button as DialogTrigger */}
+         {/* Login Button */}
           <Dialog>
             <DialogTrigger asChild>
               <button className="bg-[#5c7c7c] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#486464]">
@@ -56,18 +56,12 @@ export default function Navbar() {
               </button>
             </DialogTrigger>
 
-            <DialogContent className="max-w-md p-6">
-              <DialogHeader>
-                <DialogTitle className="text-xl font-semibold">Sign In</DialogTitle>
-              </DialogHeader>
-
+            {/* Minimal dialog content, only showing the form */}
+            <DialogContent className="bg-transparent p-0 shadow-none border-0">
               <MultiStepForm
                 title="Sign In"
-                subtitle="Complete all steps to create your account"
                 steps={signinSteps}
-                onSubmit={(data) => {
-                  console.log("Form submitted:", data);
-                }}
+                onSubmit={(data) => console.log("Form submitted:", data)}
               />
             </DialogContent>
           </Dialog>

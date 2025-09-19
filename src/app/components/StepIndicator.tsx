@@ -10,28 +10,41 @@ export default function StepIndicator({
   currentStep,
 }: StepIndicatorProps) {
   return (
-    <div className="flex justify-center items-center gap-3 mb-6">
-      {Array.from({ length: totalSteps }).map((_, i) => {
-        const stepNum = i + 1;
-        const isActive = stepNum === currentStep;
-        const isCompleted = stepNum < currentStep;
+    <div className="relative w-full max-w-2xl mx-auto mb-10">
+      {/* Line Background */}
+      <div className="absolute top-1/2 left-0 w-full h-[1px] border-t border-[#89B4BA] -translate-y-1/2" />
 
-        return (
-          <div
-            key={i}
-            className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-medium
-              ${
-                isCompleted
-                  ? "bg-green-500 border-green-500 text-white"
-                  : isActive
-                  ? "bg-gray-800 border-gray-800 text-white"
-                  : "border-gray-300 text-gray-500"
-              }`}
-          >
-            {stepNum}
-          </div>
-        );
-      })}
+    {/* Constant Line */}
+<div
+  className="absolute top-1/2 left-0 w-full h-[1px] -translate-y-1/2"
+  style={{
+    borderTop: "1px solid #89B4BA",
+  }}
+/>
+
+      {/* Step Circles */}
+      <div className="relative flex justify-between">
+        {Array.from({ length: totalSteps }).map((_, i) => {
+          const stepNum = i + 1;
+          const isActive = stepNum === currentStep;
+
+          return (
+            <div
+              key={i}
+              className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium z-10 transition`}
+              style={{
+                background: isActive
+                  ? "linear-gradient(91.73deg, #263337 -4.47%, #59787C 125.13%)"
+                  : "white",
+                color: isActive ? "white" : "#263337",
+                border: isActive ? "none" : "1px solid #89B4BA",
+              }}
+            >
+              {stepNum}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

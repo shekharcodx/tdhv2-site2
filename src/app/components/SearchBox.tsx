@@ -9,7 +9,7 @@ export default function SearchBox() {
 
         <div className="flex items-center bg-gray-100 rounded-full p-1 shadow-inner shadow-md">
           <button className="text-[#2E3E3E] px-6 py-2 rounded-full text-sm font-semibold">
-            Buy
+            Rent
           </button>
         </div>
       </div>
