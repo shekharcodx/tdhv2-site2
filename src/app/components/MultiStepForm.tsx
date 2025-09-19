@@ -86,11 +86,12 @@ export default function MultiStepForm({
       className="mx-auto rounded-lg shadow-lg flex flex-col items-center"
       style={{
         width: "560px",
-        height: "600px",
+        height: "90vh",
         padding: "40px",
         background: "white",
         borderRadius: "8px",
-      }}
+        overflow:"auto",
+        }}
     >
       <h2 className="font-poppins text-[#263337] mb-6 font-normal text-[40px] leading-[120%] text-center uppercase">
         {title}
