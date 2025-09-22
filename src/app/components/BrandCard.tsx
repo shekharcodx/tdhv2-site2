@@ -7,18 +7,18 @@ import "swiper/css";
 
 const brands = [
   { id: 1, name: "Volvo", logo: "/assets/volvo.svg" },
-  { id: 2, name: "Volkswagen", logo: "/assets/volkswagen.svg" },
-  { id: 3, name: "Zeekr", logo: "/assets/zeekr.svg" },
+  { id: 2, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 3, name: "Zeekr", logo: "/assets/Zeekr.svg" },
   { id: 4, name: "Volvo", logo: "/assets/volvo.svg" },  
   { id: 5, name: "Volvo", logo: "/assets/volvo.svg" },
-  { id: 6, name: "Volkswagen", logo: "/assets/volkswagen.svg" },
-  { id: 7, name: "Zeekr", logo: "/assets/zeekr.svg" },
+  { id: 6, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 7, name: "Zeekr", logo: "/assets/Zeekr.svg" },
   { id: 8, name: "Volvo", logo: "/assets/volvo.svg" },
-  { id: 9, name: "Volkswagen", logo: "/assets/volkswagen.svg" },
-  { id: 10, name: "Zeekr", logo: "/assets/zeekr.svg" },
+  { id: 9, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 10, name: "Zeekr", logo: "/assets/Zeekr.svg" },
   { id: 11, name: "Volvo", logo: "/assets/volvo.svg" },
-  { id: 12, name: "Volkswagen", logo: "/assets/volkswagen.svg" },
-  { id: 13, name: "Zeekr", logo: "/assets/zeekr.svg" },
+  { id: 12, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 13, name: "Zeekr", logo: "/assets/Zeekr.svg" },
   { id: 14, name: "Volvo", logo: "/assets/volvo.svg" },
 ];
 
