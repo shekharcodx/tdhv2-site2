@@ -82,16 +82,15 @@ export default function MultiStepForm({
   const handleCancel = () => setCurrentStep(0);
 
   return (
-    <div
-      className="mx-auto rounded-lg shadow-lg flex flex-col items-center"
+     <div
+      className="mx-auto rounded-lg shadow-lg flex flex-col items-center overflow-auto scrollbar-pretty"
       style={{
         width: "560px",
-        height: "90vh",
+        height: "90vh", // or "600px"
         padding: "40px",
         background: "white",
         borderRadius: "8px",
-        overflow:"auto",
-        }}
+      }}
     >
       <h2 className="font-poppins text-[#263337] mb-6 font-normal text-[40px] leading-[120%] text-center uppercase">
         {title}
@@ -120,7 +119,7 @@ export default function MultiStepForm({
       >
         {/* Fields */}
         <div
-          className="space-y-5 flex-1 overflow-auto"
+          className="overflow-auto scrollbar-pretty"
           style={{
             width: "464px",
             maxHeight: "260px",

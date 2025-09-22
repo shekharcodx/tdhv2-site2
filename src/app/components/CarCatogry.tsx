@@ -38,8 +38,8 @@ export default function CategorySelector() {
               transition-all duration-300 rounded-lg p-4 sm:p-6 
               ${
                 isActive
-                  ? "bg-[#263337] text-white"
-                  : "bg-transparent text-black"
+                  ? "text-white bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
+                  : "bg-transparent text-black hover:text-white hover:bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
               }
               !min-w-[63px] w-[63px] h-[85px] md:w-[200px] md:h-[175px] sm:h-[177px] 
               m-2 sm:m-0

@@ -56,7 +56,7 @@ export default function Page() {
           <CarCarousel
             arrows={false}
             autoplay={true}
-            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[#263337]"
+            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
             innerClasses="mx-4 sm:mx-7 pb-7"
           />
         </div>
