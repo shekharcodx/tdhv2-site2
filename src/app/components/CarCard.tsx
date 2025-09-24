@@ -96,6 +96,8 @@ export default function CarCarousel({
     },
   ]);
 
+  const randomNum = Math.random();
+
   return (
     <div
       className={
@@ -121,11 +123,11 @@ export default function CarCarousel({
           slidesPerView={4}
           className="relative z-10 !pb-[5px]"
           navigation={{
-            prevEl: ".custom-prev",
-            nextEl: ".custom-next",
+            prevEl: `.custom-prev-${randomNum}`,
+            nextEl: `.custom-next-${randomNum}`,
           }}
           pagination={{
-            el: ".custom-pagination",
+            el: `.custom-pagination-${randomNum}`,
             clickable: true,
           }}
           breakpoints={{
@@ -152,10 +154,14 @@ export default function CarCarousel({
         {/* Custom Arrows and Pagination */}
         {arrows && (
           <div className="w-full hidden md:flex justify-between items-center mt-6">
-            <div className="custom-pagination flex justify-start gap-2"></div>
+            <div
+              className={`custom-pagination-${randomNum} flex justify-start gap-2`}
+            ></div>
 
             <div className="flex justify-end gap-6">
-              <button className="custom-prev w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#59787C] shadow cursor-pointer transition-opacity disabled:opacity-40">
+              <button
+                className={`custom-prev-${randomNum} w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#59787C] shadow cursor-pointer transition-opacity disabled:opacity-40`}
+              >
                 <Image
                   src="/assets/left.png"
                   alt="Prev"
@@ -163,7 +169,9 @@ export default function CarCarousel({
                   height={20}
                 />
               </button>
-              <button className="custom-next w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#59787C] shadow cursor-pointer transition-opacity disabled:opacity-40">
+              <button
+                className={`custom-next-${randomNum} w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#59787C] shadow cursor-pointer transition-opacity disabled:opacity-40`}
+              >
                 <Image
                   src="/assets/right.png"
                   alt="Next"
