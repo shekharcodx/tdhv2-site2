@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Swiper as SwiperType } from "swiper";
 
 interface CarCardProps {
   title?: string;
@@ -222,51 +224,50 @@ export default function CarCarousel({
 }
 
 function CarCard({ car }: { car: Car }) {
-  return (
-    <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col pb-4 mx-auto">
-      {/* Car Image */}
-<div
-  className="min-w-[280px] h-[260px] md:h-[292px] relative"
-  onMouseMove={(e) => {
-    const swiperEl = (e.currentTarget.querySelector(".car-swiper") as any)?.swiper;
+  const swiperRef = useRef<SwiperType | null>(null);
+  const lastHoverTimeRef = useRef<number>(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const swiperEl = swiperRef.current;
     if (!swiperEl) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const width = rect.width;
 
-    // Throttle to prevent too fast swipes
-    if (!swiperEl.lastHoverTime) swiperEl.lastHoverTime = 0;
     const now = Date.now();
-    if (now - swiperEl.lastHoverTime < 600) return; // 600ms delay
-    swiperEl.lastHoverTime = now;
+    if (now - lastHoverTimeRef.current < 600) return;
+    lastHoverTimeRef.current = now;
 
     if (x > width / 2) {
       swiperEl.slideNext();
     } else {
       swiperEl.slidePrev();
     }
-  }}
->
-  <Swiper
-    modules={[Pagination]}
-    pagination={{ clickable: true }}
-    loop={car.images.length > 1} // only loop if more than 1 image
-    slidesPerView={1}
-    className="h-full w-full car-swiper"
-  >
-    {car.images.map((img, i) => (
-      <SwiperSlide key={i}>
-        <Image
-          src={img}
-          alt={`${car.name}-${i}`}
-          fill
-          className="object-cover"
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
+  };
+
+  return (
+    <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col pb-4 mx-auto">
+      {/* Car Image */}
+      <div
+        className="min-w-[280px] h-[260px] md:h-[292px] relative"
+        onMouseMove={handleMouseMove}
+      >
+        <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          loop={car.images.length > 1}
+          slidesPerView={1}
+          className="h-full w-full car-swiper"
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
+          {car.images.map((img, i) => (
+            <SwiperSlide key={i}>
+              <Image src={img} alt={`${car.name}-${i}`} fill className="object-cover" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
 
 
