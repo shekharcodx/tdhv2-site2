@@ -8,7 +8,21 @@ import Whitecar from "./components/whitecar";
 import TopChoicesSection from "./topchoice";
 import Whitecarflip from "./components/whiteflip";
 
-export default function Page() {
+const fetchListings = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/listings`, {
+    cache: "no-store", // ensures fresh data (like getServerSideProps)
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch listings");
+  }
+
+  return res.json();
+};
+
+export default async function Page() {
+  const pageData = await fetchListings();
+  console.log("page:pageData", pageData);
   return (
     <div>
       {/* Hero Section */}
@@ -34,7 +48,7 @@ export default function Page() {
 
         {/* Car Carousel Section */}
         <div className="w-full mx-auto overflow-visible">
-          <CarCarousel />
+          <CarCarousel uId={1} data={pageData} />
         </div>
 
         {/* Brand Section */}
@@ -44,7 +58,11 @@ export default function Page() {
 
         {/* Best Car Section */}
         <div className="w-full mx-auto pb-10">
-          <CarCarousel title="The Best Cars In Dubai" autoplay={false} />
+          {/* <CarCarousel
+            uId={2}
+            title="The Best Cars In Dubai"
+            autoplay={false}
+          /> */}
         </div>
 
         {/* Category Selector Section */}
@@ -54,6 +72,8 @@ export default function Page() {
 
         <div className="w-full mx-auto pb-3">
           <CarCarousel
+            uId={3}
+            data={pageData}
             arrows={false}
             autoplay={true}
             wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
@@ -66,7 +86,7 @@ export default function Page() {
         </div>
 
         <div className="w-full mx-auto pb-3">
-          <CarCarousel title="Popular Cars" />
+          <CarCarousel uId={4} data={pageData} title="Popular Cars" />
         </div>
 
         <div className="w-full mx-auto">

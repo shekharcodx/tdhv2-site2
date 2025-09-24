@@ -5,8 +5,8 @@ export default function SearchBox() {
       <div className="flex justify-between items-center">
         <h2 className="text-sm md:text-xl md:font-semibold text-gray-800">
           SEARCH THE CAR
-        </h2> 
-         <button className="px-6 h-10  text-white rounded-full text-sm font-medium bg-[#59787C] transition">
+        </h2>
+        <button className="px-6 h-10  text-white rounded-full text-sm font-medium bg-[#59787C] transition">
           BUY
         </button>
       </div>
@@ -19,9 +19,7 @@ export default function SearchBox() {
             Location
           </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
-            <option disabled selected>
-              Select
-            </option>
+            <option>Select</option>
           </select>
         </div>
 
@@ -31,29 +29,27 @@ export default function SearchBox() {
             Car make & model
           </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
-            <option disabled selected>
-              Select
-            </option>
+            <option>Select</option>
           </select>
         </div>
 
         {/* Year */}
         <div className="flex flex-col flex-1 min-w-[140px]">
-          <label className="mb-2 text-sm font-medium text-black mx-4">Year</label>
+          <label className="mb-2 text-sm font-medium text-black mx-4">
+            Year
+          </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
-            <option disabled selected>
-              Select
-            </option>
+            <option>Select</option>
           </select>
         </div>
 
         {/* Pricing */}
         <div className="flex flex-col flex-1 min-w-[140px]">
-          <label className="mb-2 text-sm font-medium text-black mx-4">Pricing</label>
+          <label className="mb-2 text-sm font-medium text-black mx-4">
+            Pricing
+          </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
-            <option disabled selected>
-              Select
-            </option>
+            <option>Select</option>
           </select>
         </div>
 
@@ -63,9 +59,7 @@ export default function SearchBox() {
             .
           </label>
           <select className="h-12 px-4 rounded-full bg-gray-100 border border-gray-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)] text-sm text-gray-700">
-            <option disabled selected>
-              Select
-            </option>
+            <option>Select</option>
           </select>
         </div>
 
