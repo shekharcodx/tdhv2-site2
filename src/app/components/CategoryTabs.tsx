@@ -23,7 +23,7 @@ export default function CategoryTabs() {
         shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)]
         bg-white
         overflow-y-auto
-         [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']
+        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']
       "
     >
       {categories.map((cat, idx) => (
@@ -33,22 +33,15 @@ export default function CategoryTabs() {
           className={`
             flex-1 flex items-center justify-center
             text-sm font-medium whitespace-nowrap cursor-pointer
-            h-[40px] px-4 py-1 rounded-full transition ${
+            h-[40px] px-4 py-1 rounded-full transition
+            ${
               activeIndex === idx
-                ? "bg-[#263337] text-white"
-                : "text-gray-800 hover:bg-[#263337]/80 hover:text-white"
+                ? "text-white bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
+                : "text-gray-800 hover:text-white hover:bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
             }
           `}
         >
-          {/* <span
-            className={`px-4 py-1 rounded-full transition ${
-              activeIndex === idx
-                ? "bg-[#263337] text-white"
-                : "text-gray-800 hover:bg-[#263337]/80 hover:text-white"
-            }`}
-          > */}
           {cat}
-          {/* </span> */}
         </button>
       ))}
     </div>

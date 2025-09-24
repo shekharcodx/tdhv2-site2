@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { useState, useRef } from "react";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Swiper as SwiperType } from "swiper";
 
 interface CarCardProps {
   title?: string;
@@ -16,19 +17,24 @@ interface CarCardProps {
   innerStyle?: React.CSSProperties;
   innerClasses?: string;
   arrows?: boolean;
+  autoplay?: boolean;
 }
 
 type Car = {
   id: number;
   name: string;
   type: string;
-  image: string;
+  images: string[];   // 👈 instead of image: string
   fuel: string;
   transmission: string;
   seats: string;
+  monthlyOld: string;
   monthly: string;
+  dailyOld: string;
   daily: string;
+  limit: string;
 };
+
 
 export default function CarCarousel({
   title,
@@ -37,63 +43,96 @@ export default function CarCarousel({
   innerStyle,
   innerClasses,
   arrows = true,
+  autoplay = false,
 }: CarCardProps) {
   const [cars] = useState<Car[]>([
-    {
-      id: 1,
-      name: "Nissan GT - R",
-      type: "Sport",
-      image: "/assets/car1.png",
-      fuel: "80L",
-      transmission: "Manual",
-      seats: "2 Seats",
-      monthly: "800/month",
-      daily: "900/day",
-    },
-    {
-      id: 2,
-      name: "Lamborghini",
-      type: "Luxury",
-      image: "/assets/car2.png",
-      fuel: "60L",
-      transmission: "Auto",
-      seats: "4 Seats",
-      monthly: "1200/month",
-      daily: "150/day",
-    },
-    {
-      id: 3,
-      name: "Ferrari",
-      type: "Sport",
-      image: "/assets/car3.png",
-      fuel: "65L",
-      transmission: "Auto",
-      seats: "2 Seats",
-      monthly: "1500/month",
-      daily: "200/day",
-    },
-    {
-      id: 4,
-      name: "Porsche",
-      type: "Luxury",
-      image: "/assets/car3.png",
-      fuel: "70L",
-      transmission: "Manual",
-      seats: "4 Seats",
-      monthly: "1400/month",
-      daily: "180/day",
-    },
-    {
-      id: 5,
-      name: "Porsche",
-      type: "Luxury",
-      image: "/assets/car3.png",
-      fuel: "70L",
-      transmission: "Manual",
-      seats: "4 Seats",
-      monthly: "1400/month",
-      daily: "180/day",
-    },
+      {
+    id: 1,
+    name: "Nissan GT - R",
+    type: "Sport",
+    images: ["/assets/c1.svg","/assets/c4.svg"], // 👈 multiple
+    fuel: "80L",
+    transmission: "Manual",
+    seats: "2 Seats",
+    monthlyOld: "Đ800/month",
+    monthly: "700/month",
+    dailyOld: "Đ90/day",
+    daily: "75/day",
+    limit: "250 km",
+  },
+  {
+    id: 2,
+    name: "Lamborghini",
+    type: "Luxury",
+    images: ["/assets/c5.svg", "/assets/c6.svg"], // 👈 multiple
+    fuel: "60L",
+    transmission: "Auto",
+    seats: "4 Seats",
+    monthlyOld: "Đ1200/month",
+    monthly: "1000/month",
+    dailyOld: "Đ150/day",
+    daily: "120/day",
+    limit: "300 km",
+  },
+  {
+    id: 3,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"], // 👈 multiple
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 4,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 5,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 6,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c5.svg", "/assets/c4.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+ 
+
+
   ]);
 
   const randomNum = Math.random();
@@ -118,9 +157,10 @@ export default function CarCarousel({
         )}
 
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={12}
           slidesPerView={4}
+          loop={true}
           className="relative z-10 !pb-[5px]"
           navigation={{
             prevEl: `.custom-prev-${randomNum}`,
@@ -130,13 +170,17 @@ export default function CarCarousel({
             el: `.custom-pagination-${randomNum}`,
             clickable: true,
           }}
+          autoplay={
+            autoplay
+              ? { delay: 3000, disableOnInteraction: false }
+              : undefined
+          }
           breakpoints={{
             0: { slidesPerView: 1.2, spaceBetween: 12 },
             426: { slidesPerView: 1.5, spaceBetween: 12 },
             526: { slidesPerView: 1.8, spaceBetween: 12 },
             640: { slidesPerView: 2, spaceBetween: 12 },
             700: { slidesPerView: 2.4, spaceBetween: 12 },
-            // 768: { slidesPerView: 2.2, spaceBetween: 12 },
             800: { slidesPerView: 2.5, spaceBetween: 12 },
             850: { slidesPerView: 2.8, spaceBetween: 12 },
             1024: { slidesPerView: 3.2, spaceBetween: 12 },
@@ -188,21 +232,66 @@ export default function CarCarousel({
 }
 
 function CarCard({ car }: { car: Car }) {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const lastHoverTimeRef = useRef<number>(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const swiperEl = swiperRef.current;
+    if (!swiperEl) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+
+    const now = Date.now();
+    if (now - lastHoverTimeRef.current < 600) return;
+    lastHoverTimeRef.current = now;
+
+    if (x > width / 2) {
+      swiperEl.slideNext();
+    } else {
+      swiperEl.slidePrev();
+    }
+  };
+
   return (
-    <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col gap-4 pb-4 mx-auto">
+    <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col pb-4 mx-auto">
       {/* Car Image */}
-      <div className="min-w-[280px] h-[260px] md:h-[292px] relative">
-        <Image src={car.image} alt={car.name} fill className="object-cover" />
+      <div
+        className="min-w-[280px] h-[260px] md:h-[292px] relative"
+        onMouseMove={handleMouseMove}
+      >
+        <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          loop={car.images.length > 1}
+          slidesPerView={1}
+          className="h-full w-full car-swiper"
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
+          {car.images.map((img, i) => (
+            <SwiperSlide key={i}>
+              <Image src={img} alt={`${car.name}-${i}`} fill className="object-cover" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
+
+
+
+
       {/* Name + Heart */}
-      <div className="w-full flex justify-between items-center px-4">
+      <div className="w-full flex justify-between items-center px-4 mt-2">
         <div className="flex flex-col justify-center">
           <h3 className="text-[16px] font-semibold text-[#263238] leading-tight font-[Poppins]">
             {car.name}
           </h3>
-          <p className="text-[10px] md:text-[14px] text-gray-500 font-[Poppins] font-normal">
+          <p className="text-[12px] text-gray-500 font-[Poppins] font-normal">
             {car.type}
+          </p>
+          <p className="text-[10px] text-gray-400 font-[Poppins] font-basic">
+            PRINCESS RENT CAR
           </p>
         </div>
         <div className="w-8 h-8 flex items-center justify-center">
@@ -216,7 +305,7 @@ function CarCard({ car }: { car: Car }) {
       </div>
 
       {/* Fuel / Transmission / Seats */}
-      <div className="w-full flex justify-between items-center px-4 gap-[5px]">
+      <div className="w-full flex justify-between items-center px-4 gap-[5px] mt-2">
         {[car.fuel, car.transmission, car.seats].map((item, idx) => (
           <div
             key={idx}
@@ -234,43 +323,93 @@ function CarCard({ car }: { car: Car }) {
               width={16}
               height={16}
             />
-            <span className="font-[Poppins] font-normal text-[11px] 2xl:text-[14px] leading-[21px] text-[#374151]">
+            <span className="font-[Poppins] font-normal text-[11px] 2xl:text-[14px] text-[#374151]">
               {item}
             </span>
           </div>
         ))}
       </div>
 
+      {/* Rent Conditions */}
+    <div className="px-4 mt-2 flex items-start relative">
+  {/* Left Icon (can be big, won't push text) */}
+  <Image
+    src="/assets/brand.png"
+    alt="Rent Info"
+    width={30}   // 👈 increase size here
+    height={20}
+    className="absolute left-4 top-1 "
+  />
+
+  {/* Right Side Text (always aligned in same place) */}
+  <ul className="list-none text-[11px] text-gray-600 font-[Poppins] leading-snug text-right pl-43 mt-1">
+    <li>min 3 days rent</li>
+    <li>insurance included</li>
+  </ul>
+</div>
+
+
       {/* Monthly / Daily Prices */}
-      <div className="w-full flex justify-between items-center px-4">
-        <div className="flex items-center gap-1 w-[120px] justify-start">
-          <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="font-[Poppins] text-[12px] md:text-[16px] font-semibold text-[#263238] whitespace-nowrap">
-            {car.monthly}
-          </span>
+      <div className="w-full flex justify-between items-center px-4 mt-2">
+        <div className="flex flex-col items-start">
+          <span className="text-gray-400 line-through text-[11px]">{car.dailyOld}</span>
+          <div className="flex items-center gap-1">
+            <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
+            <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
+              {car.daily}
+            </span>
+          </div>
+         <div className="flex items-center gap-2  mt-1">
+  <Image
+    src="/assets/kilo.png"   // replace with your asset name
+    alt="kms included"
+    width={14}
+    height={14}
+  />
+  <p className="text-[10px] text-gray-400 font-[Poppins]">
+    {car.limit}
+  </p>
+</div>
+
         </div>
-        <div className="flex items-center gap-1 w-[120px] justify-end">
-          <Image src="/assets/curr.svg" alt="Currency" width={21} height={16} />
-          <span className="font-[Poppins] text-[12px] md:text-[16px] font-semibold text-[#263238] whitespace-nowrap">
-            {car.daily}
-          </span>
+        <div className="flex flex-col items-end">
+          <span className="text-gray-400 line-through text-[11px]">{car.monthlyOld}</span>
+          <div className="flex items-center gap-1">
+            <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
+            <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
+              {car.monthly}
+            </span>
+          </div>
+         <div className="flex items-center gap-2  mt-1">
+  <Image
+    src="/assets/kilo.png"   // replace with your asset name
+    alt="kms included"
+    width={14}
+    height={14}
+  />
+  <p className="text-[10px] text-gray-400 font-[Poppins]">
+    {car.limit}
+  </p>
+</div>
+
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div className="w-full flex justify-between items-center px-4">
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer px-[6px] mx-1">
-          <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
-        </div>
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer px-[6px] mx-1">
-          <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
-        </div>
-        <div className="flex-1 h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer px-[6px] mx-1">
-          <span className="text-white lg:[10px] text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
-            Rent Now
-          </span>
-        </div>
-      </div>
+     <div className="w-full flex justify-between items-center px-4 mt-3">
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <span className="text-white text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
+      Rent
+    </span>
+  </div>
+</div>
+
     </div>
   );
 }

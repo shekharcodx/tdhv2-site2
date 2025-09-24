@@ -17,13 +17,16 @@ type Car = {
   fuel: string;
   transmission: string;
   seats: string;
-  monthly: string;
-  daily: string;
+  monthlyOld: string; // strikethrough monthly
+  monthly: string;    // final monthly
+  dailyOld: string;   // strikethrough daily
+  daily: string;      // final daily
+  limit: string;      // km limit
 };
 
 export default function TopChoicesSection() {
   const [cars] = useState<Car[]>([
-    {
+      {
       id: 1,
       name: "Nissan GT - R",
       type: "Sport",
@@ -31,8 +34,11 @@ export default function TopChoicesSection() {
       fuel: "80L",
       transmission: "Manual",
       seats: "2 Seats",
-      monthly: "800/month",
-      daily: "90/day",
+      monthlyOld: "Đ800/month",
+      monthly: "700/month",
+      dailyOld: "Đ90/day",
+      daily: "75/day",
+      limit: "250 km",
     },
     {
       id: 2,
@@ -42,8 +48,11 @@ export default function TopChoicesSection() {
       fuel: "60L",
       transmission: "Auto",
       seats: "4 Seats",
-      monthly: "1200/month",
-      daily: "150/day",
+      monthlyOld: "Đ1200/month",
+      monthly: "1000/month",
+      dailyOld: "Đ150/day",
+      daily: "120/day",
+      limit: "300 km",
     },
     {
       id: 3,
@@ -53,30 +62,53 @@ export default function TopChoicesSection() {
       fuel: "65L",
       transmission: "Auto",
       seats: "2 Seats",
-      monthly: "1500/month",
-      daily: "200/day",
+      monthlyOld: "Đ1500/month",
+      monthly: "1300/month",
+      dailyOld: "Đ200/day",
+      daily: "160/day",
+      limit: "200 km",
     },
-    {
+     {
       id: 4,
-      name: "Porsche",
-      type: "Luxury",
-      image: "/assets/car2.png",
-      fuel: "70L",
-      transmission: "Manual",
-      seats: "2 Seats",
-      monthly: "1100/month",
-      daily: "140/day",
-    },
-    {
-      id: 5,
-      name: "McLaren",
+      name: "Ferrari",
       type: "Sport",
-      image: "/assets/car1.png",
-      fuel: "75L",
+      image: "/assets/car3.png",
+      fuel: "65L",
       transmission: "Auto",
       seats: "2 Seats",
-      monthly: "1600/month",
-      daily: "220/day",
+      monthlyOld: "Đ1500/month",
+      monthly: "1300/month",
+      dailyOld: "Đ200/day",
+      daily: "160/day",
+      limit: "200 km",
+    },
+     {
+      id: 5,
+      name: "Ferrari",
+      type: "Sport",
+      image: "/assets/car3.png",
+      fuel: "65L",
+      transmission: "Auto",
+      seats: "2 Seats",
+      monthlyOld: "Đ1500/month",
+      monthly: "1300/month",
+      dailyOld: "Đ200/day",
+      daily: "160/day",
+      limit: "200 km",
+    },
+    {
+      id: 6,
+      name: "Ferrari",
+      type: "Sport",
+      image: "/assets/car3.png",
+      fuel: "65L",
+      transmission: "Auto",
+      seats: "2 Seats",
+      monthlyOld: "Đ1500/month",
+      monthly: "1300/month",
+      dailyOld: "Đ200/day",
+      daily: "160/day",
+      limit: "200 km",
     },
   ]);
 
@@ -178,74 +210,143 @@ export default function TopChoicesSection() {
     </div>
   );
 }
-
 function CarCard({ car }: { car: Car }) {
   return (
-    <div className="w-full max-w-[310px] h-[477px] rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col gap-4 pb-4">
-      <div className="w-full h-[292px] relative">
+    <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col pb-4 mx-auto">
+      {/* Car Image */}
+      <div className="min-w-[280px] h-[260px] md:h-[292px] relative">
         <Image src={car.image} alt={car.name} fill className="object-cover" />
       </div>
 
-      <div className="w-full px-4 flex justify-between items-center">
-        <div className="flex flex-col">
-          <h3 className="text-[16px] font-semibold text-[#263238] font-[Poppins]">
+      {/* Name + Heart */}
+      <div className="w-full flex justify-between items-center px-4 mt-2">
+        <div className="flex flex-col justify-center">
+          <h3 className="text-[16px] font-semibold text-[#263238] leading-tight font-[Poppins]">
             {car.name}
           </h3>
-          <p className="text-[14px] text-gray-500 font-[Poppins]">{car.type}</p>
+          <p className="text-[12px] text-gray-500 font-[Poppins] font-normal">
+            {car.type}
+          </p>
+          <p className="text-[10px] text-gray-400 font-[Poppins] font-basic">
+            PRINCESS RENT CAR
+          </p>
         </div>
-        <Image src="/assets/heart.svg" alt="Favorite" width={24} height={24} />
-      </div>
-
-      <div className="w-full px-4 flex justify-between items-center">
-        <Spec icon="/assets/petrol.svg" label={car.fuel} />
-        <Spec icon="/assets/manual.svg" label={car.transmission} />
-        <Spec icon="/assets/seats.svg" label={car.seats} />
-      </div>
-
-      <div className="w-full px-4 flex justify-between items-center">
-        <Price icon="/assets/curr.svg" label={car.monthly} />
-        <Price icon="/assets/curr.svg" label={car.daily} />
-      </div>
-
-      <div className="w-full px-4 flex justify-between items-center">
-        <Action icon="/assets/cll.svg" />
-        <Action icon="/assets/wat.svg" />
-        <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
-          <span className="text-white xl:text-[12px] 2xl:text-[15px] font-[Poppins]">
-            Rent Now
-          </span>
+        <div className="w-8 h-8 flex items-center justify-center">
+          <Image
+            src="/assets/heart.svg"
+            alt="Favorite"
+            width={24}
+            height={24}
+          />
         </div>
       </div>
-    </div>
-  );
-}
 
-function Spec({ icon, label }: { icon: string; label: string }) {
-  return (
-    <div className="flex items-center gap-2 rounded-full p-[5px] shadow bg-white">
-      <Image src={icon} alt={label} width={16} height={16} />
-      <span className="font-[Poppins] xl:text-[12px] 2xl:text-[15px] text-[#374151]">
-        {label}
-      </span>
-    </div>
-  );
-}
+      {/* Fuel / Transmission / Seats */}
+      <div className="w-full flex justify-between items-center px-4 gap-[5px] mt-2">
+        {[car.fuel, car.transmission, car.seats].map((item, idx) => (
+          <div
+            key={idx}
+            className="flex-1 flex items-center gap-2 rounded-full p-[5px] shadow bg-white justify-center 2xl:min-w-[86px]"
+          >
+            <Image
+              src={
+                idx === 0
+                  ? "/assets/petrol.svg"
+                  : idx === 1
+                  ? "/assets/manual.svg"
+                  : "/assets/seats.svg"
+              }
+              alt={item}
+              width={16}
+              height={16}
+            />
+            <span className="font-[Poppins] font-normal text-[11px] 2xl:text-[14px] text-[#374151]">
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
 
-function Price({ icon, label }: { icon: string; label: string }) {
-  return (
-    <div className="flex items-center gap-1">
-      <Image src={icon} alt="Currency" width={21} height={16} />
-      <span className="font-[Poppins] xl:text-[12px] 2xl:text-[15px] font-semibold text-[#263238] whitespace-nowrap">
-        {label}
-      </span>
-    </div>
-  );
-}
+      {/* Rent Conditions */}
+    <div className="px-4 mt-2 flex items-start relative">
+  {/* Left Icon (can be big, won't push text) */}
+  <Image
+    src="/assets/brand.png"
+    alt="Rent Info"
+    width={30}   // 👈 increase size here
+    height={20}
+    className="absolute left-4 top-1 "
+  />
 
-function Action({ icon }: { icon: string }) {
-  return (
-    <div className="w-[86px] h-[40px] flex items-center justify-center rounded-full bg-[#263337] shadow cursor-pointer">
-      <Image src={icon} alt="Action" width={20} height={20} />
+  {/* Right Side Text (always aligned in same place) */}
+  <ul className="list-none text-[11px] text-gray-600 font-[Poppins] leading-snug text-right pl-43 mt-1">
+    <li>min 3 days rent</li>
+    <li>insurance included</li>
+  </ul>
+</div>
+
+
+      {/* Monthly / Daily Prices */}
+      <div className="w-full flex justify-between items-center px-4 mt-2">
+        <div className="flex flex-col items-start">
+          <span className="text-gray-400 line-through text-[11px]">{car.dailyOld}</span>
+          <div className="flex items-center gap-1">
+            <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
+            <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
+              {car.daily}
+            </span>
+          </div>
+         <div className="flex items-center gap-2  mt-1">
+  <Image
+    src="/assets/kilo.png"   // replace with your asset name
+    alt="kms included"
+    width={14}
+    height={14}
+  />
+  <p className="text-[10px] text-gray-400 font-[Poppins]">
+    {car.limit}
+  </p>
+</div>
+
+        </div>
+        <div className="flex flex-col items-end">
+          <span className="text-gray-400 line-through text-[11px]">{car.monthlyOld}</span>
+          <div className="flex items-center gap-1">
+            <Image src="/assets/curr.svg" alt="Currency" width={18} height={16} />
+            <span className="font-[Poppins] text-[14px] font-semibold text-[#263238] whitespace-nowrap">
+              {car.monthly}
+            </span>
+          </div>
+         <div className="flex items-center gap-2  mt-1">
+  <Image
+    src="/assets/kilo.png"   // replace with your asset name
+    alt="kms included"
+    width={14}
+    height={14}
+  />
+  <p className="text-[10px] text-gray-400 font-[Poppins]">
+    {car.limit}
+  </p>
+</div>
+
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+     <div className="w-full flex justify-between items-center px-4 mt-3">
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/cll.svg" alt="Phone" width={17} height={20} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <Image src="/assets/wat.svg" alt="Message" width={23} height={23} />
+  </div>
+  <div className="flex-1 h-[40px] flex items-center justify-center rounded-full shadow cursor-pointer mx-1 bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]">
+    <span className="text-white text-[12px] 2xl:text-[15px] font-[Poppins] font-normal">
+      Rent
+    </span>
+  </div>
+</div>
+
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function Page() {
 
         {/* Best Car Section */}
         <div className="w-full mx-auto pb-10">
-          <CarCarousel title="The Best Cars In Dubai" />
+          <CarCarousel title="The Best Cars In Dubai" autoplay={false} />
         </div>
 
         {/* Category Selector Section */}
@@ -55,7 +55,8 @@ export default function Page() {
         <div className="w-full mx-auto pb-3">
           <CarCarousel
             arrows={false}
-            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[#263337]"
+            autoplay={true}
+            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
             innerClasses="mx-4 sm:mx-7 pb-7"
           />
         </div>

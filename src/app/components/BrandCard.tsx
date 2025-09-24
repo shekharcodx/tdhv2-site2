@@ -6,21 +6,22 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const brands = [
-  { id: 1, name: "Mercedes", logo: "/assets/benz.svg" },
-  { id: 2, name: "Audi", logo: "/assets/audi.svg" },
-  { id: 3, name: "Jaguar", logo: "/assets/jaguar.svg" },
-  { id: 4, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 5, name: "Audi", logo: "/assets/audi.svg" },
-  { id: 6, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 7, name: "Jaguar", logo: "/assets/jaguar.svg" },
-  { id: 8, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 9, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 10, name: "Audi", logo: "/assets/audi.svg" },
-  { id: 11, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 12, name: "Jaguar", logo: "/assets/jaguar.svg" },
-  { id: 13, name: "Hyundai", logo: "/assets/hyundai.svg" },
-  { id: 14, name: "Hyundai", logo: "/assets/hyundai.svg" },
+  { id: 1, name: "Volvo", logo: "/assets/volvo.svg" },
+  { id: 2, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 3, name: "Zeekr", logo: "/assets/Zeekr.svg" },
+  { id: 4, name: "Volvo", logo: "/assets/volvo.svg" },  
+  { id: 5, name: "Volvo", logo: "/assets/volvo.svg" },
+  { id: 6, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 7, name: "Zeekr", logo: "/assets/Zeekr.svg" },
+  { id: 8, name: "Volvo", logo: "/assets/volvo.svg" },
+  { id: 9, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 10, name: "Zeekr", logo: "/assets/Zeekr.svg" },
+  { id: 11, name: "Volvo", logo: "/assets/volvo.svg" },
+  { id: 12, name: "Volkswagen", logo: "/assets/Volkswagen.svg" },
+  { id: 13, name: "Zeekr", logo: "/assets/Zeekr.svg" },
+  { id: 14, name: "Volvo", logo: "/assets/volvo.svg" },
 ];
+
 
 // duplicate list to ensure continuous flow (prevents gap)
 const loopItems = [...brands, ...brands];
@@ -58,8 +59,8 @@ export default function BrandCard() {
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={100}
-                  height={100}
+                  width={80}
+                  height={80}
                   className="object-contain"
                 />
               </div>
