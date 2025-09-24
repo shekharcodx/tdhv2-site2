@@ -2,14 +2,14 @@
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { useState } from "react";
-
 type PhoneProps = {
   value: string;
   onChange: (val: string) => void;
   error?: string;
+  className?: string;   // 👈 allow parent to pass extra classes
 };
 
-export default function PhoneNumberInput({ value, onChange, error }: PhoneProps) {
+export default function PhoneNumberInput({ value, onChange, error, className }: PhoneProps){
   const [touched, setTouched] = useState(false);
 
   return (

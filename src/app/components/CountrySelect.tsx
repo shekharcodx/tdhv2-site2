@@ -5,10 +5,12 @@ import { useState } from "react";
 type CountrySelectProps = {
   value: string;
   onChange: (val: string) => void;
-  error?: string; // ✅ floating error support
+  error?: string;
+  className?: string;  // ✅ allow parent to pass Tailwind classes
 };
 
-export default function CountrySelect({ value, onChange, error }: CountrySelectProps) {
+
+export default function CountrySelect({ value, onChange, error, className,}: CountrySelectProps) {
   const [touched, setTouched] = useState(false);
 
   return (
