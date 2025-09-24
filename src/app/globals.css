@@ -137,3 +137,14 @@
     @apply bg-background text-foreground;
   }
 }
+/* Swiper pagination dots */
+.swiper-pagination-bullet {
+  background-color: #59787C !important; /* active & inactive dots */
+  opacity: 0.7 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #59787C !important; /* active dot */
+  opacity: 1 !important;
+}
+

@@ -22,16 +22,17 @@ type Car = {
   id: number;
   name: string;
   type: string;
-  image: string;
+  images: string[];   // 👈 instead of image: string
   fuel: string;
   transmission: string;
   seats: string;
-  monthlyOld: string; // strikethrough monthly
-  monthly: string;    // final monthly
-  dailyOld: string;   // strikethrough daily
-  daily: string;      // final daily
-  limit: string;      // km limit
+  monthlyOld: string;
+  monthly: string;
+  dailyOld: string;
+  daily: string;
+  limit: string;
 };
+
 
 export default function CarCarousel({
   title,
@@ -43,90 +44,91 @@ export default function CarCarousel({
   autoplay = false,
 }: CarCardProps) {
   const [cars] = useState<Car[]>([
-    {
-      id: 1,
-      name: "Nissan GT - R",
-      type: "Sport",
-      image: "/assets/car1.png",
-      fuel: "80L",
-      transmission: "Manual",
-      seats: "2 Seats",
-      monthlyOld: "Đ800/month",
-      monthly: "700/month",
-      dailyOld: "Đ90/day",
-      daily: "75/day",
-      limit: "250 km",
-    },
-    {
-      id: 2,
-      name: "Lamborghini",
-      type: "Luxury",
-      image: "/assets/car2.png",
-      fuel: "60L",
-      transmission: "Auto",
-      seats: "4 Seats",
-      monthlyOld: "Đ1200/month",
-      monthly: "1000/month",
-      dailyOld: "Đ150/day",
-      daily: "120/day",
-      limit: "300 km",
-    },
-    {
-      id: 3,
-      name: "Ferrari",
-      type: "Sport",
-      image: "/assets/car3.png",
-      fuel: "65L",
-      transmission: "Auto",
-      seats: "2 Seats",
-      monthlyOld: "Đ1500/month",
-      monthly: "1300/month",
-      dailyOld: "Đ200/day",
-      daily: "160/day",
-      limit: "200 km",
-    },
-     {
-      id: 4,
-      name: "Ferrari",
-      type: "Sport",
-      image: "/assets/car3.png",
-      fuel: "65L",
-      transmission: "Auto",
-      seats: "2 Seats",
-      monthlyOld: "Đ1500/month",
-      monthly: "1300/month",
-      dailyOld: "Đ200/day",
-      daily: "160/day",
-      limit: "200 km",
-    },
-     {
-      id: 5,
-      name: "Ferrari",
-      type: "Sport",
-      image: "/assets/car3.png",
-      fuel: "65L",
-      transmission: "Auto",
-      seats: "2 Seats",
-      monthlyOld: "Đ1500/month",
-      monthly: "1300/month",
-      dailyOld: "Đ200/day",
-      daily: "160/day",
-      limit: "200 km",
-    },
-    {
-      id: 6,
-      name: "Ferrari",
-      type: "Sport",
-      image: "/assets/car3.png",
-      fuel: "65L",
-      transmission: "Auto",
-      seats: "2 Seats",
-      monthlyOld: "Đ1500/month",
-      monthly: "1300/month",
-      dailyOld: "Đ200/day",
-      daily: "160/day",
-      limit: "200 km",
-    },
+      {
+    id: 1,
+    name: "Nissan GT - R",
+    type: "Sport",
+    images: ["/assets/c1.svg","/assets/c4.svg"], // 👈 multiple
+    fuel: "80L",
+    transmission: "Manual",
+    seats: "2 Seats",
+    monthlyOld: "Đ800/month",
+    monthly: "700/month",
+    dailyOld: "Đ90/day",
+    daily: "75/day",
+    limit: "250 km",
+  },
+  {
+    id: 2,
+    name: "Lamborghini",
+    type: "Luxury",
+    images: ["/assets/c5.svg", "/assets/c6.svg"], // 👈 multiple
+    fuel: "60L",
+    transmission: "Auto",
+    seats: "4 Seats",
+    monthlyOld: "Đ1200/month",
+    monthly: "1000/month",
+    dailyOld: "Đ150/day",
+    daily: "120/day",
+    limit: "300 km",
+  },
+  {
+    id: 3,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"], // 👈 multiple
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 4,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 5,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c4.svg", "/assets/c6.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+  {
+    id: 6,
+    name: "Ferrari",
+    type: "Sport",
+    images: ["/assets/c5.svg", "/assets/c4.svg"],
+    fuel: "65L",
+    transmission: "Auto",
+    seats: "2 Seats",
+    monthlyOld: "Đ1500/month",
+    monthly: "1300/month",
+    dailyOld: "Đ200/day",
+    daily: "160/day",
+    limit: "200 km",
+  },
+ 
 
 
   ]);
@@ -223,9 +225,52 @@ function CarCard({ car }: { car: Car }) {
   return (
     <div className="w-full max-w-[310px] h-auto rounded-[16px] overflow-hidden shadow-md bg-white flex flex-col pb-4 mx-auto">
       {/* Car Image */}
-      <div className="min-w-[280px] h-[260px] md:h-[292px] relative">
-        <Image src={car.image} alt={car.name} fill className="object-cover" />
-      </div>
+<div
+  className="min-w-[280px] h-[260px] md:h-[292px] relative"
+  onMouseMove={(e) => {
+    const swiperEl = (e.currentTarget.querySelector(".car-swiper") as any)?.swiper;
+    if (!swiperEl) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+
+    // Throttle to prevent too fast swipes
+    if (!swiperEl.lastHoverTime) swiperEl.lastHoverTime = 0;
+    const now = Date.now();
+    if (now - swiperEl.lastHoverTime < 600) return; // 600ms delay
+    swiperEl.lastHoverTime = now;
+
+    if (x > width / 2) {
+      swiperEl.slideNext();
+    } else {
+      swiperEl.slidePrev();
+    }
+  }}
+>
+  <Swiper
+    modules={[Pagination]}
+    pagination={{ clickable: true }}
+    loop={car.images.length > 1} // only loop if more than 1 image
+    slidesPerView={1}
+    className="h-full w-full car-swiper"
+  >
+    {car.images.map((img, i) => (
+      <SwiperSlide key={i}>
+        <Image
+          src={img}
+          alt={`${car.name}-${i}`}
+          fill
+          className="object-cover"
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+
+
+
+
 
       {/* Name + Heart */}
       <div className="w-full flex justify-between items-center px-4 mt-2">

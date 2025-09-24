@@ -44,7 +44,7 @@ export default function Page() {
 
         {/* Best Car Section */}
         <div className="w-full mx-auto pb-10">
-          <CarCarousel title="The Best Cars In Dubai" />
+          <CarCarousel title="The Best Cars In Dubai" autoplay={false} />
         </div>
 
         {/* Category Selector Section */}
