@@ -1,12 +1,12 @@
-import SearchBox from "./components/SearchBox";
-import CategoryTabs from "./components/CategoryTabs";
-import CarCarousel from "./components/CarCard";
-import BrandCard from "./components/BrandCard";
-import CategorySelector from "./components/CarCatogry";
-import Redcar from "./components/Redcar";
-import Whitecar from "./components/whitecar";
-import TopChoicesSection from "./topchoice";
-import Whitecarflip from "./components/whiteflip";
+import SearchBox from "@/app/components/home/SearchBox";
+import CategoryTabs from "@/app/components/home/CategoryTabs";
+import CarCarousel from "@/app/components/CarCarousel";
+import BrandCard from "@/app/components/home/BrandCard";
+import CategorySelector from "@/app/components/home/CarCatogry";
+import Redcar from "@/app/components/home/Redcar";
+import Whitecar from "@/app/components/home/whitecar";
+import TopChoicesSection from "@/app/components/home/topchoice";
+import Whitecarflip from "@/app/components/home/whiteflip";
 
 const fetchListings = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/listings`, {
@@ -22,7 +22,6 @@ const fetchListings = async () => {
 
 export default async function Page() {
   const pageData = await fetchListings();
-  console.log("page:pageData", pageData);
   return (
     <div>
       {/* Hero Section */}
@@ -47,8 +46,8 @@ export default async function Page() {
         </div>
 
         {/* Car Carousel Section */}
-        <div className="w-full mx-auto overflow-visible">
-          <CarCarousel uId={1} data={pageData} />
+        <div className="w-full mx-auto">
+          <CarCarousel uId={1} data={pageData?.listings?.docs} />
         </div>
 
         {/* Brand Section */}
@@ -58,11 +57,12 @@ export default async function Page() {
 
         {/* Best Car Section */}
         <div className="w-full mx-auto pb-10">
-          {/* <CarCarousel
+          <CarCarousel
             uId={2}
+            data={pageData?.listings?.docs}
             title="The Best Cars In Dubai"
             autoplay={false}
-          /> */}
+          />
         </div>
 
         {/* Category Selector Section */}
@@ -73,7 +73,7 @@ export default async function Page() {
         <div className="w-full mx-auto pb-3">
           <CarCarousel
             uId={3}
-            data={pageData}
+            data={pageData?.listings?.docs}
             arrows={false}
             autoplay={true}
             wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
@@ -86,7 +86,11 @@ export default async function Page() {
         </div>
 
         <div className="w-full mx-auto pb-3">
-          <CarCarousel uId={4} data={pageData} title="Popular Cars" />
+          <CarCarousel
+            uId={4}
+            data={pageData?.listings?.docs}
+            title="Popular Cars"
+          />
         </div>
 
         <div className="w-full mx-auto">
@@ -94,7 +98,7 @@ export default async function Page() {
         </div>
 
         <div className="w-full mx-auto">
-          <TopChoicesSection />
+          <TopChoicesSection data={pageData?.listings?.docs} />
         </div>
 
         <div className="w-full mx-auto pb-10">

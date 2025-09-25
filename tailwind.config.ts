@@ -1,12 +1,13 @@
 import type { Config } from "tailwindcss";
-import { Poppins } from "next/font/google";
+// import { Poppins } from "next/font/google";
 import plugin from "tailwindcss/plugin";
+// import animate from "tw-animate-css";
+import animate from "tailwindcss-animate";
+import scrollbar from "tailwind-scrollbar";
+import scrollbarHide from "tailwind-scrollbar-hide";
 
 const config: Config = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -15,8 +16,9 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tw-animate-css"), // ✅ existing animation plugin
-    require("tailwind-scrollbar"), // ✅ scrollbar plugin
+    animate, // ✅ existing animation plugin
+    scrollbar, // ✅ scrollbar plugin
+    scrollbarHide, // ✅ scrollbar hide plugin
     plugin(function ({ addUtilities }) {
       addUtilities({
         ".scrollbar-pretty": {

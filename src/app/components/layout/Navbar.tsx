@@ -3,31 +3,37 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  
-} from "./ui/dialog";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 
-
-
-import MultiStepForm from "./MultiStepForm";
-import signinSteps from "../data/signinSteps";
+import MultiStepForm from "@/app/components//MultiStepForm";
+import signinSteps from "@/app/data/signinSteps";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 export default function Navbar() {
   return (
     <div className="relative w-full mx-auto max-w-[1440px]">
       <header className="absolute top-0 md:top-6 left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[92%] h-[92px] md:h-[72px] flex items-center justify-between px-8 rounded-2xl backdrop-blur-md bg-white/10 border-b border-white/20 z-50">
-
         {/* Left Links */}
         <nav className="hidden lg:flex items-center space-x-8 text-white font-medium">
-          <Link href="/catalogue" className="md:text-xs lg:text-sm xl:text-base flex items-center space-x-1 hover:text-gray-200">
+          <Link
+            href="/catalogue"
+            className="md:text-xs lg:text-sm xl:text-base flex items-center space-x-1 hover:text-gray-200"
+          >
             <span>CATALOGUE</span>
             <span className="text-xs">▼</span>
           </Link>
-          <Link href="/about" className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200">ABOUT US</Link>
-          <Link href="/contacts" className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200">CONTACTS</Link>
+          <Link
+            href="/about"
+            className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
+          >
+            ABOUT US
+          </Link>
+          <Link
+            href="/contacts"
+            className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
+          >
+            CONTACTS
+          </Link>
         </nav>
 
         {/* Logo */}
@@ -48,16 +54,19 @@ export default function Navbar() {
           </div>
 
           {/* ✅ Login Button as DialogTrigger */}
-         {/* Login Button */}
+          {/* Login Button */}
           <Dialog>
             <DialogTrigger asChild>
-              <button className="bg-[#5c7c7c] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#486464]">
+              <button className="bg-[#5c7c7c] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#486464] cursor-pointer">
                 Log In
               </button>
             </DialogTrigger>
 
             {/* Minimal dialog content, only showing the form */}
             <DialogContent className="bg-transparent p-0 shadow-none border-0">
+              <div className="hidden">
+                <DialogTitle>LoremIpsum</DialogTitle>
+              </div>
               <MultiStepForm
                 title="Sign In"
                 steps={signinSteps}
@@ -69,7 +78,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <button className="cursor-pointer block lg:hidden">
-          <Image src="/assets/mobile-menu.svg" alt="mobile-menu" width={16} height={14} />
+          <Image
+            src="/assets/mobile-menu.svg"
+            alt="mobile-menu"
+            width={16}
+            height={14}
+          />
         </button>
       </header>
     </div>

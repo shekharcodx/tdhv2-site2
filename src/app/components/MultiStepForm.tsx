@@ -100,7 +100,7 @@ export default function MultiStepForm({
   const handleCancel = () => setCurrentStep(0);
 
   return (
-    <div className="bg-white w-full max-w-[95vw] sm:max-w-[480px] p-4 sm:p-6 md:p-8 rounded-xl shadow-lg max-h-[90vh] overflow-y-auto">
+    <div className="bg-white w-full max-w-[95vw] sm:max-w-[480px] p-4 sm:p-6 md:p-8 rounded-xl shadow-lg max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent">
       <h2 className="font-poppins text-[#263337] mb-6 font-normal text-[32px] leading-[120%] text-center uppercase">
         {title}
       </h2>
@@ -234,13 +234,13 @@ export default function MultiStepForm({
             <button
               type="button"
               onClick={handleCancel}
-              className="border border-[#89B4BA] text-[#263337] px-6 py-2 rounded-full hover:bg-gray-100 transition"
+              className="border border-[#89B4BA] text-[#263337] px-6 py-2 rounded-full hover:bg-gray-100 transition cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#263337] to-[#59787C] text-white px-6 py-2 rounded-full transition"
+              className="bg-gradient-to-r from-[#263337] to-[#59787C] text-white px-6 py-2 rounded-full transition cursor-pointer"
             >
               {currentStep === steps.length - 1 ? "Submit" : "Next"}
             </button>

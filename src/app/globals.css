@@ -53,7 +53,7 @@
   opacity: 1;
 }
 .custom-pagination .swiper-pagination-bullet-active {
-  background: #59787C; /* dark */ 
+  background: #59787c; /* dark */
 }
 :root {
   --gradient-background: linear-gradient(
@@ -139,12 +139,45 @@
 }
 /* Swiper pagination dots */
 .swiper-pagination-bullet {
-  background-color: #59787C !important; /* active & inactive dots */
+  background-color: #59787c !important; /* active & inactive dots */
   opacity: 0.7 !important;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #59787C !important; /* active dot */
+  background-color: #59787c !important; /* active dot */
   opacity: 1 !important;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Apply to all scrollbars */
+::-webkit-scrollbar {
+  width: 6px; /* vertical */
+  height: 6px; /* horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
