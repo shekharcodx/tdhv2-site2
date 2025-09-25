@@ -9,9 +9,12 @@ import TopChoicesSection from "@/app/components/home/topchoice";
 import Whitecarflip from "@/app/components/home/whiteflip";
 
 const fetchListings = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/listings`, {
-    cache: "no-store", // ensures fresh data (like getServerSideProps)
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/carsByCategories`,
+    {
+      cache: "no-store", // ensures fresh data (like getServerSideProps)
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch listings");
@@ -47,7 +50,7 @@ export default async function Page() {
 
         {/* Car Carousel Section */}
         <div className="w-full mx-auto">
-          <CarCarousel uId={1} data={pageData?.listings?.docs} />
+          <CarCarousel uId={1} data={pageData.data[0].allCars} />
         </div>
 
         {/* Brand Section */}
@@ -59,7 +62,7 @@ export default async function Page() {
         <div className="w-full mx-auto pb-10">
           <CarCarousel
             uId={2}
-            data={pageData?.listings?.docs}
+            data={pageData?.data[0]?.bestCars}
             title="The Best Cars In Dubai"
             autoplay={false}
           />
@@ -73,7 +76,7 @@ export default async function Page() {
         <div className="w-full mx-auto pb-3">
           <CarCarousel
             uId={3}
-            data={pageData?.listings?.docs}
+            data={pageData?.data[0]?.allCars}
             arrows={false}
             autoplay={true}
             wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
@@ -88,7 +91,7 @@ export default async function Page() {
         <div className="w-full mx-auto pb-3">
           <CarCarousel
             uId={4}
-            data={pageData?.listings?.docs}
+            data={pageData?.data[0]?.popularCars}
             title="Popular Cars"
           />
         </div>
@@ -98,7 +101,7 @@ export default async function Page() {
         </div>
 
         <div className="w-full mx-auto">
-          <TopChoicesSection data={pageData?.listings?.docs} />
+          <TopChoicesSection data={pageData?.data[0]?.topChoice} />
         </div>
 
         <div className="w-full mx-auto pb-10">

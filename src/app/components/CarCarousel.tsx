@@ -50,6 +50,7 @@ const CarCarousel = ({
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log("CarCarousel:data", data);
     setDomLoaded(true);
   }, []);
 
@@ -81,7 +82,7 @@ const CarCarousel = ({
             setIsEnd?.(swiper.isEnd);
           }}
           loop={false}
-          className="relative z-10 !pb-[5px]"
+          className="relative z-10 !pb-[5px] w-full"
           navigation={{
             prevEl: `.custom-prev-${uId}`,
             nextEl: `.custom-next-${uId}`,

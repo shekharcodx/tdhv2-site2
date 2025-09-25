@@ -23,7 +23,7 @@ export default function CategoryTabs() {
         shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.15)]
         bg-white
         overflow-y-auto
-        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']
+        scrollbar-hide
       "
     >
       {categories.map((cat, idx) => (
