@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Car Rental",
+  title: `Rent A Car | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
   description: "Car rental app with Next.js & Tailwind",
   icons: {
     icon: "/fav.png",
