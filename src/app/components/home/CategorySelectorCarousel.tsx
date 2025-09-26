@@ -47,10 +47,10 @@ const CategorySelectorCarousel = ({ data }: CategorySelectorCarouselProps) => {
         <CategorySelector
           activeTab={selectedTab}
           setActiveTab={setSelectedTab}
-          categories={data.map((cat) => ({
+          categories={data.map((cat, i) => ({
             id: cat._id,
             name: cat.name,
-            image: "/assets/c2.svg",
+            image: categories[i]?.image || "/assets/c2.svg",
           }))}
         />
       </div>
