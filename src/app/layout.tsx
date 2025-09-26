@@ -14,6 +14,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Car Rental",
   description: "Car rental app with Next.js & Tailwind",
+  icons: {
+    icon: "/fav.png",
+  },
 };
 
 export default function RootLayout({
