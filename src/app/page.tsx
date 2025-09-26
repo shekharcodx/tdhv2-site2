@@ -7,6 +7,7 @@ import Redcar from "@/app/components/home/Redcar";
 import Whitecar from "@/app/components/home/whitecar";
 import TopChoicesSection from "@/app/components/home/topchoice";
 import Whitecarflip from "@/app/components/home/whiteflip";
+import CategorySelectorCarousel from "./components/home/CategorySelectorCarousel";
 
 const fetchListings = async () => {
   const res = await fetch(
@@ -69,20 +70,7 @@ export default async function Page() {
         </div>
 
         {/* Category Selector Section */}
-        <div className="w-full mx-auto pb-10">
-          <CategorySelector />
-        </div>
-
-        <div className="w-full mx-auto pb-3">
-          <CarCarousel
-            uId={3}
-            data={pageData?.data[0]?.allCars}
-            arrows={false}
-            autoplay={true}
-            wrapperClasses="w-full mx-auto rounded-xl pt-7 relative bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
-            innerClasses="mx-4 sm:mx-7 pb-7"
-          />
-        </div>
+        <CategorySelectorCarousel data={pageData?.data[0]?.categories} />
 
         <div className="w-full mx-auto">
           <Redcar />

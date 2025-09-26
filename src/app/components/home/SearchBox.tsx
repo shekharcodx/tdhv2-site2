@@ -7,7 +7,7 @@ export default function SearchBox() {
           SEARCH THE CAR
         </h2>
         <button className="px-6 h-10  text-white rounded-full text-sm font-medium bg-[#59787C] transition">
-          BUY
+          RENT
         </button>
       </div>
 
