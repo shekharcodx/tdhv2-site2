@@ -2,6 +2,11 @@ export interface CarTypes {
   _id: string;
   vendor: {
     vendorDetails: {
+      contact: {
+        whatsappNum: string;
+        landlineNum: string;
+        mobileNum: string;
+      };
       businessName: string;
     };
   };
