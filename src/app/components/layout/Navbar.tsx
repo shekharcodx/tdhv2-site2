@@ -3,11 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogTitle,
+  DialogContent,
+  DialogHeader,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 import MultiStepForm from "@/app/components//MultiStepForm";
 import signinSteps from "@/app/data/signinSteps";
-import { DialogTitle } from "@radix-ui/react-dialog";
 
 export default function Navbar() {
   return (
@@ -64,9 +70,11 @@ export default function Navbar() {
 
             {/* Minimal dialog content, only showing the form */}
             <DialogContent className="bg-transparent p-0 shadow-none border-0">
-              <div className="hidden">
-                <DialogTitle>LoremIpsum</DialogTitle>
-              </div>
+              <DialogHeader>
+                <div className="hidden">
+                  <DialogTitle>LoremIpsum</DialogTitle>
+                </div>
+              </DialogHeader>
               <MultiStepForm
                 title="Sign In"
                 steps={signinSteps}

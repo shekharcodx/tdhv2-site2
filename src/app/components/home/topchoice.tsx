@@ -79,16 +79,18 @@ const TopChoicesSection = ({ data }: TopChoicesSectionProps) => {
             </div>
           )}
         </div>
-        <CarCarousel
-          uId={10}
-          swiperRef={swiperRef}
-          setIsBeginning={setIsBeginning}
-          setIsEnd={setIsEnd}
-          needWrapper={false}
-          arrows={false}
-          carouselBreakpoints={topChoiceCarouselBreakpoints}
-          data={data}
-        />
+        <div className="w-full mt-6 md:mt-0">
+          <CarCarousel
+            uId={10}
+            swiperRef={swiperRef}
+            setIsBeginning={setIsBeginning}
+            setIsEnd={setIsEnd}
+            needWrapper={false}
+            arrows={false}
+            carouselBreakpoints={topChoiceCarouselBreakpoints}
+            data={data}
+          />
+        </div>
       </div>
     </div>
   );

@@ -9,15 +9,15 @@ interface CategorySelectorProps {
   setActiveTab: (tab: string) => void;
 }
 
-export default function CategorySelector({
+const CategorySelector = ({
   categories,
   activeTab,
   setActiveTab,
-}: CategorySelectorProps) {
+}: CategorySelectorProps) => {
   return (
     <div
       className="
-        flex flex-wrap sm:flex-nowrap items-center justify-start sm:justify-between w-full mx-auto"
+        flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-center w-full mx-auto"
     >
       {categories.map((cat) => {
         const isActive = activeTab === cat.id;
@@ -53,4 +53,6 @@ export default function CategorySelector({
       })}
     </div>
   );
-}
+};
+
+export default CategorySelector;

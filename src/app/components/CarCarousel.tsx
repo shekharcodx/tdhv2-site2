@@ -17,7 +17,7 @@ import CarCardSkeleton from "./CarCardSkeleton";
 
 interface CarCardProps {
   uId: number;
-  tab?: string;
+  animateVal?: string;
   title?: string;
   wrapperStyle?: React.CSSProperties;
   wrapperClasses?: string;
@@ -35,7 +35,7 @@ interface CarCardProps {
 
 const CarCarousel = ({
   uId,
-  tab,
+  animateVal,
   title,
   wrapperStyle,
   wrapperClasses,
@@ -55,7 +55,7 @@ const CarCarousel = ({
   useEffect(() => {
     console.log("CarCarousel:data", data);
     setDomLoaded(true);
-  }, []);
+  }, [data]);
 
   const content = (
     <>
@@ -70,11 +70,12 @@ const CarCarousel = ({
       {domLoaded ? (
         <AnimatePresence mode="wait">
           <motion.div
-            key={tab}
+            key={animateVal}
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="w-full"
           >
             <Swiper
               observer={true}
