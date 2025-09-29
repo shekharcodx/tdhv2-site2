@@ -2,7 +2,7 @@ import SearchBox from "@/app/components/home/SearchBox";
 import CategoryTabs from "@/app/components/home/CategoryTabs";
 import CarCarousel from "@/app/components/CarCarousel";
 import BrandCard from "@/app/components/home/BrandCard";
-import CategorySelector from "@/app/components/home/CarCatogry";
+import CategorySelector from "@/app/components/home/CategorySelector";
 import Redcar from "@/app/components/home/Redcar";
 import Whitecar from "@/app/components/home/whitecar";
 import TopChoicesSection from "@/app/components/home/topchoice";
@@ -42,17 +42,12 @@ export default async function Page() {
 
       <div className="px-[16px] md:px-[32px] lg:px-[64px]">
         {/* Search by Category */}
-        <div className="w-full max-w-[1312px] mx-auto mt-[300px] md:mt-50 lg:mt-40">
-          <p className="text-base md:text-[25px] font-medium text-black mb-4 md:mb-6">
-            Search By Category
-          </p>
-          <CategoryTabs />
-        </div>
-
-        {/* Car Carousel Section */}
-        <div className="w-full mx-auto">
-          <CarCarousel uId={1} data={pageData.data[0].allCars} />
-        </div>
+        <CategorySelectorCarousel
+          selectorType="tabs1"
+          data={pageData?.data[0]?.categories}
+          wrapperClasses=""
+          innerClasses=""
+        />
 
         {/* Brand Section */}
         <div className="w-full mx-auto">
@@ -70,7 +65,11 @@ export default async function Page() {
         </div>
 
         {/* Category Selector Section */}
-        <CategorySelectorCarousel data={pageData?.data[0]?.categories} />
+        <CategorySelectorCarousel
+          selectorType="tabs2"
+          animateSection={true}
+          data={pageData?.data[0]?.categories}
+        />
 
         <div className="w-full mx-auto">
           <Redcar />

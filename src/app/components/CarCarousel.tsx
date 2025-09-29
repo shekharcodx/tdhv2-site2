@@ -18,6 +18,7 @@ import CarCardSkeleton from "./CarCardSkeleton";
 interface CarCardProps {
   uId: number;
   animateVal?: string;
+  animateSection?: boolean;
   title?: string;
   wrapperStyle?: React.CSSProperties;
   wrapperClasses?: string;
@@ -36,6 +37,7 @@ interface CarCardProps {
 const CarCarousel = ({
   uId,
   animateVal,
+  animateSection = false,
   title,
   wrapperStyle,
   wrapperClasses,
@@ -68,49 +70,38 @@ const CarCarousel = ({
       )}
 
       {domLoaded ? (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={animateVal}
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -50, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="w-full"
-          >
-            <Swiper
-              observer={true}
-              observeParents={true}
-              watchOverflow={true}
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={12}
-              slidesPerView={4}
-              onBeforeInit={(swiper) => {
-                if (swiperRef) {
-                  swiperRef.current = swiper;
-                }
-              }}
-              onSlideChange={(swiper) => {
-                setIsBeginning?.(swiper.isBeginning);
-                setIsEnd?.(swiper.isEnd);
-              }}
-              loop={false}
-              className="relative z-10 !pb-[5px] w-full"
-              navigation={{
-                prevEl: `.custom-prev-${uId}`,
-                nextEl: `.custom-next-${uId}`,
-              }}
-              pagination={{
-                el: `.custom-pagination-${uId}`,
-                clickable: true,
-              }}
-              autoplay={
-                autoplay
-                  ? { delay: 3000, disableOnInteraction: false }
-                  : undefined
-              }
-              breakpoints={carouselBreakpoints}
-            >
-              {/* <AnimatePresence mode="wait">
+        <Swiper
+          observer={true}
+          observeParents={true}
+          watchOverflow={true}
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={12}
+          slidesPerView={4}
+          onBeforeInit={(swiper) => {
+            if (swiperRef) {
+              swiperRef.current = swiper;
+            }
+          }}
+          onSlideChange={(swiper) => {
+            setIsBeginning?.(swiper.isBeginning);
+            setIsEnd?.(swiper.isEnd);
+          }}
+          loop={false}
+          className="relative z-10 !pb-[5px] w-full"
+          navigation={{
+            prevEl: `.custom-prev-${uId}`,
+            nextEl: `.custom-next-${uId}`,
+          }}
+          pagination={{
+            el: `.custom-pagination-${uId}`,
+            clickable: true,
+          }}
+          autoplay={
+            autoplay ? { delay: 3000, disableOnInteraction: false } : undefined
+          }
+          breakpoints={carouselBreakpoints}
+        >
+          {/* <AnimatePresence mode="wait">
             <motion.div
               key={tab} // 👈 only re-animate the whole slide group
               initial={{ y: 50, opacity: 0 }}
@@ -119,30 +110,28 @@ const CarCarousel = ({
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="contents" // 👈 lets children (slides) render normally
             > */}
-              {domLoaded
-                ? data?.map((car: CarTypes) => (
-                    <SwiperSlide key={car._id}>
-                      {/* <motion.div
+          {domLoaded
+            ? data?.map((car: CarTypes) => (
+                <SwiperSlide key={car._id}>
+                  {/* <motion.div
                     key={tab + car._id}
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -50, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   > */}
-                      <CarCard car={car} />
-                      {/* </motion.div> */}
-                    </SwiperSlide>
-                  ))
-                : Array.from({ length: 4 }).map((_, idx) => (
-                    <SwiperSlide key={idx}>
-                      <CarCardSkeleton />
-                    </SwiperSlide>
-                  ))}
-              {/* </motion.div>
+                  <CarCard car={car} />
+                  {/* </motion.div> */}
+                </SwiperSlide>
+              ))
+            : Array.from({ length: 4 }).map((_, idx) => (
+                <SwiperSlide key={idx}>
+                  <CarCardSkeleton />
+                </SwiperSlide>
+              ))}
+          {/* </motion.div>
           </AnimatePresence> */}
-            </Swiper>
-          </motion.div>
-        </AnimatePresence>
+        </Swiper>
       ) : (
         <div className="flex overflow-x-auto gap-3 px-1 scrollbar-hide">
           {Array.from({ length: 4 }).map((_, idx) => (
@@ -184,7 +173,7 @@ const CarCarousel = ({
 
   if (!needWrapper) return content;
 
-  return (
+  const wrapperContent = (
     <div
       className={
         wrapperClasses ? wrapperClasses : "w-full pt-4 md:pt-10 relative"
@@ -198,6 +187,23 @@ const CarCarousel = ({
         {content}
       </div>
     </div>
+  );
+
+  if (!animateSection) return wrapperContent;
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={animateVal}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -50, opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="w-full"
+      >
+        {wrapperContent}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

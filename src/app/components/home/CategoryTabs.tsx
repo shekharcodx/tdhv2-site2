@@ -1,18 +1,30 @@
 "use client";
-import { useState } from "react";
 
-export default function CategoryTabs() {
-  const categories = [
-    "Economy Cars",
-    "Luxury Cars Rental Dubai",
-    "Sports Cars Rental Dubai",
-    "Muscle Cars",
-    "Special Edition",
-    "No Deposit Cars",
-    "Electric Cars",
-  ];
+// import { useState } from "react";
+import { type Category } from "./CategorySelectorCarousel";
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+interface CategoryTabsProps {
+  categories: Category[];
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+const CategoryTabs = ({
+  categories,
+  activeTab,
+  setActiveTab,
+}: CategoryTabsProps) => {
+  // const categories = [
+  //   "Economy Cars",
+  //   "Luxury Cars Rental Dubai",
+  //   "Sports Cars Rental Dubai",
+  //   "Muscle Cars",
+  //   "Special Edition",
+  //   "No Deposit Cars",
+  //   "Electric Cars",
+  // ];
+
+  // const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
     <div
@@ -26,24 +38,29 @@ export default function CategoryTabs() {
         scrollbar-hide
       "
     >
-      {categories.map((cat, idx) => (
-        <button
-          key={idx}
-          onClick={() => setActiveIndex(idx)}
-          className={`
+      {categories.map((cat, idx) => {
+        const isActive = activeTab === cat.id;
+        return (
+          <button
+            key={idx}
+            onClick={() => setActiveTab(cat.id)}
+            className={`
             flex-1 flex items-center justify-center
             text-sm font-medium whitespace-nowrap cursor-pointer
             h-[40px] px-4 py-1 rounded-full transition
             ${
-              activeIndex === idx
+              isActive
                 ? "text-white bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
                 : "text-gray-800 hover:text-white hover:bg-[linear-gradient(83.62deg,#59787C_5.03%,#263337_205.27%)]"
             }
           `}
-        >
-          {cat}
-        </button>
-      ))}
+          >
+            {cat.name}
+          </button>
+        );
+      })}
     </div>
   );
-}
+};
+
+export default CategoryTabs;

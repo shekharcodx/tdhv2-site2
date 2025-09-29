@@ -27,7 +27,7 @@ const TopChoicesSection = ({ data }: TopChoicesSectionProps) => {
     <div className="py-6 md:py-12">
       <div className="max-w-[1312px] mx-auto block md:flex justify-between">
         {/* Left Section */}
-        <div className="w-[320px] flex flex-col gap-3 md:gap-6 font-[poppins]">
+        <div className="w-full md:w-[30%] flex flex-col gap-3 md:gap-6 font-[poppins]">
           <h2 className="text-base md:text-[22px] font-extrabold text-[#263238] uppercase">
             Top Choices
           </h2>
@@ -79,7 +79,7 @@ const TopChoicesSection = ({ data }: TopChoicesSectionProps) => {
             </div>
           )}
         </div>
-        <div className="w-full mt-6 md:mt-0">
+        <div className="w-full md:w-[70%] mt-6 md:mt-0">
           <CarCarousel
             uId={10}
             swiperRef={swiperRef}
