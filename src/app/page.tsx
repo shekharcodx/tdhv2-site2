@@ -66,6 +66,7 @@ export default async function Page() {
         <CategorySelectorCarousel
           selectorType="tabs2"
           animateSection={true}
+          arrows={false}
           data={pageData?.data[0]?.categories}
         />
 
