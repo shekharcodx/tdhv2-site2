@@ -1,8 +1,6 @@
 import SearchBox from "@/app/components/home/SearchBox";
-import CategoryTabs from "@/app/components/home/CategoryTabs";
 import CarCarousel from "@/app/components/CarCarousel";
-import BrandCard from "@/app/components/home/BrandCard";
-import CategorySelector from "@/app/components/home/CategorySelector";
+import BrandCarousel from "@/app/components/home/BrandCarousel";
 import Redcar from "@/app/components/home/Redcar";
 import Whitecar from "@/app/components/home/whitecar";
 import TopChoicesSection from "@/app/components/home/topchoice";
@@ -51,7 +49,7 @@ export default async function Page() {
 
         {/* Brand Section */}
         <div className="w-full mx-auto">
-          <BrandCard data={pageData?.data[0]?.carBrands} />
+          <BrandCarousel data={pageData?.data[0]?.carBrands} />
         </div>
 
         {/* Best Car Section */}
