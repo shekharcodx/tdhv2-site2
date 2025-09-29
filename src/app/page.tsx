@@ -51,7 +51,7 @@ export default async function Page() {
 
         {/* Brand Section */}
         <div className="w-full mx-auto">
-          <BrandCard />
+          <BrandCard data={pageData?.data[0]?.carBrands} />
         </div>
 
         {/* Best Car Section */}
