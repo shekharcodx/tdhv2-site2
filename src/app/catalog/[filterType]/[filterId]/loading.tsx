@@ -17,7 +17,7 @@ const Loading = () => {
 
         <SearchSkeleton />
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="px-[16px] md:px-[32px] lg:px-[64px] mt-[120px] mb-[20px]">
         {Array.from({ length: 6 }).map((_, i) => (
           <CatalogCardSkeleton key={i} />
         ))}
