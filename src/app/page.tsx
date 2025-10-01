@@ -1,25 +1,32 @@
-import SearchBox from "@/app/components/home/SearchBox";
-import CarCarousel from "@/app/components/CarCarousel";
-import BrandCarousel from "@/app/components/home/BrandCarousel";
-import Redcar from "@/app/components/home/Redcar";
-import Whitecar from "@/app/components/home/whitecar";
-import TopChoicesSection from "@/app/components/home/topchoice";
-import Whitecarflip from "@/app/components/home/whiteflip";
-import CategorySelectorCarousel from "./components/home/CategorySelectorCarousel";
+import SearchBox from "@/components/home/SearchBox";
+import CarCarousel from "@/components/CarCarousel";
+import BrandCarousel from "@/components/home/BrandCarousel";
+import Redcar from "@/components/home/Redcar";
+import Whitecar from "@/components/home/whitecar";
+import TopChoicesSection from "@/components/home/topchoice";
+import Whitecarflip from "@/components/home/whiteflip";
+import CategorySelectorCarousel from "../components/home/CategorySelectorCarousel";
+import { notFound } from "next/navigation";
 
 const fetchListings = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/carsByCategories`,
-    {
-      cache: "no-store", // ensures fresh data (like getServerSideProps)
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/home-page/data`,
+      {
+        cache: "no-store", // ensures fresh data (like getServerSideProps)
+      }
+    );
+    if (res.status === 404) {
+      notFound();
     }
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch listings");
+    if (!res.ok) {
+      throw new Error(`Failed to fetch listings. Status: ${res.status}`);
+    }
+    return res.json();
+  } catch (err) {
+    console.error("Fetch error:", err);
+    throw err;
   }
-
-  return res.json();
 };
 
 export default async function Page() {

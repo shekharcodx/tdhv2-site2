@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import Link from "next/link";
 
 // const brands = [
 //   { id: 1, name: "Volvo", logo: "/assets/volvo.svg" },
@@ -65,7 +66,10 @@ const BrandCarousel = ({ data }: BrandCarouselProps) => {
       >
         {data?.map((brand, idx) => (
           <SwiperSlide key={idx} className="!w-auto">
-            <div className="flex flex-col items-center">
+            <Link
+              href={`catalog/brands/${brand._id}`}
+              className="flex flex-col items-center"
+            >
               <div className="flex items-center justify-center w-28 h-28 rounded-xl bg-white shadow-lg hover:shadow-2xl transition cursor-pointer">
                 <Image
                   src={brand.logo?.url}
@@ -76,7 +80,7 @@ const BrandCarousel = ({ data }: BrandCarouselProps) => {
                 />
               </div>
               <p className="text-sm text-[#928B8B] mt-2">{brand.name}</p>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

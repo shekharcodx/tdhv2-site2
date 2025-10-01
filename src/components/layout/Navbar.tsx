@@ -12,8 +12,8 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 
-import MultiStepForm from "@/app/components//MultiStepForm";
-import signinSteps from "@/app/data/signinSteps";
+import MultiStepForm from "@/components/MultiStepForm";
+import signinSteps from "@/data/signinSteps";
 
 export default function Navbar() {
   return (
