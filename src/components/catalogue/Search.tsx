@@ -1,4 +1,4 @@
-export default function SearchBox() {
+export default function Search() {
   return (
     <div className="absolute top-[80%] md:top-[unset] md:bottom-0 md:translate-y-1/2 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-64px)] lg:w-[calc(100%-128px)] h-[336px] sm:h-[260px] md:h-[300px] lg:h-[202px] bg-white rounded-[24px] p-4 md:p-6 shadow-lg flex flex-col justify-between gap-6">
       {/* Header Row */}
