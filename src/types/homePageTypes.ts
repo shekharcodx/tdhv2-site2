@@ -28,6 +28,7 @@ export interface CarTypes {
     carInsurance: string;
     dailyMileage: number;
     monthlyMileage: number;
+    coverImage: { url: string };
     images: [{ url: string }];
   };
 }

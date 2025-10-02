@@ -7,7 +7,7 @@ import { type CarTypes } from "@/types/homePageTypes";
 import "swiper/css";
 import "swiper/css/navigation";
 import { topChoiceCarouselBreakpoints } from "@/util/carouselBreakpoints";
-import CarCarousel from "@/app/components/CarCarousel";
+import CarCarousel from "@/components/CarCarousel";
 
 interface TopChoicesSectionProps {
   data: CarTypes[];
