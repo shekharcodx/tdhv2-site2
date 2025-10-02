@@ -43,11 +43,11 @@ export default function Page() {
   return (
    <div>
          {/* Hero Section */}
-         <div className="relative w-full h-[280px] md:h-[600px] mx-auto bg-[url(/assets/back.jpg)] bg-cover bg-center">
+         <div className="relative w-full h-[280px] md:h-[600px] mx-auto bg-[url(/assets/cat.svg)] bg-cover bg-center">
            {/* Hero Title */}
-           <div className="flex justify-center items-center w-full max-w-[1312px] h-full text-white">
-             <h1 className="text-base font-bold md:text-[25px] md:font-semibold text-center">
-               FIND YOUR DREAM CAR
+           <div className="flex justify-center items-center w-full max-w-[1312px] h-full justify-start ml-[60px] text-white">
+             <h1 className="text-3xl font-bold md:text-[50px] md:font-bold text-center justify-start">
+               CATALOGUE
              </h1>
            </div>
            {/* Search Box */}
