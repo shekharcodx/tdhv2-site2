@@ -32,3 +32,20 @@ export interface CarTypes {
     images: [{ url: string }];
   };
 }
+
+export interface Car {
+  id: number;
+  name: string;
+  brand: string;
+  dailyPrice: number;
+  weeklyPrice: number;
+  monthlyPrice: number;
+  image: string;
+  rating: number;
+  reviews: number;
+  seats: number;
+  transmission: string;
+  providerName: string;
+  providerLogo: string;
+  isVerified: boolean;
+}

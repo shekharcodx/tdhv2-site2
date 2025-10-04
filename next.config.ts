@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "drivehub-uploads.s3.eu-north-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
     ],
   },
 };
