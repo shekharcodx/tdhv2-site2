@@ -34,7 +34,7 @@ export default async function Page() {
       {/* Hero Section */}
       <section className="relative w-full h-[280px] md:h-[600px] mx-auto bg-[url(/assets/back.jpg)] bg-cover bg-center">
         {/* Hero Title */}
-        <div className="flex justify-center items-center w-full  h-full text-white">
+        <div className="flex justify-center items-center w-full  max-w-none h-full text-white">
           <h1 className="text-base font-bold md:text-[25px] md:font-semibold text-center">
             FIND YOUR DREAM CAR
           </h1>

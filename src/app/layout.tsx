@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} !bg-off-white max-w-[1312px] mx-auto`}
+        className={`${poppins.className} !bg-off-white  mx-auto`}
       >
         <Navbar /> {/* Navbar will manage modal itself */}
         {children}
