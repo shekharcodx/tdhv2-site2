@@ -1,24 +1,30 @@
 import type { Config } from "tailwindcss";
-// import { Poppins } from "next/font/google";
 import plugin from "tailwindcss/plugin";
-// import animate from "tw-animate-css";
 import animate from "tailwindcss-animate";
 import scrollbar from "tailwind-scrollbar";
 import scrollbarHide from "tailwind-scrollbar-hide";
 
 const config: Config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}" // ✅ Add if you use src/
+  ],
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["var(--font-poppins)", "sans-serif"], // ✅ register Poppins
+        poppins: ["var(--font-poppins)", "sans-serif"],
+      },
+      colors: {
+        // ✅ Your custom color
+        'slate-teal': '#22b5b1',
       },
     },
   },
   plugins: [
-    animate, // ✅ existing animation plugin
-    scrollbar, // ✅ scrollbar plugin
-    scrollbarHide, // ✅ scrollbar hide plugin
+    animate,
+    scrollbar,
+    scrollbarHide,
     plugin(function ({ addUtilities }) {
       addUtilities({
         ".scrollbar-pretty": {

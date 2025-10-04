@@ -6,7 +6,8 @@ import Whitecar from "@/components/home/whitecar";
 import TopChoicesSection from "@/components/home/topchoice";
 import Whitecarflip from "@/components/home/whiteflip";
 import CategorySelectorCarousel from "../components/home/CategorySelectorCarousel";
-import { notFound } from "next/navigation";
+import { notFound } from "next/navigation"; 
+import HeroFormLayout from "@/components/home/hero";
 
 const fetchListings = async () => {
   try {
@@ -42,7 +43,7 @@ export default async function Page() {
           </h1>
         </div>
         {/* Search Box */}
-        <SearchBox />
+        <HeroFormLayout />
       </div>
 
       <div className="px-[16px] md:px-[32px] lg:px-[64px]">
