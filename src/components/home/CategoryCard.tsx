@@ -1,29 +1,61 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { CarTypes } from "@/types/homePageTypes";
 
 interface CategoryCardProps {
+  // category: {
+  //   link: string;
+  //   image: string;
+  //   count: string;
+  //   name: string;
+  //   description: string;
+  // };
   category: {
-    link: string;
-    image: string;
-    count: string;
+    _id: string;
     name: string;
-    description: string;
+    cars: CarTypes[];
+    totalCars: number;
   };
+  image: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   index: number;
 }
 
-const CategoryCard = ({ category, Icon, index }: CategoryCardProps) => {
+const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
+  const getCarCountLabel = (totalCars: number): string => {
+    console.log("CategoryCard:totalCars", totalCars);
+
+    if (totalCars === 0) return "0";
+
+    const thresholds = [
+      2, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+      95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150,
+    ];
+
+    // If totalCars is less than the first threshold
+    if (totalCars < thresholds[0]) return `${thresholds[0]}+`;
+
+    // Find the largest threshold less than or equal to totalCars
+    const matched = thresholds.filter((t) => totalCars >= t).pop();
+
+    // If totalCars exceeds all thresholds
+    if (totalCars > thresholds[thresholds.length - 1]) {
+      return `${thresholds[thresholds.length - 1]}+`;
+    }
+
+    return `${matched}+`;
+  };
+
   return (
     <Link
-      href={category.link}
+      href={category._id}
       className="flex-shrink-0 group relative h-[420px] w-full sm:w-[285px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-scale-in"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
         style={{
-          backgroundImage: `url(${category.image})`,
+          backgroundImage: `url(${image})`,
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/80 to-dark-base/20" />
@@ -32,21 +64,21 @@ const CategoryCard = ({ category, Icon, index }: CategoryCardProps) => {
       <div className="relative h-full flex flex-col justify-between p-6">
         <div className="flex justify-end">
           <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20 group-hover:bg-slate-teal group-hover:border-slate-teal transition-all duration-300 group-hover:scale-110">
-            <Icon className="w-6 h-6 text-white" />
+            {Icon && <Icon className="w-6 h-6 text-white" />}
           </div>
         </div>
 
         <div className="transform transition-all duration-500 group-hover:-translate-y-2">
           <div className="min-h-[160px]">
             <div className="inline-block px-4 py-1.5 bg-slate-teal/90 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
-              {category.count}
+              {`${getCarCountLabel(category.totalCars)} Cars`}
             </div>
             <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
               {category.name}
             </h3>
-            <p className="text-white/90 text-base mb-4 font-medium">
+            {/* <p className="text-white/90 text-base mb-4 font-medium">
               {category.description}
-            </p>
+            </p> */}
           </div>
           <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all duration-300">
             <span>Explore Collection</span>

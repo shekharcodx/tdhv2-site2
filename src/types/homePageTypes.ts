@@ -11,9 +11,11 @@ export interface CarTypes {
     };
   };
   rentPerDay: number;
+  rentPerWeek: number;
   rentPerMonth: number;
   title: string;
   minRentalDays: number;
+  isPremium: boolean;
   car: {
     carBrand: {
       name: string;

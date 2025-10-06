@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import CarCard from "./CarCard";
-import { type Car } from "@/types/homePageTypes";
+import { type CarTypes, type Car } from "@/types/homePageTypes";
 import Link from "next/link";
 
 interface Cars {
-  cars: Car[];
+  cars: CarTypes[];
   sectionTypeTitle?: boolean;
   sectionTitle: string;
   sectionDescription: string;
@@ -187,7 +187,7 @@ export default function CarsCarousel({
             //   className="animate-slide-up w-full"
             //   style={{ animationDelay: `${index * 0.1}s` }}
             // >
-            <CarCard key={index} {...car} />
+            <CarCard key={index} car={car} />
             // </div>
           ))}
         </div>

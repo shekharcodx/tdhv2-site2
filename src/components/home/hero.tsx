@@ -2,7 +2,23 @@
 
 import { Search, Calendar, MapPin, DollarSign, Car } from "lucide-react";
 
-export default function HeroFormLayout() {
+interface SearchFormProps {
+  brands: [
+    {
+      _id: string;
+      name: string;
+      logo: { url: string };
+    }
+  ];
+  categories: [
+    {
+      _id: string;
+      name: string;
+    }
+  ];
+}
+
+const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
   return (
     <div className="w-full absolute top-[80%] md:top-[unset] md:bottom-0 md:translate-y-1/2 left-1/2 -translate-x-1/2 ">
       <div className="w-[calc(100%-32px)] sm:w-[calc(100%-128px)] backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-slide-up border border-soft-grey/20 mx-auto">
@@ -21,12 +37,11 @@ export default function HeroFormLayout() {
                 <Car className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
                 <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
                   <option>All Brands</option>
-                  <option>Lamborghini</option>
-                  <option>Ferrari</option>
-                  <option>Porsche</option>
-                  <option>Bentley</option>
-                  <option>Rolls-Royce</option>
-                  <option>McLaren</option>
+                  {brands?.map((brand, i) => (
+                    <option key={i} value={brand._id}>
+                      {brand.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -40,11 +55,11 @@ export default function HeroFormLayout() {
                 <Car className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
                 <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
                   <option>All Types</option>
-                  <option>Sports Car</option>
-                  <option>SUV</option>
-                  <option>Sedan</option>
-                  <option>Convertible</option>
-                  <option>Coupe</option>
+                  {categories?.map((category, i) => (
+                    <option key={i} value={category._id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -135,4 +150,6 @@ export default function HeroFormLayout() {
       </div>
     </div>
   );
-}
+};
+
+export default HeroFormLayout;

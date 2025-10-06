@@ -12,6 +12,18 @@ import {
 import Link from "next/link";
 import CategoryCard from "./CategoryCard";
 import { useEffect, useRef, useState } from "react";
+import { type CarTypes } from "@/types/homePageTypes";
+
+interface CategoriesProps {
+  data: [
+    {
+      _id: string;
+      name: string;
+      cars: CarTypes[];
+      totalCars: number;
+    }
+  ];
+}
 
 const categories = [
   {
@@ -77,18 +89,9 @@ const categories = [
       "https://images.pexels.com/photos/3802508/pexels-photo-3802508.jpeg?auto=compress&cs=tinysrgb&w=800",
     link: "/catalog?type=suv",
   },
-  {
-    icon: DollarSign,
-    name: "Premium Sedans",
-    description: "Elegance in every detail",
-    count: "80+ Cars",
-    image:
-      "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=sedan",
-  },
 ];
 
-const CategoriesSection = () => {
+const CategoriesSection = ({ data }: CategoriesProps) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -182,12 +185,14 @@ const CategoriesSection = () => {
           className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-6"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {categories.map((category, index) => {
-            const Icon = category.icon;
+          {data.map((category, index) => {
+            const Icon = categories[index]?.icon;
+            const image = categories[index]?.image;
             return (
               <CategoryCard
                 key={index}
                 category={category}
+                image={image}
                 Icon={Icon}
                 index={index}
               />
