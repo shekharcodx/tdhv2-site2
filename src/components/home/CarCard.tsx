@@ -25,11 +25,11 @@ export default function CarCard({ car }: CarCardProps) {
   const [selectedPeriod, setSelectedPeriod] = useState<
     "daily" | "weekly" | "monthly"
   >("daily");
-  const [imgSrc, setImgSrc] = useState("/assets/car_placeholder.jpg");
+  const [imgSrc, setImgSrc] = useState("/assets/car_placeholder.png");
 
   useEffect(() => {
     if (car) {
-      setImgSrc(car.car.images[0]?.url || "/assets/car_placeholder.jpg");
+      setImgSrc(car.car.images[0]?.url || "/assets/car_placeholder.png");
     }
   }, [car]);
 
