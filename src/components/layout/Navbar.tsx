@@ -22,20 +22,20 @@ export default function Navbar() {
         {/* Left Links */}
         <nav className="hidden lg:flex items-center space-x-8 text-white font-medium">
           <Link
-            href="/catalogue"
+            href="#"
             className="md:text-xs lg:text-sm xl:text-base flex items-center space-x-1 hover:text-gray-200"
           >
             <span>CATALOGUE</span>
             <span className="text-xs">▼</span>
           </Link>
           <Link
-            href="/about"
+            href="#"
             className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
           >
             ABOUT US
           </Link>
           <Link
-            href="/contacts"
+            href="#"
             className="md:text-xs lg:text-sm xl:text-base hover:text-gray-200"
           >
             CONTACTS

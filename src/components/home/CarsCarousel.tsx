@@ -194,7 +194,7 @@ export default function CarsCarousel({
 
         <div className="mt-12 text-center animate-fade-in">
           <Link
-            href="/catalog"
+            href="#"
             className="inline-flex items-center gap-2 bg-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Cars</span>

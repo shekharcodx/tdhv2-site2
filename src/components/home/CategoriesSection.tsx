@@ -33,7 +33,7 @@ const categories = [
     count: "120+ Cars",
     image:
       "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=luxury",
+    link: "#",
   },
   {
     icon: Zap,
@@ -42,7 +42,7 @@ const categories = [
     count: "60+ Cars",
     image:
       "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=sports",
+    link: "#",
   },
   {
     icon: Truck,
@@ -51,7 +51,7 @@ const categories = [
     count: "95+ Cars",
     image:
       "https://images.pexels.com/photos/3802508/pexels-photo-3802508.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=suv",
+    link: "#",
   },
   {
     icon: DollarSign,
@@ -60,7 +60,7 @@ const categories = [
     count: "80+ Cars",
     image:
       "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=sedan",
+    link: "#",
   },
   {
     icon: Car,
@@ -69,7 +69,7 @@ const categories = [
     count: "120+ Cars",
     image:
       "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=luxury",
+    link: "#",
   },
   {
     icon: Zap,
@@ -78,7 +78,7 @@ const categories = [
     count: "60+ Cars",
     image:
       "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=sports",
+    link: "#",
   },
   {
     icon: Truck,
@@ -87,7 +87,7 @@ const categories = [
     count: "95+ Cars",
     image:
       "https://images.pexels.com/photos/3802508/pexels-photo-3802508.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/catalog?type=suv",
+    link: "#",
   },
 ];
 
@@ -202,7 +202,7 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
 
         <div className="mt-16 text-center animate-fade-in">
           <Link
-            href="/catalog"
+            href="#"
             className="inline-flex items-center gap-2 bg-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Vehicles</span>
