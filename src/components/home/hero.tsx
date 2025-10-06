@@ -5,7 +5,7 @@ import { Search, Calendar, MapPin, DollarSign, Car } from "lucide-react";
 export default function HeroFormLayout() {
   return (
     <div className="w-full absolute top-[80%] md:top-[unset] md:bottom-0 md:translate-y-1/2 left-1/2 -translate-x-1/2 ">
-      <div className="w-[calc(100%-128px)] backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-slide-up border border-soft-grey/20 mx-auto">
+      <div className="w-[calc(100%-32px)] sm:w-[calc(100%-128px)] backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-slide-up border border-soft-grey/20 mx-auto">
         <h2 className="text-2xl font-semibold text-dark-base mb-6 text-center lg:text-left">
           Find Your Perfect Ride
         </h2>

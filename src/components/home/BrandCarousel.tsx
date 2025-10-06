@@ -39,7 +39,8 @@ const BrandCarousel = () => {
           Browse by Brand
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Find the perfect vehicle from our curated collection of premium brands.
+          Find the perfect vehicle from our curated collection of premium
+          brands.
         </p>
       </div>
 
@@ -59,8 +60,8 @@ const BrandCarousel = () => {
         allowTouchMove={false}
         className="px-4"
       >
-        {loopItems.map((brand) => (
-          <SwiperSlide key={brand.id} className="!w-auto">
+        {loopItems.map((brand, i) => (
+          <SwiperSlide key={i} className="!w-auto">
             <Link
               href={`/catalog/brands/${brand.id}`}
               className="flex flex-col items-center"

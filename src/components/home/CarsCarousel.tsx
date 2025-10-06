@@ -60,9 +60,9 @@ export default function CarsCarousel({
   //   };
 
   const scroll = (direction: "left" | "right") => {
-    if (!carouselSectionRef.current) return;
+    if (typeof window === "undefined" || !carouselSectionRef.current) return;
 
-    const scrollAmount = 420;
+    const scrollAmount = window.innerWidth < 640 ? window.innerWidth - 8 : 400;
     const newPosition =
       direction === "left"
         ? carouselSectionRef.current.scrollLeft - scrollAmount
@@ -130,7 +130,7 @@ export default function CarsCarousel({
               {sectionDescription}
             </p>
           </div>
-          <div className="flex gap-3 animate-fade-in">
+          <div className="flex ml-auto gap-3 animate-fade-in">
             <button
               onClick={() => scroll("left")}
               disabled={isAtStart}
@@ -182,13 +182,13 @@ export default function CarsCarousel({
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {cars.map((car, index) => (
-            <div
-              key={car.id}
-              className="animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CarCard {...car} />
-            </div>
+            // <div
+            //   key={car.id}
+            //   className="animate-slide-up w-full"
+            //   style={{ animationDelay: `${index * 0.1}s` }}
+            // >
+            <CarCard key={index} {...car} />
+            // </div>
           ))}
         </div>
 

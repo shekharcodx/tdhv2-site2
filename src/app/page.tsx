@@ -43,7 +43,7 @@ export default async function Page() {
         <HeroFormLayout />
       </section>
 
-      <section className="py-16 bg-white mt-[300px]">
+      <section className="py-16 bg-white mt-[900px] sm:mt-[300px]">
         <FeatureCards />
       </section>
 
@@ -51,10 +51,9 @@ export default async function Page() {
         <CategoriesSection />
       </section>
 
-        <section className="py-24 bg-gradient-to-b from-off-white to-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-off-white to-white relative overflow-hidden">
         <BrandCarousel />
       </section>
-
 
       <section className="py-24 bg-gradient-to-b from-off-white to-white relative overflow-hidden">
         <CarsCarousel
@@ -88,7 +87,7 @@ export default async function Page() {
           buttonsColor="#fff"
         />
       </section>
-       <section className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <CarsCarousel
           cars={featuredCarsData}
           sectionTypeTitle={false}
@@ -98,7 +97,7 @@ export default async function Page() {
           buttonsColor="#fff"
         />
       </section>
-       <section className="py-20 bg-off-white">
+      <section className="py-20 bg-off-white">
         <CarsCarousel
           cars={featuredCarsData}
           sectionTypeTitle={false}

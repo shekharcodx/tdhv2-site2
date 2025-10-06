@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import ScrollToTopButton from "@/components/ui/scrollToTop";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,12 +27,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className} !bg-off-white  mx-auto`}
-      >
+      <body className={`${poppins.className} !bg-off-white  mx-auto`}>
         <Navbar /> {/* Navbar will manage modal itself */}
         {children}
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

@@ -95,9 +95,9 @@ const CategoriesSection = () => {
   const carouselSectionRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
-    if (!carouselSectionRef.current) return;
+    if (typeof window === "undefined" || !carouselSectionRef.current) return;
 
-    const scrollAmount = 305;
+    const scrollAmount = window.innerWidth < 640 ? window.innerWidth - 8 : 305;
     const newPosition =
       direction === "left"
         ? carouselSectionRef.current.scrollLeft - scrollAmount
