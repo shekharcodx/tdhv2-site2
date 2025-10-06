@@ -1,7 +1,12 @@
-import Search from "@/components/catalogue/Search";
-import { notFound } from "next/navigation";
-import catalogHeroImg from "@/assets/images/catalog-hero.svg";
-import CarWrapper from "@/components/catalogue/CarWrapper";
+// import Search from "@/components/catalogue/Search";
+// import { notFound } from "next/navigation";
+// import catalogHeroImg from "@/assets/images/catalog-hero.svg";
+// import CarWrapper from "@/components/catalogue/CarWrapper";
+import CatalogHeader from "@/components/catalogue/CatalogHeader";
+import FiltersPanel from "@/components/catalogue/FilterPanel";
+import SortingBar from "@/components/catalogue/SortingBar";
+import HorizontalCarCard from "@/components/catalogue/HorizontalCarCard";
+import { carsData } from "@/data/carsData";
 //import SearchBox from "../components/home/SearchBox";
 // Mock da
 
@@ -44,46 +49,45 @@ interface PageProps {
 //   },
 // ];
 
-const getCatalogData = async (filterType: string, filterId: string) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}`,
-      {
-        cache: "no-store",
-      }
-    );
-    if (res.status === 404) {
-      notFound();
-    }
-    if (!res.ok) {
-      throw new Error(`Failed to fetch listings. Status: ${res.status}`);
-    }
-    return res.json();
-  } catch (err) {
-    console.error("Fetch error:", err);
-    throw err;
-  }
-};
+// const getCatalogData = async (filterType: string, filterId: string) => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}`,
+//       {
+//         cache: "no-store",
+//       }
+//     );
+//     if (res.status === 404) {
+//       notFound();
+//     }
+//     if (!res.ok) {
+//       throw new Error(`Failed to fetch listings. Status: ${res.status}`);
+//     }
+//     return res.json();
+//   } catch (err) {
+//     console.error("Fetch error:", err);
+//     throw err;
+//   }
+// };
 
-const Catalog = async ({ params }: PageProps) => {
-  const data = await getCatalogData(params.filterType, params.filterId);
+const Catalog = async () => {
+  // const data = await getCatalogData(params.filterType, params.filterId);
+  const cars = carsData;
   return (
     <>
-      {/* Hero Section */}
-      <div
-        className={`relative w-full h-[280px] md:h-[600px] mx-auto bg-cover bg-center`}
-        style={{ backgroundImage: `url(${catalogHeroImg.src})` }}
-      >
-        {/* Hero Title */}
-        <div className="w-[calc(100%-32px)] md:w-[calc(100%-64px)] lg:w-[calc(100%-128px)] mx-auto flex justify-start items-center max-w-[1312px] h-full text-white">
-          <h1 className="text-base font-bold md:text-[25px] md:font-semibold text-center">
-            Catalogue
-          </h1>
+      <CatalogHeader />
+
+      <div className="max-w-[1920px] mx-auto sm:px-6 py-8">
+        <div className="w-full block sm:flex sm:gap-6">
+          <FiltersPanel />
+          <div className="w-full">
+            <SortingBar />
+            {cars.map((car) => (
+              <HorizontalCarCard key={car.id} car={car} />
+            ))}
+          </div>
         </div>
-        {/* Search Box */}
-        <Search />
       </div>
-      <CarWrapper data={data.data} />
     </>
   );
 };

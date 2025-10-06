@@ -17,7 +17,7 @@ import signinSteps from "@/data/signinSteps";
 
 export default function Navbar() {
   return (
-    <div className="relative w-full mx-auto max-w-[1440px]">
+    <div className="relative w-full mx-auto max-w-[1440px] z-[99]">
       <header className="absolute top-0 md:top-6 left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[92%] h-[92px] md:h-[72px] flex items-center justify-between px-8 rounded-2xl backdrop-blur-md bg-white/10 border-b border-white/20 z-50">
         {/* Left Links */}
         <nav className="hidden lg:flex items-center space-x-8 text-white font-medium">
