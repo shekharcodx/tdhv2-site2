@@ -141,7 +141,7 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-10 animate-slide-up">
           <span className="text-slate-teal font-bold text-sm uppercase tracking-wider mb-3 block">
             Explore Our Collection
           </span>
@@ -200,7 +200,7 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
           })}
         </div>
 
-        <div className="mt-16 text-center animate-fade-in">
+        <div className="mt-10 text-center animate-fade-in">
           <Link
             href="#"
             className="inline-flex items-center gap-2 bg-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"

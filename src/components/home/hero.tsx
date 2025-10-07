@@ -20,9 +20,9 @@ interface SearchFormProps {
 
 const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
   return (
-    <div className="w-full absolute top-[80%] md:top-[unset] md:bottom-0 md:translate-y-1/2 left-1/2 -translate-x-1/2 ">
-      <div className="w-[calc(100%-32px)] sm:w-[calc(100%-128px)] backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-slide-up border border-soft-grey/20 mx-auto">
-        <h2 className="text-2xl font-semibold text-dark-base mb-6 text-center lg:text-left">
+    <div className="w-full">
+      <div className="w-full sm:w-[calc(100%-128px)] backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-slide-up border border-soft-grey/20 mx-auto">
+        <h2 className="text-2xl font-semibold text-white/70 mb-6 text-center lg:text-left">
           Find Your Perfect Ride
         </h2>
 
@@ -30,12 +30,12 @@ const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
             {/* Brand */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 Brand
               </label>
               <div className="relative">
                 <Car className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
-                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
+                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium">
                   <option>All Brands</option>
                   {brands?.map((brand, i) => (
                     <option key={i} value={brand._id}>
@@ -48,12 +48,12 @@ const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
 
             {/* Type */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 Type
               </label>
               <div className="relative">
                 <Car className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
-                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
+                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium">
                   <option>All Types</option>
                   {categories?.map((category, i) => (
                     <option key={i} value={category._id}>
@@ -66,12 +66,12 @@ const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
 
             {/* Price Range */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 Price Range
               </label>
               <div className="relative">
                 <DollarSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
-                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
+                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium">
                   <option>Any Price</option>
                   <option>AED 500 - 1,000/day</option>
                   <option>AED 1,000 - 2,000/day</option>
@@ -83,12 +83,12 @@ const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
 
             {/* Location */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 Location
               </label>
               <div className="relative">
                 <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
-                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium">
+                <select className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium">
                   <option>All Locations</option>
                   <option>Dubai</option>
                   <option>Abu Dhabi</option>
@@ -101,28 +101,28 @@ const HeroFormLayout = ({ brands, categories }: SearchFormProps) => {
 
             {/* Start Date */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 Start Date
               </label>
               <div className="relative">
                 <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
                 <input
                   type="date"
-                  className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium"
+                  className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium"
                 />
               </div>
             </div>
 
             {/* End Date */}
             <div className="group">
-              <label className="block text-sm font-semibold text-dark-base mb-2.5">
+              <label className="block text-sm font-semibold text-white/70 mb-2.5">
                 End Date
               </label>
               <div className="relative">
                 <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-teal w-5 h-5 transition-transform group-hover:scale-110" />
                 <input
                   type="date"
-                  className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-dark-base font-medium"
+                  className="w-full pl-12 pr-4 py-3.5 border-2 border-soft-grey/50 rounded-xl focus:ring-2 focus:ring-slate-teal focus:border-slate-teal transition-all duration-300 bg-white hover:border-slate-teal/50 text-white/70 font-medium"
                 />
               </div>
             </div>

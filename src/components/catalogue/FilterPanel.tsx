@@ -88,7 +88,7 @@ const FiltersPanel = () => {
   return (
     <div className="w-full sm:w-[320px] flex-shrink-0">
       <div className="sticky top-[205px] bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-primary text-white p-6 flex items-center justify-between">
+        <div className="bg-site-primary text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Filter className="w-5 h-5" />
             <h3 className="text-xl font-bold">Filters</h3>
@@ -112,7 +112,9 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">No Deposit Required</h4>
+              <h4 className="font-bold text-site-primary">
+                No Deposit Required
+              </h4>
             </div>
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
@@ -121,9 +123,9 @@ const FiltersPanel = () => {
                 // onChange={(e) =>
                 //   setFilters({ ...filters, noDeposit: e.target.checked })
                 // }
-                className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-accent focus:ring-2 cursor-pointer"
+                className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-site-accent focus:ring-2 cursor-pointer"
               />
-              <span className="text-site-secondary group-hover:text-primary transition-colors font-medium">
+              <span className="text-site-secondary group-hover:text-site-primary transition-colors font-medium">
                 Show only no deposit cars
               </span>
             </label>
@@ -132,7 +134,7 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Car className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Category</h4>
+              <h4 className="font-bold text-site-primary">Category</h4>
             </div>
             <div className="space-y-2">
               {carTypes.map((type) => (
@@ -145,10 +147,10 @@ const FiltersPanel = () => {
                       type="checkbox"
                       //   checked={filters.carType.includes(type.value)}
                       //   onChange={() => toggleCarType(type.value)}
-                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-accent focus:ring-2 cursor-pointer"
+                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-site-accent focus:ring-2 cursor-pointer"
                     />
                   </div>
-                  <span className="text-site-secondary group-hover:text-primary transition-colors">
+                  <span className="text-site-secondary group-hover:text-site-primary transition-colors">
                     {type.label}
                   </span>
                 </label>
@@ -159,7 +161,7 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Car className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Body Type</h4>
+              <h4 className="font-bold text-site-primary">Body Type</h4>
             </div>
             <div className="space-y-2">
               {bodyTypes.map((type) => (
@@ -172,10 +174,10 @@ const FiltersPanel = () => {
                       type="checkbox"
                       //   checked={filters.bodyType.includes(type.value)}
                       //   onChange={() => toggleBodyType(type.value)}
-                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-accent focus:ring-2 cursor-pointer"
+                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-site-accent focus:ring-2 cursor-pointer"
                     />
                   </div>
-                  <span className="text-site-secondary group-hover:text-primary transition-colors">
+                  <span className="text-site-secondary group-hover:text-site-primary transition-colors">
                     {type.label}
                   </span>
                 </label>
@@ -186,7 +188,9 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <DollarSign className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Price Range (Daily)</h4>
+              <h4 className="font-bold text-site-primary">
+                Price Range (Daily)
+              </h4>
             </div>
             <div className="space-y-4">
               <input
@@ -201,11 +205,11 @@ const FiltersPanel = () => {
                 //     priceRange: [0, parseInt(e.target.value)],
                 //   })
                 // }
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-site-accent"
               />
               <div className="flex items-center justify-between text-sm">
                 <span className="text-site-secondary">AED 0</span>
-                {/* <span className="font-semibold text-primary">
+                {/* <span className="font-semibold text-site-primary">
                   AED {filters.priceRange[1].toLocaleString()}+
                 </span> */}
               </div>
@@ -215,7 +219,7 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Car className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Brand</h4>
+              <h4 className="font-bold text-site-primary">Brand</h4>
             </div>
             <div className="space-y-2 max-h-[240px] overflow-y-auto">
               {brands.map((brand) => (
@@ -228,10 +232,10 @@ const FiltersPanel = () => {
                       type="checkbox"
                       //   checked={filters.brands.includes(brand)}
                       //   onChange={() => toggleBrand(brand)}
-                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-accent focus:ring-2 cursor-pointer"
+                      className="w-5 h-5 rounded border-2 border-gray-300 text-site-accent focus:ring-site-accent focus:ring-2 cursor-pointer"
                     />
                   </div>
-                  <span className="text-site-secondary group-hover:text-primary transition-colors">
+                  <span className="text-site-secondary group-hover:text-site-primary transition-colors">
                     {brand}
                   </span>
                 </label>
@@ -242,7 +246,7 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Palette className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Color</h4>
+              <h4 className="font-bold text-site-primary">Color</h4>
             </div>
             <div className="grid grid-cols-3 gap-3">
               {colors.map((color) => (
@@ -270,14 +274,14 @@ const FiltersPanel = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <MapPin className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Location</h4>
+              <h4 className="font-bold text-site-primary">Location</h4>
             </div>
             <select
               //   value={filters.location}
               //   onChange={(e) =>
               //     setFilters({ ...filters, location: e.target.value })
               //   }
-              className="w-full bg-off-white border border-gray-200 rounded-lg px-4 py-3 text-primary focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-off-white border border-gray-200 rounded-lg px-4 py-3 text-site-primary focus:outline-none focus:border-site-accent transition-colors"
             >
               <option value="">All Emirates</option>
               {locations.map((location) => (
@@ -294,7 +298,7 @@ const FiltersPanel = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Calendar className="w-5 h-5 text-site-accent" />
-              <h4 className="font-bold text-primary">Availability</h4>
+              <h4 className="font-bold text-site-primary">Availability</h4>
             </div>
             <input
               type="date"
@@ -307,7 +311,7 @@ const FiltersPanel = () => {
               //         : null,
               //     })
               //   }
-              className="w-full bg-off-white border border-gray-200 rounded-lg px-4 py-3 text-primary focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-off-white border border-gray-200 rounded-lg px-4 py-3 text-site-primary focus:outline-none focus:border-site-accent transition-colors"
             />
           </div>
         </div>

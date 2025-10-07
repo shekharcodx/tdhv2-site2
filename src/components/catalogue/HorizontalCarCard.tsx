@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Star,
   Users,
@@ -13,6 +13,7 @@ import {
 import VerifiedBadge from "../home/VerifiedBadge";
 import Image from "next/image";
 import Link from "next/link";
+import { CarTypes } from "@/types/homePageTypes";
 
 interface Car {
   id: number;
@@ -40,67 +41,87 @@ interface Car {
 }
 
 interface HorizontalCarCardProps {
-  car: Car;
+  car: CarTypes;
 }
 
 const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
+  const [imgSrc, setImgSrc] = useState("/assets/car_placeholder.png");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState<
     "daily" | "weekly" | "monthly"
   >("daily");
 
+  console.log("HorizontalCarCard:car", car);
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
+
+  useEffect(() => {
+    if (car) {
+      setImgSrc(
+        car?.car?.images?.[currentImageIndex]?.url ||
+          "/assets/car_placeholder.png"
+      );
+    }
+  }, [car, currentImageIndex]);
 
   const handleMouseLeave = () => {
     setIsHovering(false);
     setCurrentImageIndex(0);
   };
 
-  const handleImageCycle = () => {
-    if (isHovering && car.images.length > 1) {
-      setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+  // const handleImageCycle = () => {
+  //   // if (isHovering && car.images.length > 1) {
+  //   //   setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+  //   // }
+  // };
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+
+    if (isHovering && car?.car?.images?.length > 1) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % car?.car?.images?.length);
+      }, 400); // adjust speed here (ms)
     }
-  };
+    return () => clearInterval(interval);
+  }, [isHovering, car?.car?.images?.length]);
 
   const getPriceForPeriod = () => {
     switch (selectedPeriod) {
       case "daily":
-        return { amount: car.dailyPrice, label: "/day" };
+        return { amount: car?.rentPerDay, label: "/day" };
       case "weekly":
-        return { amount: car.weeklyPrice, label: "/week" };
+        return { amount: car?.rentPerWeek, label: "/week" };
       case "monthly":
-        return { amount: car.monthlyPrice, label: "/month" };
+        return { amount: car?.rentPerMonth, label: "/month" };
     }
   };
 
   const price = getPriceForPeriod();
 
   return (
-    <Link
-      href={`/car/${car.id}`}
-      className="w-full block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group mb-6"
-    >
+    <div className="w-full block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group mb-6">
       <div className="flex flex-col md:flex-row">
         <div
           className="md:w-[40%] h-full relative overflow-hidden bg-gray-100 flex-shrink-0"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onMouseMove={handleImageCycle}
+          // onMouseMove={handleImageCycle}
         >
           <Image
             width={100}
             height={100}
-            src={car.images[currentImageIndex]}
-            alt={`${car.brand} ${car.name}`}
+            src={imgSrc}
+            alt={`${car?.car?.carBrand?.name} image`}
+            onError={() => setImgSrc("/assets/car_placeholder.jpg")}
             className="w-full h-[355px] object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
-          {car.images.length > 1 && (
+          {car?.car?.images?.length > 1 && (
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {car.images.map((_, index) => (
+              {car?.car?.images.map((_, index) => (
                 <div
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all ${
@@ -114,15 +135,13 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
           )}
 
           <div className="absolute top-4 left-4 bg-site-accent text-white px-3 py-1.5 rounded-full text-sm font-semibold">
-            {car.location}
+            {car?.location}
           </div>
 
           <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-            <span className="text-sm font-semibold text-primary">
-              {car.rating}
-            </span>
-            <span className="text-xs text-site-secondary">({car.reviews})</span>
+            <span className="text-sm font-semibold text-primary">4.7</span>
+            {/* <span className="text-xs text-site-secondary">({car.reviews})</span> */}
           </div>
         </div>
 
@@ -130,23 +149,28 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
           <div className="flex items-start justify-between mb-3">
             <div>
               <p className="text-site-accent font-semibold text-sm mb-1">
-                {car.brand}
+                {car?.car?.carBrand?.name}
               </p>
               <h3
                 className="text-2xl font-bold text-primary mb-1"
                 style={{ fontFamily: "Stretch Pro, sans-serif" }}
               >
-                {car.name}
+                {car?.title}
               </h3>
-              <p className="text-site-secondary text-xs">{car.year} Model</p>
+              <p className="text-site-secondary text-xs">
+                {car?.car?.modelYear} Model
+              </p>
             </div>
 
             <div className="flex items-center gap-2">
               <Image
                 height={100}
                 width={100}
-                src={car.providerLogo}
-                alt={car.providerName}
+                src={
+                  car?.vendor?.profilePicture?.url ||
+                  "/assets/car_placeholder.png"
+                }
+                alt={car?.vendor?.vendorDetails?.businessName}
                 className="w-12 h-12 rounded-lg object-contain bg-white border border-gray-200"
               />
             </div>
@@ -155,17 +179,17 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
           <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-100">
             <span className="text-xs text-site-secondary">Provided by</span>
             <span className="text-sm font-semibold text-primary">
-              {car.providerName}
+              {car?.vendor?.vendorDetails?.businessName}
             </span>
-            {car.isVerified && (
-              <div className="relative group/badge">
-                <VerifiedBadge className="w-5 h-5" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-primary text-white text-xs rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-                  Verified Provider
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 w-2 h-2 bg-primary rotate-45"></div>
-                </div>
+            {/* {car.isVerified && ( */}
+            <div className="relative group/badge">
+              <VerifiedBadge className="w-5 h-5" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-primary text-white text-xs rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                Verified Provider
+                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 w-2 h-2 bg-primary rotate-45"></div>
               </div>
-            )}
+            </div>
+            {/* )} */}
           </div>
 
           <div className="grid grid-cols-5 gap-3 mb-5">
@@ -176,7 +200,9 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
               <span className="text-xs text-site-secondary font-medium">
                 Year
               </span>
-              <span className="text-sm font-bold text-primary">{car.year}</span>
+              <span className="text-sm font-bold text-primary">
+                {car?.car?.modelYear}
+              </span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 text-center">
@@ -187,7 +213,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 Seats
               </span>
               <span className="text-sm font-bold text-primary">
-                {car.seats}
+                {car?.car?.seatingCapacity}
               </span>
             </div>
 
@@ -199,7 +225,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 Trans.
               </span>
               <span className="text-sm font-bold text-primary">
-                {car.transmission}
+                {car?.car?.transmission}
               </span>
             </div>
 
@@ -211,7 +237,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 Mileage
               </span>
               <span className="text-sm font-bold text-primary">
-                {car.mileage}
+                {car?.car?.mileage}
               </span>
             </div>
 
@@ -223,7 +249,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 Fuel
               </span>
               <span className="text-sm font-bold text-primary">
-                {car.fuelType}
+                {car?.car?.fuelType}
               </span>
             </div>
           </div>
@@ -265,23 +291,32 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
 
               <div className="flex justify-center sm:justify-left items-baseline gap-1.5 mt-6 sm:mt-0">
                 <span className="text-2xl font-bold text-primary">
-                  AED {price.amount.toLocaleString()}
+                  AED {price?.amount?.toLocaleString()}
                 </span>
                 <span className="text-site-secondary text-xs">
-                  {price.label}
+                  {price?.label}
                 </span>
               </div>
             </div>
 
             <div className="flex items-center justify-center sm:justify-left gap-1.5 mt-6 sm:mt-0">
-              <button className="flex items-center justify-center gap-1 bg-white border-2 border-secondary/30 text-site-secondary hover:border-accent hover:text-site-accent px-3 py-2 rounded-lg font-semibold transition-all text-xs">
+              <a
+                href={`tel:${car?.vendor?.vendorDetails?.contact?.mobileNum}`}
+                className="flex items-center justify-center gap-1 bg-white border-2 border-secondary/30 text-site-secondary hover:border-accent hover:text-site-accent px-3 py-2 rounded-lg font-semibold transition-all text-xs"
+              >
                 <Phone className="w-3 h-3" />
                 Call
-              </button>
-              <button className="flex items-center justify-center gap-1 bg-white border-2 border-accent text-site-accent px-3 py-2 rounded-lg font-semibold transition-all hover:bg-site-accent hover:text-white hover:shadow-lg hover:shadow-accent/20 text-xs">
+              </a>
+              <a
+                href={`https://wa.me/${car?.vendor?.vendorDetails?.contact?.whatsappNum?.replaceAll(
+                  " ",
+                  ""
+                )}`}
+                className="flex items-center justify-center gap-1 bg-white border-2 border-accent text-site-accent px-3 py-2 rounded-lg font-semibold transition-all hover:bg-site-accent hover:text-white hover:shadow-lg hover:shadow-accent/20 text-xs"
+              >
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
-              </button>
+              </a>
               <button className="bg-primary hover:bg-site-accent text-white px-4 py-2 rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-accent/20 text-xs">
                 Rent Now
               </button>
@@ -289,7 +324,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

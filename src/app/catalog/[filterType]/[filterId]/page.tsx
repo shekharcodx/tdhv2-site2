@@ -7,6 +7,8 @@ import FiltersPanel from "@/components/catalogue/FilterPanel";
 import SortingBar from "@/components/catalogue/SortingBar";
 import HorizontalCarCard from "@/components/catalogue/HorizontalCarCard";
 import { carsData } from "@/data/carsData";
+import { notFound } from "next/navigation";
+import CarCards from "@/components/catalogue/CarCards";
 //import SearchBox from "../components/home/SearchBox";
 // Mock da
 
@@ -49,42 +51,41 @@ interface PageProps {
 //   },
 // ];
 
-// const getCatalogData = async (filterType: string, filterId: string) => {
-//   try {
-//     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}`,
-//       {
-//         cache: "no-store",
-//       }
-//     );
-//     if (res.status === 404) {
-//       notFound();
-//     }
-//     if (!res.ok) {
-//       throw new Error(`Failed to fetch listings. Status: ${res.status}`);
-//     }
-//     return res.json();
-//   } catch (err) {
-//     console.error("Fetch error:", err);
-//     throw err;
-//   }
-// };
+const getCatalogData = async (filterType: string, filterId: string) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}`,
+      {
+        cache: "no-store",
+      }
+    );
+    if (res.status === 404) {
+      notFound();
+    }
+    if (!res.ok) {
+      throw new Error(`Failed to fetch listings. Status: ${res.status}`);
+    }
+    return res.json();
+  } catch (err) {
+    console.error("Fetch error:", err);
+    throw err;
+  }
+};
 
-const Catalog = async () => {
-  // const data = await getCatalogData(params.filterType, params.filterId);
+const Catalog = async ({ params }: PageProps) => {
+  const data = await getCatalogData(params.filterType, params.filterId);
+  console.log("page:CatalogData", data);
   const cars = carsData;
   return (
     <>
       <CatalogHeader />
 
-      <div className="max-w-[1920px] mx-auto sm:px-6 py-8">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 py-8">
         <div className="w-full block sm:flex sm:gap-6">
           <FiltersPanel />
           <div className="w-full">
             <SortingBar />
-            {cars.map((car) => (
-              <HorizontalCarCard key={car.id} car={car} />
-            ))}
+            <CarCards data={data.data} />
           </div>
         </div>
       </div>

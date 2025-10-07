@@ -29,7 +29,7 @@ export default function CarCard({ car }: CarCardProps) {
 
   useEffect(() => {
     if (car) {
-      setImgSrc(car.car.images[0]?.url || "/assets/car_placeholder.png");
+      setImgSrc(car.car.coverImage?.url || "/assets/car_placeholder.png");
     }
   }, [car]);
 
@@ -72,11 +72,11 @@ export default function CarCard({ car }: CarCardProps) {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-base/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          {/* <div className="absolute top-4 right-4 bg-white/98 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+          <div className="absolute top-4 right-4 bg-white/98 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-            <span className="text-sm font-bold text-dark-base">{rating}</span>
-            <span className="text-xs text-grey">({reviews})</span>
-          </div> */}
+            <span className="text-sm font-bold text-dark-base">4.7</span>
+            {/* <span className="text-xs text-grey">({reviews})</span> */}
+          </div>
           {car.isPremium && (
             <div className="absolute top-4 left-4 bg-gradient-to-r from-slate-teal to-slate-teal/90 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg">
               Premium

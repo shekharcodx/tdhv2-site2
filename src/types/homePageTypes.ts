@@ -1,6 +1,9 @@
 export interface CarTypes {
   _id: string;
   vendor: {
+    profilePicture: {
+      url: string;
+    };
     vendorDetails: {
       contact: {
         whatsappNum: string;
@@ -16,6 +19,7 @@ export interface CarTypes {
   title: string;
   minRentalDays: number;
   isPremium: boolean;
+  location: string;
   car: {
     carBrand: {
       name: string;
@@ -30,6 +34,9 @@ export interface CarTypes {
     carInsurance: string;
     dailyMileage: number;
     monthlyMileage: number;
+    modelYear: number;
+    mileage: number;
+    fuelType: string;
     coverImage: { url: string };
     images: [{ url: string }];
   };
