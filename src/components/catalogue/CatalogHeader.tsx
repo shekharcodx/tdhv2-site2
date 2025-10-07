@@ -130,7 +130,7 @@ const CatalogHeader = () => {
 
             <button
               type="submit"
-              className="bg-site-site-accent hover:bg-site-site-accent/90 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-site-site-accent/20"
+              className="bg-site-accent hover:bg-site-site-accent/90 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-site-site-accent/20"
             >
               Search Cars
             </button>
