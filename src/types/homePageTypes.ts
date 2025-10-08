@@ -33,6 +33,7 @@ export interface CarTypes {
     seatingCapacity: number;
     carInsurance: string;
     dailyMileage: number;
+    weeklyMileage: number;
     monthlyMileage: number;
     modelYear: number;
     mileage: number;

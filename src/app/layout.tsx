@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import ScrollToTopButton from "@/components/ui/scrollToTop";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} !bg-off-white  mx-auto`}>
-        <Navbar /> {/* Navbar will manage modal itself */}
-        {children}
-        <Footer />
-        <ScrollToTopButton />
+        <AuthProvider>
+          {/* <Navbar /> */}
+          {children}
+          <Footer />
+          <ScrollToTopButton />
+        </AuthProvider>
       </body>
     </html>
   );

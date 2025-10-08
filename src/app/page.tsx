@@ -7,6 +7,8 @@ import { featuredCarsData } from "@/data/carouselDummyData";
 import BrandCarousel from "@/components/home/BrandCarousel";
 import MobileAppBanner from "@/components/home/MobileAppBanner";
 import WhatWeOffer from "@/components/home/WhatWeOffer";
+import DocumentsRequired from "@/components/home/DocumentsRequired";
+import Navbar from "@/components/home/Navbar";
 
 const fetchListings = async () => {
   try {
@@ -34,17 +36,18 @@ export default async function Page() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full h-auto md:h-full mx-auto bg-[url(/assets/back.jpg)] bg-cover bg-center">
+      <section className="relative w-full h-auto md:h-full mx-auto bg-gradient-to-b from-dark-base to-off-white">
+        <Navbar />
         <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8 pt-32 pb-16">
           {/* Hero Title */}
-          <div className="text-center mb-10 max-w-4xl animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
+          <div className="text-center mb-4 md:mb-6 max-w-4xl animate-fade-in">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tight leading-tight">
               Luxury Cars.{" "}
               <span className="bg-gradient-to-r from-slate-teal to-site-accent bg-clip-text text-transparent">
                 Instant Booking.
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
               Premium car rentals across the UAE with seamless booking
             </p>
           </div>
@@ -53,10 +56,21 @@ export default async function Page() {
             brands={pageData?.data?.[0]?.carBrands}
             categories={pageData?.data?.[0]?.allCategories}
           />
+          <div className="mt-4 flex flex-wrap justify-center gap-2 animate-fade-in">
+            <div className="bg-slate-teal/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-teal/30 text-white font-medium text-xs">
+              500+ Luxury Cars
+            </div>
+            <div className="bg-slate-teal/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-teal/30 text-white font-medium text-xs">
+              UAE-Wide Delivery
+            </div>
+            <div className="bg-slate-teal/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-teal/30 text-white font-medium text-xs">
+              24/7 Support
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-10 bg-white">
+      <section className="py-6 md:py-8 bg-gradient-to-b from-off-white to-white">
         <FeatureCards />
       </section>
 
@@ -140,6 +154,9 @@ export default async function Page() {
           bg="#fff"
           buttonsColor="#efeeea"
         />
+      </section>
+      <section>
+        <DocumentsRequired />
       </section>
       <section>
         <MobileAppBanner />

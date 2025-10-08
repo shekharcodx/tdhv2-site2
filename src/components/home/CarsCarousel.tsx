@@ -104,7 +104,7 @@ export default function CarsCarousel({
       )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 gap-6">
-          <div className="animate-slide-up">
+          {/* <div className="animate-slide-up">
             {sectionTypeTitle && (
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-slate-teal to-slate-teal/80 rounded-xl flex items-center justify-center">
@@ -129,25 +129,41 @@ export default function CarsCarousel({
             >
               {sectionDescription}
             </p>
+          </div> */}
+          <div className="animate-slide-up">
+            {sectionTypeTitle && (
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-slate-teal to-slate-teal/80 rounded-xl flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-slate-teal font-bold text-xs uppercase tracking-wider">
+                  Premium Selection
+                </span>
+              </div>
+            )}
+            <h2
+              className={`text-3xl font-bold ${
+                sectionTypeTitle
+                  ? "text-dark-base lg:text-4xl"
+                  : "text-site-primary"
+              } mb-2`}
+            >
+              {sectionTitle}
+            </h2>
+            <p className="text-grey text-base max-w-2xl">
+              {sectionDescription}
+            </p>
           </div>
           <div className="flex ml-auto gap-3 animate-fade-in">
             <button
               onClick={() => scroll("left")}
               disabled={isAtStart}
-              className={`w-12 h-12 ${
-                sectionTypeTitle
-                  ? "rounded-xl border-2"
-                  : "rounded-full border-0"
-              } flex items-center justify-center transition-all duration-300 shadow-lg text-slate-teal ${
+              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl  text-slate-teal ${
                 buttonsColor == "#fff" ? "bg-[#fff]" : "bg-[#efeeea]"
               } ${
                 isAtStart
                   ? "opacity-50 !cursor-not-allowed"
-                  : `${
-                      sectionTypeTitle
-                        ? "hover:bg-slate-teal"
-                        : "hover:bg-site-accent"
-                    } border-slate-teal/20 hover:border-slate-teal hover:text-white hover:shadow-xl hover:scale-110`
+                  : `hover:bg-site-accent hover:text-white hover:shadow-xl hover:scale-110`
               }`}
             >
               <ChevronLeft className="w-6 h-6" />
@@ -155,20 +171,12 @@ export default function CarsCarousel({
             <button
               onClick={() => scroll("right")}
               disabled={isAtEnd}
-              className={`w-12 h-12 ${
-                sectionTypeTitle
-                  ? "rounded-xl border-2"
-                  : "rounded-full border-0"
-              } flex items-center justify-center transition-all duration-300 shadow-lg text-slate-teal ${
+              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl  text-slate-teal ${
                 buttonsColor == "#fff" ? "bg-[#fff]" : "bg-[#efeeea]"
               } ${
                 isAtEnd
                   ? "opacity-50 !cursor-not-allowed"
-                  : `${
-                      sectionTypeTitle
-                        ? "hover:bg-slate-teal"
-                        : "hover:bg-site-accent"
-                    } border-slate-teal/20 hover:border-slate-teal hover:text-white hover:shadow-xl hover:scale-110`
+                  : `hover:bg-site-accent hover:text-white hover:shadow-xl hover:scale-110`
               }`}
             >
               <ChevronRight className="w-6 h-6" />
@@ -195,7 +203,7 @@ export default function CarsCarousel({
         <div className="mt-12 text-center animate-fade-in">
           <Link
             href="#"
-            className="inline-flex items-center gap-2 bg-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-site-accent to-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Cars</span>
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
