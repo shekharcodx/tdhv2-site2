@@ -88,7 +88,7 @@ const FiltersPanel = () => {
   return (
     <div className="w-full sm:w-[320px] flex-shrink-0">
       <div className="sticky top-[205px] bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-site-primary text-white p-6 flex items-center justify-between">
+        <div className="bg-gradient-to-br from-site-primary via-site-primary to-slate-teal/20 text-white p-6 flex items-center justify-between relative overflow-hidden">
           <div className="flex items-center gap-3">
             <Filter className="w-5 h-5" />
             <h3 className="text-xl font-bold">Filters</h3>

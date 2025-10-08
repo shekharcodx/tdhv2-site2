@@ -91,11 +91,23 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
   const getPriceForPeriod = () => {
     switch (selectedPeriod) {
       case "daily":
-        return { amount: car?.rentPerDay, label: "/day" };
+        return {
+          amount: car?.rentPerDay,
+          label: "/day",
+          mileage: car?.car?.dailyMileage || 250,
+        };
       case "weekly":
-        return { amount: car?.rentPerWeek, label: "/week" };
+        return {
+          amount: car?.rentPerWeek,
+          label: "/week",
+          mileage: car?.car?.weeklyMileage || 1500,
+        };
       case "monthly":
-        return { amount: car?.rentPerMonth, label: "/month" };
+        return {
+          amount: car?.rentPerMonth,
+          label: "/month",
+          mileage: car?.car?.monthlyMileage || 5000,
+        };
     }
   };
 
@@ -297,12 +309,24 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   {price?.label}
                 </span>
               </div>
+              <div className="flex items-center gap-1.5 mt-1.5">
+                <Gauge className="w-3.5 h-3.5 text-slate-teal" />
+                <span className="text-xs text-grey font-medium">
+                  {price?.mileage} km{" "}
+                  {selectedPeriod === "daily"
+                    ? "per day"
+                    : selectedPeriod === "weekly"
+                    ? "per week"
+                    : "per month"}{" "}
+                  included
+                </span>
+              </div>
             </div>
 
             <div className="flex items-center justify-center sm:justify-left gap-1.5 mt-6 sm:mt-0">
               <a
                 href={`tel:${car?.vendor?.vendorDetails?.contact?.mobileNum}`}
-                className="flex items-center justify-center gap-1 bg-white border-2 border-secondary/30 text-site-secondary hover:border-accent hover:text-site-accent px-3 py-2 rounded-lg font-semibold transition-all text-xs"
+                className="flex items-center justify-center gap-2 bg-gradient-to-br from-white to-off-white border-2 border-soft-grey/50 text-site-secondary hover:border-site-accent hover:text-site-accent hover:bg-white px-5 py-3 rounded-xl font-semibold transition-all duration-300 text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 <Phone className="w-3 h-3" />
                 Call
@@ -312,12 +336,12 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   " ",
                   ""
                 )}`}
-                className="flex items-center justify-center gap-1 bg-white border-2 border-accent text-site-accent px-3 py-2 rounded-lg font-semibold transition-all hover:bg-site-accent hover:text-white hover:shadow-lg hover:shadow-accent/20 text-xs"
+                className="flex items-center justify-center gap-2 bg-gradient-to-br from-white to-off-white border-2 border-site-accent/60 text-site-accent hover:border-site-accent px-5 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-site-accent hover:to-site-accent/90 hover:text-white hover:shadow-lg hover:shadow-site-accent/25 hover:-translate-y-0.5 text-sm shadow-md"
               >
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
               </a>
-              <button className="bg-primary hover:bg-site-accent text-white px-4 py-2 rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-accent/20 text-xs">
+              <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-site-accent  to-slate-teal text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-site-accent/30 hover:-translate-y-0.5 text-sm shadow-lg">
                 Rent Now
               </button>
             </div>
