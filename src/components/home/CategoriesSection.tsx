@@ -204,7 +204,7 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
 
         <div className="mt-10 text-center animate-fade-in">
           <Link
-            href="#"
+            href="catalog/all/cars"
             className="inline-flex items-center gap-2  bg-gradient-to-r from-site-accent to-slate-teal  text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Vehicles</span>

@@ -86,6 +86,8 @@ export default async function Page() {
         <CarsCarousel
           cars={pageData?.data?.[0]?.featured}
           sectionTypeTitle={true}
+          sectionName="featured"
+          sectionId="all"
           sectionTitle="Featured Cars"
           sectionDescription="Handpicked premium vehicles from verified providers across the UAE"
           bg="#fff"
@@ -101,6 +103,12 @@ export default async function Page() {
             )?.listings
           }
           sectionTypeTitle={false}
+          sectionName="categories"
+          sectionId={
+            pageData?.data?.[0]?.categories.find(
+              (cat: { name: string }) => cat.name == "Luxury Cars"
+            )?._id
+          }
           sectionTitle="Luxury Collection"
           sectionDescription="Experience the ultimate in automotive excellence"
           bg="#efeeea"
@@ -116,6 +124,12 @@ export default async function Page() {
             )?.listings
           }
           sectionTypeTitle={false}
+          sectionName="categories"
+          sectionId={
+            pageData?.data?.[0]?.categories.find(
+              (cat: { name: string }) => cat.name == "Sports Cars"
+            )?._id
+          }
           sectionTitle="Sports Cars"
           sectionDescription="High-performance vehicles for the thrill seekers"
           bg="#efeeea"
@@ -127,6 +141,8 @@ export default async function Page() {
         <CarsCarousel
           cars={pageData?.data?.[0]?.popularCars}
           sectionTypeTitle={false}
+          sectionName="popular"
+          sectionId="all"
           sectionTitle="Popular Cars"
           sectionDescription="High-performance vehicles for the thrill seekers"
           bg="#fff"
@@ -138,6 +154,8 @@ export default async function Page() {
         <CarsCarousel
           cars={pageData?.data?.[0]?.bestCars}
           sectionTypeTitle={false}
+          sectionName="best"
+          sectionId="all"
           sectionTitle="Best Cars"
           sectionDescription="High-performance vehicles for the thrill seekers"
           bg="#efeeea"
@@ -149,6 +167,8 @@ export default async function Page() {
         <CarsCarousel
           cars={pageData?.data?.[0]?.topChoice}
           sectionTypeTitle={false}
+          sectionName="top-choice"
+          sectionId="all"
           sectionTitle="Top Choice"
           sectionDescription="High-performance vehicles for the thrill seekers"
           bg="#fff"

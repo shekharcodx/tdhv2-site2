@@ -9,6 +9,8 @@ import Link from "next/link";
 interface Cars {
   cars: CarTypes[];
   sectionTypeTitle?: boolean;
+  sectionName: string;
+  sectionId: string | number;
   sectionTitle: string;
   sectionDescription: string;
   bg?: string;
@@ -18,6 +20,8 @@ interface Cars {
 export default function CarsCarousel({
   cars,
   sectionTypeTitle = false,
+  sectionName,
+  sectionId,
   sectionTitle,
   sectionDescription,
   bg = "#fff",
@@ -202,7 +206,7 @@ export default function CarsCarousel({
 
         <div className="mt-12 text-center animate-fade-in">
           <Link
-            href="#"
+            href={`catalog/${sectionName}/${sectionId}`}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-site-accent to-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Cars</span>

@@ -48,7 +48,7 @@ const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
 
   return (
     <Link
-      href={category._id}
+      href={`catalog/categories/${category._id}`}
       className="flex-shrink-0 group relative h-[280px] sm:h-[320px] lg:h-[360px] w-full sm:w-[285px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-scale-in"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
