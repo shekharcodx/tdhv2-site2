@@ -76,7 +76,7 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
     if (isHovering && car?.car?.images?.length > 1) {
       interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % car?.car?.images?.length);
-      }, 400); // adjust speed here (ms)
+      }, 600); // adjust speed here (ms)
     }
     return () => clearInterval(interval);
   }, [isHovering, car?.car?.images?.length]);
