@@ -1,10 +1,13 @@
 import { ArrowUpDown, Grid2x2 as Grid, List } from 'lucide-react';
 
-interface SortingBarProps {
-  sortBy: string;
-  setSortBy: (sortBy: string) => void;
-  totalResults: number;
+
+  interface SortingBarProps {
+  sortBy?: string;
+  setSortBy?: (sortBy: string) => void;
+  totalResults?: number;
 }
+
+
 
 export default function SortingBar({ sortBy, setSortBy, totalResults }: SortingBarProps) {
   return (
