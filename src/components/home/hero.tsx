@@ -116,7 +116,7 @@ const HeroFormLayout = ({ brands, bodyTypes }: SearchFormProps) => {
                 <option value="500-1000">AED 500 - 1,000/day</option>
                 <option value="1000-2000">AED 1,000 - 2,000/day</option>
                 <option value="2000-5000">AED 2,000 - 5,000/day</option>
-                <option value="5000+">AED 5,000+/day</option>
+                <option value="5000">AED 5,000+/day</option>
               </select>
             </div>
           </div>

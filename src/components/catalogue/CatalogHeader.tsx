@@ -322,7 +322,7 @@ const CatalogHeader = () => {
                 // onChange={(e) =>
                 //   setSearchData({ ...searchData, type: e.target.value })
                 // }
-             
+
                 className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200"
               >
                 <option value="">All Types</option>
@@ -340,7 +340,7 @@ const CatalogHeader = () => {
               <div className="relative">
                 <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
                 <select
-                  value={searchData.location}
+                  // value={searchData.location}
                   // onChange={(e) =>
                   //   setSearchData({ ...searchData, location: e.target.value })
                   // }
