@@ -1,60 +1,34 @@
-// import Search from "@/components/catalogue/Search";
-// import { notFound } from "next/navigation";
-// import catalogHeroImg from "@/assets/images/catalog-hero.svg";
-// import CarWrapper from "@/components/catalogue/CarWrapper";
 import CatalogHeader from "@/components/catalogue/CatalogHeader";
 import FiltersPanel from "@/components/catalogue/FilterPanel";
 import SortingBar from "@/components/catalogue/SortingBar";
-import HorizontalCarCard from "@/components/catalogue/HorizontalCarCard";
-import { carsData } from "@/data/carsData";
 import { notFound } from "next/navigation";
 import CarCards from "@/components/catalogue/CarCards";
-//import SearchBox from "../components/home/SearchBox";
-// Mock da
 
-interface PageProps {
-  params: {
-    filterType: string;
-    filterId: string;
-  };
+interface SearchParams {
+  brand?: string;
+  bodyType?: string;
+  priceRange?: string;
+  location?: string;
+  startDate?: string;
+  endDate?: string;
+  page?: string;
 }
-//   {
-//     _id: "1",
-//     vendor: {
-//       vendorDetails: {
-//         contact: {
-//           whatsappNum: "1234567890",
-//           landlineNum: "0123456789",
-//           mobileNum: "9876543210",
-//         },
-//         businessName: "Super Cars Rental",
-//       },
-//     },
-//     rentPerDay: 500,
-//     rentPerMonth: 12000,
-//     title: "Lamborghini Aventador",
-//     minRentalDays: 1,
-//     car: {
-//       carBrand: {
-//         name: "Lamborghini",
-//         logo: { url: "/assets/brand-lambo.png" },
-//       },
-//       category: "Luxury",
-//       tankCapacity: 80,
-//       transmission: "Automatic",
-//       seatingCapacity: 2,
-//       carInsurance: "yes",
-//       dailyMileage: 200,
-//       monthlyMileage: 4000,
-//       images: [{ url: "/assets/c1.svg" }],
-//     },
-//   },
-// ];
 
-const getCatalogData = async (filterType: string, filterId: string) => {
+interface PageParams {
+  filterType: string;
+  filterId: string;
+}
+
+const getCatalogData = async (
+  filterType: string,
+  filterId: string,
+  pageNum: string | undefined
+) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/cars/${filterType}/${filterId}${
+        pageNum ? `?page=${pageNum}` : ""
+      }`,
       {
         cache: "no-store",
       }
@@ -72,10 +46,75 @@ const getCatalogData = async (filterType: string, filterId: string) => {
   }
 };
 
-const Catalog = async ({ params }: PageProps) => {
-  const data = await getCatalogData(params.filterType, params.filterId);
-  console.log("page:CatalogData", data);
-  const cars = carsData;
+const getFilteredData = async (params: SearchParams = {}) => {
+  try {
+    const urlParams = new URLSearchParams();
+
+    Object.entries(params).forEach(([key, value]) => {
+      if (value) {
+        urlParams.append(key, value);
+      }
+    });
+
+    const queryString = urlParams.toString();
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/cars/filter${
+      queryString ? `?${queryString}` : ""
+    }`;
+
+    const res = await fetch(url, { cache: "no-store" });
+
+    if (res.status === 404) {
+      notFound();
+    }
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch filtered listings. Status: ${res.status}`
+      );
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("Fetch filter error:", err);
+    throw err;
+  }
+};
+
+const Catalog = async ({
+  params,
+  searchParams = {},
+}: {
+  params: PageParams;
+  searchParams: SearchParams;
+}) => {
+  const search = await searchParams;
+  const { brand, bodyType, priceRange, location, startDate, endDate, page } =
+    search || {};
+  let data;
+
+  const hasFilters = [
+    brand,
+    bodyType,
+    priceRange,
+    location,
+    startDate,
+    endDate,
+    page,
+  ].some((val) => val && val !== "");
+
+  if (hasFilters) {
+    data = await getFilteredData({
+      brand,
+      bodyType,
+      priceRange,
+      location,
+      startDate,
+      endDate,
+      page,
+    });
+  } else {
+    data = await getCatalogData(params.filterType, params.filterId, page);
+  }
   return (
     <>
       <CatalogHeader />

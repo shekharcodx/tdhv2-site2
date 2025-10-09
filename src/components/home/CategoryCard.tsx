@@ -23,8 +23,6 @@ interface CategoryCardProps {
 
 const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
   const getCarCountLabel = (totalCars: number): string => {
-    console.log("CategoryCard:totalCars", totalCars);
-
     if (totalCars === 0) return "0";
 
     const thresholds = [
