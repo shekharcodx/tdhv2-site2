@@ -141,14 +141,14 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-slide-up">
-          <span className="text-slate-teal font-bold text-sm uppercase tracking-wider mb-3 block">
+        <div className="text-center animate-slide-up">
+          <span className="text-slate-teal font-bold text-xs uppercase tracking-wider mb-2 block">
             Explore Our Collection
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-base mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark-base mb-4">
             Browse by Category
           </h2>
-          <p className="text-lg text-grey max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-grey max-w-3xl mx-auto leading-relaxed">
             Find the perfect vehicle from our curated collection of premium
             automobiles
           </p>
@@ -158,7 +158,8 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
           <button
             onClick={() => scroll("left")}
             disabled={isAtStart}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg text-slate-teal bg-[#fff] ${
+            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl  text-slate-teal bg-[#fff]
+            ${
               isAtStart
                 ? "opacity-50 !cursor-not-allowed"
                 : `hover:bg-site-accent hover:text-white hover:shadow-xl hover:scale-110`
@@ -169,11 +170,12 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
           <button
             onClick={() => scroll("right")}
             disabled={isAtEnd}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg text-slate-teal bg-[#fff] ${
-              isAtEnd
-                ? "opacity-50 !cursor-not-allowed"
-                : `hover:bg-site-accent hover:text-white hover:shadow-xl hover:scale-110`
-            }`}
+            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl  text-slate-teal bg-[#fff]
+              ${
+                isAtEnd
+                  ? "opacity-50 !cursor-not-allowed"
+                  : `hover:bg-site-accent hover:text-white hover:shadow-xl hover:scale-110`
+              }`}
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -200,10 +202,10 @@ const CategoriesSection = ({ data }: CategoriesProps) => {
           })}
         </div>
 
-        <div className="mt-16 text-center animate-fade-in">
+        <div className="mt-10 text-center animate-fade-in">
           <Link
-            href="#"
-            className="inline-flex items-center gap-2 bg-slate-teal hover:bg-slate-teal/90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
+            href="catalog/all/cars"
+            className="inline-flex items-center gap-2  bg-gradient-to-r from-site-accent to-slate-teal  text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
             <span>View All Vehicles</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

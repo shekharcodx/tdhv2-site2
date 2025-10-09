@@ -48,8 +48,8 @@ const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
 
   return (
     <Link
-      href={category._id}
-      className="flex-shrink-0 group relative h-[420px] w-full sm:w-[285px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-scale-in"
+      href={`catalog/categories/${category._id}`}
+      className="flex-shrink-0 group relative h-[280px] sm:h-[320px] lg:h-[360px] w-full sm:w-[285px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-scale-in"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div
@@ -63,17 +63,17 @@ const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
 
       <div className="relative h-full flex flex-col justify-between p-6">
         <div className="flex justify-end">
-          <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20 group-hover:bg-slate-teal group-hover:border-slate-teal transition-all duration-300 group-hover:scale-110">
+          <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20 group-hover:bg-gradient-to-r group-hover:from-site-accent group-hover:to-slate-teal transition-all duration-300 group-hover:scale-110">
             {Icon && <Icon className="w-6 h-6 text-white" />}
           </div>
         </div>
 
         <div className="transform transition-all duration-500 group-hover:-translate-y-2">
-          <div className="min-h-[160px]">
-            <div className="inline-block px-4 py-1.5 bg-slate-teal/90 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
+          <div className="min-h-[50px]">
+            <div className="inline-block px-3 py-1 bg-gradient-to-r from-site-accent to-slate-teal backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
               {`${getCarCountLabel(category.totalCars)} Cars`}
             </div>
-            <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
+            <h3 className="text-2xl font-bold text-white mb-3 leading-tight">
               {category.name}
             </h3>
             {/* <p className="text-white/90 text-base mb-4 font-medium">
@@ -81,7 +81,7 @@ const CategoryCard = ({ category, Icon, image, index }: CategoryCardProps) => {
             </p> */}
           </div>
           <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all duration-300">
-            <span>Explore Collection</span>
+            <span className="text-sm">Explore Collection</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>

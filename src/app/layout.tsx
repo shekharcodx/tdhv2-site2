@@ -1,10 +1,7 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import ScrollToTopButton from "@/components/ui/scrollToTop";
+import ClientLayout from "@/components/layout/ClientLayout";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,11 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} !bg-off-white  mx-auto`}>
-        <Navbar /> {/* Navbar will manage modal itself */}
-        {children}
-        <Footer />
-        <ScrollToTopButton />
+      <body className={`${poppins.className} !bg-off-white mx-auto`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

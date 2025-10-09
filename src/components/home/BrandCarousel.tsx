@@ -12,9 +12,9 @@ interface BrandCarouselProps {
 
 const BrandCarousel = ({ data }: BrandCarouselProps) => {
   return (
-    <div className="w-full py-6 md:py-10 px-4 sm:px-6 lg:px-8">
+    <div className="w-full px-4 sm:px-6 lg:px-8">
       {/* ✅ Section Heading */}
-      <div className="w-full text-center px-4 py-6 md:py-10">
+      <div className="w-full text-center px-4 pb-10 md:pb-16">
         <span className="font-bold text-slate-teal text-sm uppercase tracking-wider mb-3 block">
           Explore Our Collection
         </span>
@@ -45,7 +45,10 @@ const BrandCarousel = ({ data }: BrandCarouselProps) => {
       >
         {data.map((brand, i) => (
           <SwiperSlide key={i} className="!w-auto">
-            <Link href={`${brand._id}`} className="flex flex-col items-center">
+            <Link
+              href={`/catalog/brands/${brand._id}`}
+              className="flex flex-col items-center"
+            >
               <div className="flex items-center justify-center w-28 h-28 rounded-xl bg-white shadow-lg hover:shadow-2xl transition cursor-pointer">
                 <Image
                   src={brand.logo.url}

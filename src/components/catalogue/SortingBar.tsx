@@ -8,7 +8,7 @@ interface SortingBarProps {
 
 const SortingBar = ({ sortBy, setSortBy, totalResults }: SortingBarProps) => {
   return (
-    <div className="w-full bg-white rounded-xl p-6 shadow-md sm:sticky top-[205px] z-40 mb-6 mt-6 sm:mt-0">
+    <div className="w-full bg-white rounded-xl p-6 shadow-md z-40 mb-6 mt-6 sm:mt-0">
       <div className="block sm:flex items-center justify-between">
         <div className="mx-auto sm:mx-0">
           <h2 className="text-2xl font-bold text-primary mb-1 text-center">
