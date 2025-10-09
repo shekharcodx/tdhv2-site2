@@ -273,8 +273,8 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   onClick={() => setSelectedPeriod("daily")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
                     selectedPeriod === "daily"
-                      ? "bg-site-accent text-white"
-                      : "bg-gray-100 text-site-secondary hover:bg-gray-200"
+                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Daily
@@ -283,8 +283,8 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   onClick={() => setSelectedPeriod("weekly")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
                     selectedPeriod === "weekly"
-                      ? "bg-site-accent text-white"
-                      : "bg-gray-100 text-site-secondary hover:bg-gray-200"
+                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Weekly
@@ -292,9 +292,9 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 <button
                   onClick={() => setSelectedPeriod("monthly")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
-                    selectedPeriod === "monthly"
-                      ? "bg-site-accent text-white"
-                      : "bg-gray-100 text-site-secondary hover:bg-gray-200"
+                   selectedPeriod === "monthly"
+                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Monthly

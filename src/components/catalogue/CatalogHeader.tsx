@@ -305,12 +305,12 @@ const CatalogHeader = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
                 <input
                   type="text"
-                  placeholder="Search by brand or model..."
+                  placeholder="Search..."
                   value={searchData.brand}
                   onChange={(e) =>
                     setSearchData({ ...searchData, brand: e.target.value })
                   }
-                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium placeholder-white/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200"
+                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium placeholder-white/50 focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200"
                 />
               </div>
             </div>
@@ -318,11 +318,12 @@ const CatalogHeader = () => {
             <div className="flex-1 min-w-[180px]">
               <label className="block text-sm font-medium mb-2">Car Type</label>
               <select
-                value={searchData.type}
-                onChange={(e) =>
-                  setSearchData({ ...searchData, type: e.target.value })
-                }
-                className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200"
+                // value={searchData.type}
+                // onChange={(e) =>
+                //   setSearchData({ ...searchData, type: e.target.value })
+                // }
+             
+                className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200"
               >
                 <option value="">All Types</option>
                 <option value="suv">SUV</option>
@@ -340,10 +341,10 @@ const CatalogHeader = () => {
                 <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
                 <select
                   value={searchData.location}
-                  onChange={(e) =>
-                    setSearchData({ ...searchData, location: e.target.value })
-                  }
-                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200 appearance-none"
+                  // onChange={(e) =>
+                  //   setSearchData({ ...searchData, location: e.target.value })
+                  // }
+                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200 appearance-none"
                 >
                   <option value="">All Emirates</option>
                   <option value="dubai">Dubai</option>
@@ -369,7 +370,7 @@ const CatalogHeader = () => {
                   onChange={(e) =>
                     setSearchData({ ...searchData, startDate: e.target.value })
                   }
-                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200"
+                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200"
                 />
               </div>
             </div>
@@ -384,14 +385,14 @@ const CatalogHeader = () => {
                   onChange={(e) =>
                     setSearchData({ ...searchData, endDate: e.target.value })
                   }
-                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200"
+                  className="w-full bg-site-primary/50 backdrop-blur-sm border-2 border-white/10 rounded-xl pl-12 pr-4 py-3 text-white font-medium focus:outline-none focus:border-site-accent focus:ring-2 focus:ring-site-accent transition-all duration-200"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="bg-gradient-to-r from-site-accent to-slate-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              className="bg-gradient-to-r from-site-accent to-slate-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-site-accent focus:ring-offset-2"
             >
               Search Cars
             </button>
