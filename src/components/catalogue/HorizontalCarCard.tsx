@@ -52,7 +52,6 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
     "daily" | "weekly" | "monthly"
   >("daily");
 
-  console.log("HorizontalCarCard:car", car);
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -71,19 +70,13 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
     setCurrentImageIndex(0);
   };
 
-  // const handleImageCycle = () => {
-  //   // if (isHovering && car.images.length > 1) {
-  //   //   setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
-  //   // }
-  // };
-
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
 
     if (isHovering && car?.car?.images?.length > 1) {
       interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % car?.car?.images?.length);
-      }, 400); // adjust speed here (ms)
+      }, 600); // adjust speed here (ms)
     }
     return () => clearInterval(interval);
   }, [isHovering, car?.car?.images?.length]);
@@ -273,8 +266,8 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   onClick={() => setSelectedPeriod("daily")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
                     selectedPeriod === "daily"
-                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
-                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
+                      ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                      : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Daily
@@ -283,8 +276,8 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                   onClick={() => setSelectedPeriod("weekly")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
                     selectedPeriod === "weekly"
-                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
-                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
+                      ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                      : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Weekly
@@ -292,9 +285,9 @@ const HorizontalCarCard = ({ car }: HorizontalCarCardProps) => {
                 <button
                   onClick={() => setSelectedPeriod("monthly")}
                   className={`px-2.5 py-1 rounded text-xs font-medium transition-all ${
-                   selectedPeriod === "monthly"
-                  ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
-                  : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
+                    selectedPeriod === "monthly"
+                      ? "bg-gradient-to-r from-site-accent to-slate-teal text-white shadow-lg scale-105"
+                      : "bg-slate-teal/10 text-slate-teal hover:bg-slate-teal/20"
                   }`}
                 >
                   Monthly

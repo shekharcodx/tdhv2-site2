@@ -9,6 +9,8 @@ import {
   X,
   Palette,
   Shield,
+  ChevronUp,
+  ChevronDown,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -86,29 +88,55 @@ const FiltersPanel = () => {
   ];
 
   return (
-    <div className="w-full sm:w-[320px] flex-shrink-0">
-      <div className=" bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="bg-gradient-to-br from-site-primary via-site-primary to-slate-teal/20 text-white p-6 flex items-center justify-between relative overflow-hidden">
+    <div className="w-full sm:w-[320px] flex-shrink-0 mb-4 sm:mb-0">
+      <div className=" bg-white sm:sticky top-0 rounded-2xl shadow-lg overflow-hidden">
+        {/* <div className="bg-gradient-to-br from-site-primary via-site-primary to-slate-teal/20 text-white p-6 flex items-center justify-between relative overflow-hidden">
           <div className="flex items-center gap-3">
             <Filter className="w-5 h-5" />
             <h3 className="text-xl font-bold">Filters</h3>
-            {/* {activeFiltersCount > 0 && (
+            {activeFiltersCount > 0 && (
               <span className="bg-accent text-white text-xs px-2 py-1 rounded-full font-semibold">
                 {activeFiltersCount}
               </span>
-            )} */}
+            )}
           </div>
-          {/* {activeFiltersCount > 0 && (
+          {activeFiltersCount > 0 && (
             <button
               className="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-1"
             >
               <X className="w-4 h-4" />
               Clear All
             </button>
-          )} */}
+          )}
+        </div> */}
+
+        <div className="bg-gradient-to-br from-site-primary via-site-primary to-slate-teal/20 text-white p-6 flex items-center justify-between relative overflow-hidden">
+          <div className="flex items-center gap-3">
+            <Filter className="w-5 h-5" />
+            <h3 className="text-xl font-bold">Filters</h3>
+          </div>
+
+          {/* Collapse Button */}
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="transition-transform duration-300 hover:scale-110"
+            aria-label="Toggle filters"
+          >
+            {isExpanded ? (
+              <ChevronUp className="w-5 h-5 text-white" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-white" />
+            )}
+          </button>
         </div>
 
-        <div className="p-6 max-h-[calc(100vh-280px)] overflow-y-auto">
+        <div
+          className={`transition-[max-height,opacity] duration-500 ease-in-out ${
+            isExpanded
+              ? "p-6 max-h-[calc(100vh-80px)] opacity-100 overflow-y-auto"
+              : "max-h-0 opacity-0"
+          } overflow-hidden`}
+        >
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="w-5 h-5 text-site-accent" />

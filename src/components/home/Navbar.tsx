@@ -48,31 +48,31 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-1">
               <Link
-                href="/catalog"
+                href="/catalog/all/cars"
                 className="text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 font-medium"
               >
                 Browse Cars
               </Link>
               <Link
-                href="/how-it-works"
+                href="#"
                 className="text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 font-medium"
               >
                 How It Works
               </Link>
               <Link
-                href="/about"
+                href="#"
                 className="text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 font-medium"
               >
                 About
               </Link>
               <Link
-                href="/faqs"
+                href="#"
                 className="text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 font-medium"
               >
                 FAQs
               </Link>
               <Link
-                href="/contact"
+                href="#"
                 className="text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 font-medium"
               >
                 Contact
@@ -155,42 +155,42 @@ export default function Navbar() {
             <div className="lg:hidden bg-white/98 backdrop-blur-lg rounded-2xl p-6 mb-4 shadow-2xl animate-slide-up border border-soft-grey/30">
               <div className="flex flex-col gap-2">
                 <Link
-                  href="/catalog"
+                  href="/catalog/all/cars"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >
                   Browse Cars
                 </Link>
                 <Link
-                  href="/how-it-works"
+                  href="#"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >
                   How It Works
                 </Link>
                 <Link
-                  href="/about"
+                  href="#"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >
                   About
                 </Link>
                 <Link
-                  href="/faqs"
+                  href="#"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >
                   FAQs
                 </Link>
                 <Link
-                  href="/contact"
+                  href="#"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >
                   Contact
                 </Link>
                 <Link
-                  href="/help"
+                  href="#"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-dark-base hover:text-slate-teal hover:bg-slate-teal/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
                 >

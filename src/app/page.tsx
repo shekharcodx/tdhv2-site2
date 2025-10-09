@@ -53,8 +53,8 @@ export default async function Page() {
           </div>
           {/* Search Box */}
           <HeroFormLayout
-            brands={pageData?.data?.[0]?.carBrands}
-            categories={pageData?.data?.[0]?.allCategories}
+            brands={pageData?.data?.[0]?.allBrands}
+            bodyTypes={pageData?.data?.[0]?.allBodyTypes}
           />
           <div className="mt-4 flex flex-wrap justify-center gap-2 animate-fade-in">
             <div className="bg-slate-teal/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-teal/30 text-white font-medium text-xs">
